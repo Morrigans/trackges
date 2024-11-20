@@ -1,0 +1,49 @@
+CREATE OR REPLACE VIEW vista_derivaciones_pp AS
+SELECT 
+derivaciones.N_DERIVACION,
+derivaciones.ID_DERIVACION,
+derivaciones.ID_PACIENTE,
+pacientes.COD_RUTPAC AS RUT_PACIENTE,
+pacientes.NOMBRE AS NOMBRE_PACIENTE,
+derivaciones.ENFERMERA as ID_PROFESIONAL,
+login.USUARIO AS RUT_PROFESIONAL,
+login.NOMBRE AS NOMBRE_PROFESIONAL,
+derivaciones.ID_CONVENIO,
+prevision.PREVISION,
+derivaciones.ESTADO,
+derivaciones.DECRETO,
+derivaciones.FECHA_DERIVACION,
+derivaciones.CODIGO_TIPO_PATOLOGIA,
+tipo_patologia.DESC_TIPO_PATOLOGIA,
+derivaciones.ID_PATOLOGIA,
+patologia.CODIGO_PATOLOGIA,
+patologia.DESC_PATOLOGIA,
+derivaciones.REASIGNADA,
+derivaciones.RUT_PRESTADOR AS ID_MEDICO,
+loginMedico.USUARIO AS RUT_MEDICO,
+loginMedico.NOMBRE AS NOMBRE_MEDICO,
+derivaciones.ADMINISTRATIVA,
+montos.MONTO AS MONTO_INICIAL
+
+FROM derivaciones
+
+LEFT JOIN login
+ON derivaciones.ENFERMERA = login.ID
+
+LEFT JOIN pacientes
+ON derivaciones.ID_PACIENTE = pacientes.ID
+
+LEFT JOIN prevision 
+ON derivaciones.ID_CONVENIO = prevision.ID
+
+LEFT JOIN tipo_patologia 
+ON derivaciones.CODIGO_TIPO_PATOLOGIA = tipo_patologia.ID_TIPO_PATOLOGIA
+
+LEFT JOIN patologia 
+ON derivaciones.ID_PATOLOGIA = patologia.ID_PATOLOGIA
+
+LEFT JOIN login loginMedico
+ON derivaciones.RUT_PRESTADOR = loginMedico.ID
+
+LEFT JOIN montos 
+ON derivaciones.ID_DERIVACION = montos.ID_DERIVACION

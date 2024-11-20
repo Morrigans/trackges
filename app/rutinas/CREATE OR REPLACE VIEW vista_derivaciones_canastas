@@ -1,0 +1,72 @@
+CREATE OR REPLACE VIEW vista_derivaciones_canastas AS
+SELECT 
+derivaciones.N_DERIVACION,
+derivaciones.ID_DERIVACION,
+derivaciones.ID_PACIENTE,
+pacientes.COD_RUTPAC AS RUT_PACIENTE,
+pacientes.NOMBRE AS NOMBRE_PACIENTE,
+derivaciones.ENFERMERA as ID_PROFESIONAL,
+login.USUARIO AS RUT_PROFESIONAL,
+login.NOMBRE AS NOMBRE_PROFESIONAL,
+derivaciones.ID_CONVENIO,
+prevision.PREVISION,
+derivaciones.ESTADO,
+derivaciones.FECHA_DERIVACION,
+derivaciones.CODIGO_TIPO_PATOLOGIA,
+tipo_patologia.DESC_TIPO_PATOLOGIA,
+derivaciones.ID_PATOLOGIA,
+patologia.CODIGO_PATOLOGIA,
+patologia.DESC_PATOLOGIA,
+derivaciones.REASIGNADA,
+derivaciones_canastas.RUT_PRESTADOR AS ID_MEDICO,
+loginMedico.USUARIO AS RUT_MEDICO,
+loginMedico.NOMBRE AS NOMBRE_MEDICO,
+derivaciones_canastas.ID_DERIVACIONES_ETAPA,
+derivaciones_canastas.ID_ETAPA_PATOLOGIA,
+derivaciones_canastas.CODIGO_ETAPA_PATOLOGIA,
+derivaciones_canastas.ID_CANASTA_PATOLOGIA,
+derivaciones_canastas.ID_CANASTA,
+derivaciones_canastas.CODIGO_CANASTA_PATOLOGIA,
+derivaciones_canastas.FECHA_CANASTA,
+derivaciones_canastas.DIAS_LIMITE,
+derivaciones_canastas.FECHA_LIMITE,
+derivaciones_canastas.FECHA_FIN_CANASTA,
+derivaciones_canastas.ESTADO as ESTADO_CANASTA,
+derivaciones_canastas.INICIAL,
+derivaciones_canastas.OBSERVACION,
+derivaciones_canastas.MOTIVO_FIN_CANASTA,
+motivos_fin_canastas.DESC_MOTIVO,
+derivaciones_canastas.AUDITORIA,
+derivaciones.ADMINISTRATIVA,
+derivaciones_canastas.SESION
+
+FROM derivaciones
+
+LEFT JOIN login 
+ON derivaciones.ENFERMERA = login.ID
+
+LEFT JOIN pacientes 
+ON derivaciones.ID_PACIENTE = pacientes.ID
+
+LEFT JOIN prevision
+ON derivaciones.ID_CONVENIO = prevision.ID
+
+LEFT JOIN tipo_patologia
+ON derivaciones.CODIGO_TIPO_PATOLOGIA = tipo_patologia.ID_TIPO_PATOLOGIA
+
+LEFT JOIN patologia
+ON derivaciones.ID_PATOLOGIA = patologia.ID_PATOLOGIA
+
+LEFT JOIN derivaciones_canastas
+ON derivaciones.ID_DERIVACION = derivaciones_canastas.ID_DERIVACION 
+
+LEFT JOIN login loginMedico
+ON derivaciones_canastas.RUT_PRESTADOR = loginMedico.ID
+
+LEFT JOIN motivos_fin_canastas
+ON derivaciones_canastas.MOTIVO_FIN_CANASTA = motivos_fin_canastas.ID_MOTIVO
+
+WHERE
+
+derivaciones.CODIGO_TIPO_PATOLOGIA = '1'
+ORDER BY ID_DERIVACION DESC

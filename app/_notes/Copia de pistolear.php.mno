@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<info>
+	<infoitem key="UD_unidades" value="name:COD_UNIDAD;datatype:string,name:NOM_UNIDAD;datatype:string,name:IND_ESTADO;datatype:string,name:COD_EMPRESA;datatype:string" />
+	<infoitem key="UD_paciente" value="name:COD_RUTPAC;datatype:string,name:COD_DIGVER;datatype:string,name:FICHA;datatype:string,name:NOM_NOMBRE;datatype:string,name:NOM_APEPAT;datatype:string,name:NOM_APEMAT;datatype:string,name:FEC_NACIMI;datatype:date,name:PREVISION;datatype:string" />
+	<infoitem key="UD_ultima" value="name:ID_TABLA;datatype:int,name:COD_UNIDAD;datatype:string,name:CANT_USADA;datatype:int,name:COD_ARTICU;datatype:string,name:CTA_CTE;datatype:string,name:FECHA_USO;datatype:date,name:FECHA_REGISTRO;datatype:datetime" />
+	<infoitem key="UD_articulos" value="name:COD_ARTICU;datatype:string,name:COD_CENABAST;datatype:string,name:NOM_ARTICU;datatype:blob,name:NOM_CORTO;datatype:string,name:MEDIDA;datatype:string,name:AUDITORIA;datatype:int,name:STOCK_CRITICO;datatype:int,name:STOCK_MINIMO;datatype:int,name:COD_IMPCON;datatype:string,name:IND_SELEC;datatype:string,name:IND_PNDA;datatype:string,name:IND_CABAS;datatype:string,name:IND_COBPAB;datatype:string,name:IND_TIPMED;datatype:string,name:IND_ARSEFA;datatype:string,name:COD_USUARI;datatype:string,name:FEC_AUDITA;datatype:datetime,name:IND_ESTADO;datatype:string,name:ID_SUBBODEGA;datatype:int,name:PRECIO;datatype:int,name:DERECHO;datatype:string,name:CATINSUMO_PAB;datatype:string,name:MEDIDA_PAB;datatype:int,name:UNIDAD_MEDPAB;datatype:string" />
+</info>

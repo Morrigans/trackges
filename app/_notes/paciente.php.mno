@@ -1,0 +1,4 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<info>
+	<infoitem key="UD_Recordset1" value="name:COD_RUTPAC;datatype:string,name:COD_DIGVER;datatype:string,name:FICHA;datatype:string,name:NOM_NOMBRE;datatype:string,name:NOM_APEPAT;datatype:string,name:NOM_APEMAT;datatype:string,name:FEC_NACIMI;datatype:date,name:PREVISION;datatype:string" />
+</info>

@@ -1,0 +1,13 @@
+CSS::::::::::
+
+bootstrap v4.5.3
+bootstrap material desing v4.3.1
+font awesome free v5.9.0
+jquery.mCustomScrollbar.css v3.1.13
+normalize.css v8.0.1
+sweetalert
+
+JS:::::
+
+jQuery v3.5.1
+popper.min.js vFederico Zivolo 2019
