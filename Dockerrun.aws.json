@@ -1,7 +1,7 @@
 { 
     "AWSEBDockerrunVersion": "1", 
     "Image": { 
-      "Name": ":lasted", 
+      "Name": "202533508598.dkr.ecr.us-east-1.amazonaws.com/sitio", 
       "Update": "true" 
     }, 
     "Ports": [ 
