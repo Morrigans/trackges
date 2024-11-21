@@ -199,7 +199,7 @@ $totalRows_qrBitacora = $qrBitacora->RecordCount();
 
 
  	      					</th>
-	      					<td><?php echo utf8_encode(nl2br($qrBitacora->Fields('BITACORA'))); ?></td>
+	      					<td><?php echo nl2br($qrBitacora->Fields('BITACORA')); ?></td>
 	      					<td><?php echo $qrBitacora->Fields('AUDITORIA'); ?></td>
 	      				</tr>
 	      				<?php $qrBitacora->MoveNext(); } ?>
