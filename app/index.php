@@ -7,12 +7,12 @@ require_once 'login/modalCambiaPass.php';
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <title>TrackGes RedSalud</title>
+  <title>TrackGes RedSaludd</title>
 </head>
 <body class="hold-transition login-page">
 		<div class="login-box">
 		  <div class="login-logo">
-		    <a href="#"><b>TrackGes</b>RedSaludd</a>
+		    <a href="#"><b>TrackGes</b>RedSalud</a>
 		  </div>
 		  <!-- /.login-logo -->
 		  <div class="card">
