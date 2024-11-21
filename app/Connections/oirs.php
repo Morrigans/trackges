@@ -1,11 +1,11 @@
 <?php
 
-$MM_oirs_HOSTNAME  = '186.64.116.150';
+$MM_oirs_HOSTNAME  = 'database-1.cxgs8m8wkp0r.us-east-1.rds.amazonaws.com';
 $MM_oirs_DATABASE  = 'mysql:redgescl_cli_santiago';
 $MM_oirs_DBTYPE    = preg_replace('/:.*$/', '', $MM_oirs_DATABASE);
 $MM_oirs_DATABASE  = preg_replace('/^[^:]*?:/', '', $MM_oirs_DATABASE);
-$MM_oirs_USERNAME  = 'redgescl_icrsredgescl';
-$MM_oirs_PASSWORD  = '_z]*[nJOBGN-';
+$MM_oirs_USERNAME  = 'redges';
+$MM_oirs_PASSWORD  = 'oBll76w6o7<S';
 $MM_oirs_LOCALE    = 'En';
 $MM_oirs_MSGLOCALE = 'En';
 $MM_oirs_CTYPE     = 'P';
