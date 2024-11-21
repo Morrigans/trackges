@@ -71,7 +71,7 @@ $totalRows_qrBitacora = $qrBitacora->RecordCount();
 	      					$idBitacora = $qrBitacora->Fields('ID_BITACORA');
 	      					$ruta = $qrBitacora->Fields('RUTA_DOCUMENTO');
 	      					$rutaAudio = $qrBitacora->Fields('RUTA_AUDIO');
-	      					$comentarioBitacora = utf8_encode($qrBitacora->Fields('BITACORA'));
+	      					$comentarioBitacora = $qrBitacora->Fields('BITACORA');
 	      					//quito las comillas al registro en bitacora para pasarlo por la api.
 	      					$comentarioBitacora = str_replace('"', '/', $comentarioBitacora);
 	      					//preg_replace( class="hljs-string">'~[\\\\/:*?"<>|]~', ' ', $string); probar en caso de que existan mas caracteres extraños que boten la api
@@ -86,7 +86,7 @@ $totalRows_qrBitacora = $qrBitacora->RecordCount();
 		      					$qrLogin = $oirs->SelectLimit($query_qrLogin) or die($oirs->ErrorMsg());
 		      					$totalRows_qrLogin = $qrLogin->RecordCount();
 
-		      					$usuarioComparte=utf8_encode($qrLogin->Fields('NOMBRE'));
+		      					$usuarioComparte=$qrLogin->Fields('NOMBRE');
 
 	      					}
 	      				?>
@@ -99,7 +99,7 @@ $totalRows_qrBitacora = $qrBitacora->RecordCount();
 	      								<?php echo $usuarioComparte; ?>
 	      						<?php } ?>
 
-	      						<font color="white">/</font><br><small><?php echo date("d-m-Y",strtotime($qrBitacora->Fields('AUDITORIA'))); ?>/<?php echo $qrBitacora->Fields('HORA'); ?><font color="white">/</font><br>Asunto: <?php echo utf8_encode($qrBitacora->Fields('ASUNTO')); ?></small><br> 
+	      						<font color="white">/</font><br><small><?php echo date("d-m-Y",strtotime($qrBitacora->Fields('AUDITORIA'))); ?>/<?php echo $qrBitacora->Fields('HORA'); ?><font color="white">/</font><br>Asunto: <?php echo $qrBitacora->Fields('ASUNTO'); ?></small><br> 
 	      						
 
 	      						<?php 
