@@ -1,6 +1,7 @@
 # cd webphp
 # vi Dockerfile
-FROM php:7.4-apache
+FROM public.ecr.aws/docker/library/php:7.4-apache 
+#php:7.4-apache
 # Install Mysql
 RUN docker-php-ext-install mysqli pdo_mysql
 #RUN apt-get update\
