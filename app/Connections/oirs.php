@@ -1,6 +1,6 @@
 <?php
 
-$MM_oirs_HOSTNAME  = 'database-1.cxgs8m8wkp0r.us-east-1.rds.amazonaws.com';
+$MM_oirs_HOSTNAME  = 'database-1.cxgs8m8wkp0r.us-east-1.rds.amazonaws.com'; 
 $MM_oirs_DATABASE  = 'mysql:redgescl_cli_santiago';
 $MM_oirs_DBTYPE    = preg_replace('/:.*$/', '', $MM_oirs_DATABASE);
 $MM_oirs_DATABASE  = preg_replace('/^[^:]*?:/', '', $MM_oirs_DATABASE);
