@@ -32,7 +32,7 @@ $query_qrProfesional = "SELECT * FROM $MM_oirs_DATABASE.login WHERE USUARIO = '$
 $qrProfesional = $oirs->SelectLimit($query_qrProfesional) or die($oirs->ErrorMsg());
 $totalRows_qrProfesional = $qrProfesional->RecordCount();
 
-$nomProfesional = utf8_encode($qrProfesional->Fields('NOMBRE'));
+$nomProfesional = $qrProfesional->Fields('NOMBRE');
 
 $comentarioBitacora = 'El profesional '.$nomProfesional.' rut: '.$prof.' fue desasociado del team de gestión de la derivacion numero D0'.$idDerivacion;
 $asunto= 'Profesional desasociado';
@@ -41,7 +41,7 @@ $hora= date('G:i');
 $insertSQL = sprintf("INSERT INTO $MM_oirs_DATABASE.bitacora (ID_DERIVACION, SESION, BITACORA, ASUNTO, AUDITORIA, HORA) VALUES (%s, %s, %s, %s, %s, %s)",
     GetSQLValueString($idDerivacion, "text"), 
     GetSQLValueString($usuario, "text"),
-    GetSQLValueString(utf8_decode($comentarioBitacora), "text"),
+    GetSQLValueString($comentarioBitacora, "text"),
     GetSQLValueString($asunto, "text"),
     GetSQLValueString($auditoria, "date"),
     GetSQLValueString($hora, "date"));
