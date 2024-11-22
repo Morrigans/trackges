@@ -17,7 +17,7 @@ require_once 'login/modalCambiaPass.php';
 		  <!-- /.login-logo -->
 		  <div class="card">
 		    <div class="card-body login-card-body">
-		      <p class="login-box-msg">Ingresa credenciales para iniciar sesión (prueba)</p>
+		      <p class="login-box-msg">Ingresa credenciales para iniciar sesión (prueba )</p>
 
 		      <!-- <form action="login/autenticar.php" method="post"> -->
 		        <div class="input-group mb-3">
