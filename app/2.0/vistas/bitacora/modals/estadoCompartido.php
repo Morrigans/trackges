@@ -24,8 +24,8 @@ $totalRows_qrBitacora = $qrBitacora->RecordCount();
 $idDerivacion = $qrBitacora->Fields('ID_DERIVACION');
 
 
-$asunto = utf8_encode($qrBitacora->Fields('ASUNTO'));
-$comentarioBitacora = utf8_encode($qrBitacora->Fields('BITACORA'));
+$asunto = $qrBitacora->Fields('ASUNTO');
+$comentarioBitacora = $qrBitacora->Fields('BITACORA');
 $estadoNoti = 'nuevo';
 $origen= 'CRSS';
 $asuntoNoti = $asunto.' (R0'.$idDerivacion.')';
@@ -48,8 +48,8 @@ $Result1 = $oirs->Execute($updateSQL) or die($oirs->ErrorMsg());
        
        $insertSQL2 = sprintf("INSERT INTO $MM_icrs_DATABASE.notificaciones (USUARIO, ASUNTO, MENSAJE, FECHA, HORA, ESTADO, ORIGEN) VALUES (%s, %s, %s, %s, %s, %s, %s)",
            GetSQLValueString($receptor, "text"),
-           GetSQLValueString(utf8_decode($asuntoNoti), "text"),
-           GetSQLValueString(utf8_decode($comentarioBitacora), "text"),
+           GetSQLValueString($asuntoNoti, "text"),
+           GetSQLValueString($comentarioBitacora, "text"),
            GetSQLValueString($auditoria, "date"),
            GetSQLValueString($hora, "date"),
            GetSQLValueString($estadoNoti, "text"),

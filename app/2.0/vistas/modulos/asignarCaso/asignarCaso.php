@@ -40,7 +40,7 @@ $totalRows_qrDerivacion = $qrDerivacion->RecordCount();
 
 $folio = $qrDerivacion->Fields('FOLIO');
 
-$comentarioBitacora = 'Se asigna a '.utf8_encode($nomPro).' rut '.$codRutPro.' como gestor a Folio Rigth Now '.$folio;
+$comentarioBitacora = 'Se asigna a '.$nomPro.' rut '.$codRutPro.' como gestor a Folio Rigth Now '.$folio;
 $asunto= 'Gestor asignado';
 $hora= date('G:i');
 
@@ -48,7 +48,7 @@ $insertSQL = sprintf("INSERT INTO $MM_oirs_DATABASE.2_bitacora (ID_DERIVACION, F
     GetSQLValueString($idDerivacion, "int"), 
     GetSQLValueString($folio, "text"), 
     GetSQLValueString($usuario, "text"),
-    GetSQLValueString(utf8_decode($comentarioBitacora), "text"),
+    GetSQLValueString($comentarioBitacora, "text"),
     GetSQLValueString($asunto, "text"),
     GetSQLValueString($auditoria, "date"),
     GetSQLValueString($hora, "date"));
@@ -62,7 +62,7 @@ $insertSQL2 = sprintf("INSERT INTO $MM_oirs_DATABASE.2_notificaciones (ID_DERIVA
     GetSQLValueString($folio, "text"),
     GetSQLValueString($codRutPro, "text"),
     GetSQLValueString($asunto, "text"),
-    GetSQLValueString(utf8_decode($comentarioBitacora), "text"),
+    GetSQLValueString($comentarioBitacora, "text"),
     GetSQLValueString($auditoria, "date"),
     GetSQLValueString($hora, "date"),
     GetSQLValueString($estadoNoti, "text"));

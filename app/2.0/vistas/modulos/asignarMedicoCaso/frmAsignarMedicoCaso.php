@@ -67,7 +67,7 @@ $totalRows_qrAsignarMedico = $qrAsignarMedico->RecordCount();
 							    <select name="slAsignarMedicoDerivacion" id="slAsignarMedicoDerivacion" class="form-control input-sm select2bs4">
 							        <option value="">Seleccione...</option>
 							        <?php while (!$qrAsignarMedico->EOF) {?>
-							          <option value="<?php echo $qrAsignarMedico->Fields('USUARIO') ?>"><?php echo utf8_encode($qrAsignarMedico->Fields('NOMBRE')) ?> - <?php echo utf8_encode($qrAsignarMedico->Fields('ESPECIALIDAD')) ?> - <?php echo utf8_encode($qrAsignarMedico->Fields('SUBESPECIALIDAD')) ?></option>
+							          <option value="<?php echo $qrAsignarMedico->Fields('USUARIO') ?>"><?php echo $qrAsignarMedico->Fields('NOMBRE') ?> - <?php echo $qrAsignarMedico->Fields('ESPECIALIDAD') ?> - <?php echo $qrAsignarMedico->Fields('SUBESPECIALIDAD') ?></option>
 							        <?php $qrAsignarMedico->MoveNext(); } ?>
 							    </select>
 							</div>

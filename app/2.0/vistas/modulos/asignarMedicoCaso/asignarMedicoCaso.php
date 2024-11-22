@@ -38,7 +38,7 @@ $folio = $qrDerivacion->Fields('FOLIO');
 
 $nomMedico = $qrMedico->Fields('NOMBRE');
 
-$comentarioBitacora = 'Se asigna a '.utf8_encode($nomMedico).' rut '.$slAsignarMedicoDerivacion.' como médico a Folio Rigth Now '.$folio;
+$comentarioBitacora = 'Se asigna a '.$nomMedico.' rut '.$slAsignarMedicoDerivacion.' como médico a Folio Rigth Now '.$folio;
 $asunto= 'Médico asignado';
 $hora= date('G:i');
 
@@ -58,8 +58,8 @@ $insertSQL = sprintf("INSERT INTO $MM_oirs_DATABASE.2_bitacora (ID_DERIVACION, F
     GetSQLValueString($idDerivacion, "int"), 
     GetSQLValueString($folio, "text"), 
     GetSQLValueString($usuario, "text"),
-    GetSQLValueString(utf8_decode($comentarioBitacora), "text"),
-    GetSQLValueString(utf8_decode($asunto), "text"),
+    GetSQLValueString($comentarioBitacora, "text"),
+    GetSQLValueString($asunto, "text"),
     GetSQLValueString($auditoria, "date"),
     GetSQLValueString($hora, "date"));
 $Result1 = $oirs->Execute($insertSQL) or die($oirs->ErrorMsg());

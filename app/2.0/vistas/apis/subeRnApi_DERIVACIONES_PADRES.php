@@ -28,13 +28,13 @@ $array = json_decode($jsonString, true);
 foreach ($array as $value) {
 
     $folio = $value['Folio_Padre'];
-    $estadoPadre = utf8_decode($value['Estado_Padre']);
-    $lateralidad = utf8_decode($value['Lateralidad']);
-    $rutPac = utf8_decode($value['Rut_Paciente']);
-    $nombrePaciente = utf8_decode($value['Nombre_Paciente']);
-    $proceso = utf8_decode($value['Proceso']);
-    $categoria = utf8_decode($value['Categoria']);
-    $iSanitaria = utf8_decode($value['Intervención_Sanitaria_Actual']);
+    $estadoPadre = $value['Estado_Padre'];
+    $lateralidad = $value['Lateralidad'];
+    $rutPac = $value['Rut_Paciente'];
+    $nombrePaciente = $value['Nombre_Paciente'];
+    $proceso = $value['Proceso'];
+    $categoria = $value['Categoria'];
+    $iSanitaria = $value['Intervención_Sanitaria_Actual'];
     $fechaDeivacion = $value['Fecha_Asignación'];
 
     //busco si cambio estadoPadre o iSanitaria
@@ -73,7 +73,7 @@ foreach ($array as $value) {
                     GetSQLValueString($idDerivacion, "int"), 
                     GetSQLValueString($folio, "text"), 
                     GetSQLValueString($idSesion, "text"),
-                    GetSQLValueString(utf8_decode($comentarioBitacora), "text"),
+                    GetSQLValueString($comentarioBitacora, "text"),
                     GetSQLValueString($asunto, "text"),
                     GetSQLValueString($fecha, "date"),
                     GetSQLValueString($hora, "date"));
@@ -102,7 +102,7 @@ foreach ($array as $value) {
                     GetSQLValueString($idDerivacion, "int"), 
                     GetSQLValueString($folio, "text"), 
                     GetSQLValueString($idSesion, "text"),
-                    GetSQLValueString(utf8_decode($comentarioBitacora), "text"),
+                    GetSQLValueString($comentarioBitacora, "text"),
                     GetSQLValueString($asunto, "text"),
                     GetSQLValueString($fecha, "date"),
                     GetSQLValueString($hora, "date"));
@@ -148,7 +148,7 @@ foreach ($array as $value) {
                 GetSQLValueString($idDerivacion, "int"), 
                 GetSQLValueString($folio, "text"), 
                 GetSQLValueString($idSesion, "text"),
-                GetSQLValueString(utf8_decode($comentarioBitacora), "text"),
+                GetSQLValueString($comentarioBitacora, "text"),
                 GetSQLValueString($asunto, "text"),
                 GetSQLValueString($fecha, "date"),
                 GetSQLValueString($hora, "date"));

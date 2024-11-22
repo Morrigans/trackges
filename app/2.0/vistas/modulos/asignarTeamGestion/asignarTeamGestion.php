@@ -53,7 +53,7 @@ $totalRows_qrProfesion = $qrProfesion->RecordCount();
 $profesionSinGenero = $qrProfesion->Fields('PROFESION');
 
 
-$comentarioBitacora = 'El profesional '.utf8_encode($nomProfesional).' rut: '.$codRutPro.' de profesion: '.utf8_encode($profesionSinGenero).', fue asignado al Folio Rigth Now '.$folio;
+$comentarioBitacora = 'El profesional '.$nomProfesional.' rut: '.$codRutPro.' de profesion: '.$profesionSinGenero.', fue asignado al Folio Rigth Now '.$folio;
 $asunto= 'Profesional Asignado';
 $hora= date('G:i');
 
@@ -61,7 +61,7 @@ $insertSQL = sprintf("INSERT INTO $MM_oirs_DATABASE.2_bitacora (ID_DERIVACION, F
     GetSQLValueString($idDerivacion, "int"), 
     GetSQLValueString($folio, "text"), 
     GetSQLValueString($usuario, "text"),
-    GetSQLValueString(utf8_decode($comentarioBitacora), "text"),
+    GetSQLValueString($comentarioBitacora, "text"),
     GetSQLValueString($asunto, "text"),
     GetSQLValueString($auditoria, "date"),
     GetSQLValueString($hora, "date"));
@@ -74,7 +74,7 @@ $insertSQL2 = sprintf("INSERT INTO $MM_oirs_DATABASE.2_notificaciones (ID_DERIVA
     GetSQLValueString($folio, "text"),
     GetSQLValueString($codRutPro, "text"),
     GetSQLValueString($asunto, "text"),
-    GetSQLValueString(utf8_decode($comentarioBitacora), "text"),
+    GetSQLValueString($comentarioBitacora, "text"),
     GetSQLValueString($auditoria, "date"),
     GetSQLValueString($hora, "date"),
     GetSQLValueString($estadoNoti, "text"));

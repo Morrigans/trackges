@@ -11,7 +11,7 @@ $totalRows_atencion = $atencion->RecordCount();
 <option value="0">Seleccione</option>
 <?php
 while(!$atencion->EOF){  ?> 	 
-    <option value="<?php echo $atencion->Fields('USUARIO')?>"><?php echo utf8_encode($atencion->Fields('NOMBRE'))?></option>
+    <option value="<?php echo $atencion->Fields('USUARIO')?>"><?php echo $atencion->Fields('NOMBRE')?></option>
 <?php
   $atencion->MoveNext();
   } 

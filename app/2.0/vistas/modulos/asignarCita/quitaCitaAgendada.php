@@ -44,7 +44,7 @@ $estadoEvents='ELIMINADO';
 
 $updateSQL = sprintf("UPDATE $MM_oirs_DATABASE.2_events SET ESTADO_CITA=%s, OBS_ELIMINAR_CITA=%s,FECHA_ELIMINACION=%s WHERE id= '$idEvents'",
             GetSQLValueString($estadoEvents, "text"),
-            GetSQLValueString(utf8_decode($obsQuitarCita), "text"),
+            GetSQLValueString($obsQuitarCita, "text"),
             GetSQLValueString($auditoria, "date"));
 $Result1 = $oirs->Execute($updateSQL) or die($oirs->ErrorMsg());
 
@@ -76,7 +76,7 @@ $totalRows_qrBuscaPac = $qrBuscaPac->RecordCount();
 
 $nomPaciente = $qrBuscaPac->Fields('NOMBRE');
 
-$comentarioBitacora = 'Se ha eliminado la cita del dia '.date("d-m-Y",strtotime($fechaCita)).' del paciente: '.$nomPaciente.' con el profesional: '.utf8_encode($profesionSinGenero).': '.utf8_encode($nomProfesional).' con motivo de '.$obsQuitarCita;
+$comentarioBitacora = 'Se ha eliminado la cita del dia '.date("d-m-Y",strtotime($fechaCita)).' del paciente: '.$nomPaciente.' con el profesional: '.$profesionSinGenero.': '.$nomProfesional.' con motivo de '.$obsQuitarCita;
 
 
 $asunto= 'Cita eliminada';
@@ -86,7 +86,7 @@ $insertSQL = sprintf("INSERT INTO $MM_oirs_DATABASE.2_bitacora (ID_DERIVACION, F
     GetSQLValueString($idDerivacion, "int"), 
     GetSQLValueString($folio, "text"), 
     GetSQLValueString($usuario, "text"),
-    GetSQLValueString(utf8_decode($comentarioBitacora), "text"),
+    GetSQLValueString($comentarioBitacora, "text"),
     GetSQLValueString($asunto, "text"),
     GetSQLValueString($auditoria, "date"),
     GetSQLValueString($hora, "date"));

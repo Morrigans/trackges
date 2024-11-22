@@ -41,17 +41,17 @@ $codRutPac = $qrPaciente->Fields('COD_RUTPAC');
 							<span class="label label-default">Comentario bitácora<br></span>
 						<!-- si no viene reasignada -->
 						<?php if ($qrDerivacion->Fields('ESTADO') == 'pendiente' and $qrDerivacion->Fields('REASIGNADA') == 'no') { ?>
-						    <textarea name="comentarioBitacoraAceptarCaso" id="comentarioBitacoraAceptarCaso" cols="11" rows="10" class="form-control input-sm">La derivación número <?php echo $qrDerivacion->Fields('N_DERIVACION'); ?> del paciente <?php echo utf8_encode($qrPaciente->Fields('NOMBRE')); ?> rut <?php echo $codRutPac; ?> ha sido aceptada. </textarea>
+						    <textarea name="comentarioBitacoraAceptarCaso" id="comentarioBitacoraAceptarCaso" cols="11" rows="10" class="form-control input-sm">La derivación número <?php echo $qrDerivacion->Fields('N_DERIVACION'); ?> del paciente <?php echo $qrPaciente->Fields('NOMBRE'); ?> rut <?php echo $codRutPac; ?> ha sido aceptada. </textarea>
 						<?php } ?>
 
 						<!-- si viene reasignada sin prestador asignado -->
 						<?php if ($qrDerivacion->Fields('ESTADO') == 'pendiente' and $qrDerivacion->Fields('REASIGNADA') == 'si' and $qrDerivacion->Fields('RUT_PRESTADOR') == '') { ?>
-						   <textarea name="comentarioBitacoraAceptarCaso" id="comentarioBitacoraAceptarCaso" cols="11" rows="10" class="form-control input-sm">La derivación número <?php echo $qrDerivacion->Fields('N_DERIVACION'); ?> del paciente <?php echo utf8_encode($qrPaciente->Fields('NOMBRE')); ?> rut <?php echo $codRutPac; ?> ha sido aceptada. </textarea>
+						   <textarea name="comentarioBitacoraAceptarCaso" id="comentarioBitacoraAceptarCaso" cols="11" rows="10" class="form-control input-sm">La derivación número <?php echo $qrDerivacion->Fields('N_DERIVACION'); ?> del paciente <?php echo $qrPaciente->Fields('NOMBRE'); ?> rut <?php echo $codRutPac; ?> ha sido aceptada. </textarea>
 						<?php } ?>
 
 						<!-- si viene reasignada con prestador asignado -->
 						<?php if ($qrDerivacion->Fields('ESTADO') == 'pendiente' and $qrDerivacion->Fields('REASIGNADA') == 'si' and $qrDerivacion->Fields('RUT_PRESTADOR') != '') { ?>
-						    <textarea name="comentarioBitacoraAceptarCaso" id="comentarioBitacoraAceptarCaso" cols="11" rows="10" class="form-control input-sm">La derivación número <?php echo $qrDerivacion->Fields('N_DERIVACION'); ?> del paciente <?php echo utf8_encode($qrPaciente->Fields('NOMBRE')); ?> rut <?php echo $codRutPac; ?> ha sido aceptada y queda en estado "prestador" debido a que viene Reasignada con prestador definido por Gestora anterior. </textarea>
+						    <textarea name="comentarioBitacoraAceptarCaso" id="comentarioBitacoraAceptarCaso" cols="11" rows="10" class="form-control input-sm">La derivación número <?php echo $qrDerivacion->Fields('N_DERIVACION'); ?> del paciente <?php echo $qrPaciente->Fields('NOMBRE'); ?> rut <?php echo $codRutPac; ?> ha sido aceptada y queda en estado "prestador" debido a que viene Reasignada con prestador definido por Gestora anterior. </textarea>
 						<?php } ?>
 		  				
 						</div>

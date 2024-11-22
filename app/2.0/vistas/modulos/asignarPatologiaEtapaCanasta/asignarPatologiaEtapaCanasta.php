@@ -67,7 +67,7 @@ $query_qrCanastaPatologia = "SELECT * FROM $MM_oirs_DATABASE.canasta_patologia W
 $qrCanastaPatologia = $oirs->SelectLimit($query_qrCanastaPatologia) or die($oirs->ErrorMsg());
 $totalRows_qrCanastaPatologia = $qrCanastaPatologia->RecordCount(); 
 
-$descCanastaPatologia = utf8_encode($qrCanastaPatologia->Fields('DESC_CANASTA_PATOLOGIA'));
+$descCanastaPatologia = $qrCanastaPatologia->Fields('DESC_CANASTA_PATOLOGIA');
 
 
 //obtengo dias limite de la canasta seleccionada para guardarlo en tabla de derivaciones_canastas
@@ -79,7 +79,7 @@ $query_qrEtapaCanastaPatologia = "SELECT * FROM $MM_oirs_DATABASE.etapa_patologi
 $qrEtapaCanastaPatologia = $oirs->SelectLimit($query_qrEtapaCanastaPatologia) or die($oirs->ErrorMsg());
 $totalRows_qrEtapaCanastaPatologia = $qrEtapaCanastaPatologia->RecordCount(); 
 
-$descEtapaPatologia = utf8_encode($qrEtapaCanastaPatologia->Fields('DESC_ETAPA_PATOLOGIA'));
+$descEtapaPatologia = $qrEtapaCanastaPatologia->Fields('DESC_ETAPA_PATOLOGIA');
 
 
 // inserta la primera canasta asociada a la etapa seleccionada para la derivacion
@@ -105,7 +105,7 @@ $query_qrPatologia = "SELECT * FROM $MM_oirs_DATABASE.patologia WHERE ID_PATOLOG
 $qrPatologia = $oirs->SelectLimit($query_qrPatologia) or die($oirs->ErrorMsg());
 $totalRows_qrPatologia = $qrPatologia->RecordCount();
 
-$descPatologia = utf8_encode($qrPatologia->Fields('DESC_PATOLOGIA'));
+$descPatologia = $qrPatologia->Fields('DESC_PATOLOGIA');
 
 $comentarioBitacora = 'Se agrega Canasta ['.$descCanastaPatologia.'] a Etapa '.$descEtapaPatologia.' a patología '.$descPatologia.' de la derivación número '.$nderivacion;
 $asunto= 'Canasta agregada';
@@ -121,7 +121,7 @@ $insertSQL = sprintf("INSERT INTO $MM_oirs_DATABASE.bitacora (ID_DERIVACION, ID_
     GetSQLValueString($idDerivacion, "text"),
     GetSQLValueString($ultimaCanasta, "text"),
     GetSQLValueString($usuario, "text"),
-    GetSQLValueString(utf8_decode($comentarioBitacora), "text"),
+    GetSQLValueString($comentarioBitacora, "text"),
     GetSQLValueString($asunto, "text"),
     GetSQLValueString($auditoria, "date"),
     GetSQLValueString($hora, "date"));

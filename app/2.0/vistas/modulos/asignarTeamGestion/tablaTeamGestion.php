@@ -44,7 +44,7 @@ $adm = $slTeamAtencion->Fields('ADMINISTRATIVA');
                     <tr>
                         <td><p><span class="glyphicon glyphicon-credit-card"></span> <font size="2"><?php echo $slTens->Fields('USUARIO'); ?></font></p></td>
 
-                        <td><p><span class="glyphicon glyphicon-user"></span> <font size="2"><?php echo utf8_encode($slTens->Fields('NOMBRE')); ?></font></p></td>
+                        <td><p><span class="glyphicon glyphicon-user"></span> <font size="2"><?php echo $slTens->Fields('NOMBRE'); ?></font></p></td>
                         <td>
                             <p><span class="glyphicon glyphicon-user"></span><font size="2">Tens</font></p>
                         </td>
@@ -53,7 +53,7 @@ $adm = $slTeamAtencion->Fields('ADMINISTRATIVA');
                     <tr>
                         <td><p><span class="glyphicon glyphicon-credit-card"></span> <font size="2"><?php echo $slAdm->Fields('USUARIO'); ?></font></p></td>
 
-                        <td><p><span class="glyphicon glyphicon-user"></span> <font size="2"><?php echo utf8_encode($slAdm->Fields('NOMBRE')); ?></font></p></td>
+                        <td><p><span class="glyphicon glyphicon-user"></span> <font size="2"><?php echo $slAdm->Fields('NOMBRE'); ?></font></p></td>
                         <td>
                             <p><span class="glyphicon glyphicon-user"></span><font size="2">Administrativa</font></p>
                         </td>

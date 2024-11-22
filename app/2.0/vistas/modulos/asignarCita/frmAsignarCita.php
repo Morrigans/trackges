@@ -126,7 +126,7 @@ $nombreDr = $qrBuscaDoc->Fields('NOMBRE');
 						
 						<div class="col-md-6">
 							<div id="dvMuestraFrmAgendarCita">
-									<div class="input-group mb-3 col-sm-12" id="dvMuestraMedicoTratante"><h6>Dr: <kbd><?php echo utf8_encode($nombreDr) ?></kbd></h6></div>
+									<div class="input-group mb-3 col-sm-12" id="dvMuestraMedicoTratante"><h6>Dr: <kbd><?php echo $nombreDr ?></kbd></h6></div>
 
 									<div class="input-group mb-3 col-sm-12">
 									    <div class="input-group-prepend">
