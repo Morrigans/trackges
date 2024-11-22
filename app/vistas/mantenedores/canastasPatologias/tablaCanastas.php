@@ -40,7 +40,7 @@ $totalRows_canasta = $canasta->RecordCount();
 					while (!$canasta->EOF) { ?>
 						<tr>
 							<td><?php echo $canasta->Fields('CODIGO_CANASTA_PATOLOGIA'); ?></td>
-							<td><?php echo utf8_encode($canasta->Fields('DESC_CANASTA_PATOLOGIA')); ?></td>
+							<td><?php echo $canasta->Fields('DESC_CANASTA_PATOLOGIA'); ?></td>
 							<td><?php echo $canasta->Fields('TIEMPO_LIMITE'); ?></td>
 							<td><div align="center"><a href="#" class="btn btn-danger btn-sm" onclick="preguntarSiNoEliminaPac(<?php echo $canasta->Fields('ID_CANASTA_PATOLOGIA'); ?>)">Quitar</a></div></td>
 						</tr>

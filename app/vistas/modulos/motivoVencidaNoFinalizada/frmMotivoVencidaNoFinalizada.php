@@ -56,7 +56,7 @@ $hoy = date('Y-m-d');
 							    <select name="slMotivoVencidaNoFinalizada" id="slMotivoVencidaNoFinalizada" class="form-control input-sm">
 							        <option value="">Seleccione...</option>
 							        <?php while (!$qrMotivo->EOF) {?>
-							          <option value="<?php echo $qrMotivo->Fields('ID_MOTIVO') ?>"><?php echo utf8_encode($qrMotivo->Fields('MOTIVO')) ?></option>
+							          <option value="<?php echo $qrMotivo->Fields('ID_MOTIVO') ?>"><?php echo $qrMotivo->Fields('MOTIVO') ?></option>
 							        <?php $qrMotivo->MoveNext(); } ?>
 							    </select>
 							</div>

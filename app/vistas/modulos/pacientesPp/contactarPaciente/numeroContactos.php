@@ -50,11 +50,11 @@ $totalRows_qrContactos = $qrContactos->RecordCount();
             <input type="hidden" id="<?php echo $idContacto ?>rutaAudioContactos" value="<?php echo $linkAudio ?>">
             <tr>
                 <td>
-                    <span class="glyphicon glyphicon-user"></span> <font size="3"><?php echo utf8_encode($qrContactos->Fields('MEDIO_CONTACTO')); ?></font><br>
-                    <span class="glyphicon glyphicon-user"></span> <font size="3"><?php echo utf8_encode($qrContactos->Fields('FECHA_REGISTRO')); ?></font><br>
-                    <span class="glyphicon glyphicon-user"></span> <font size="3"><?php echo utf8_encode($qrContactos->Fields('HORA_REGISTRO')); ?></font>
+                    <span class="glyphicon glyphicon-user"></span> <font size="3"><?php echo $qrContactos->Fields('MEDIO_CONTACTO'); ?></font><br>
+                    <span class="glyphicon glyphicon-user"></span> <font size="3"><?php echo $qrContactos->Fields('FECHA_REGISTRO'); ?></font><br>
+                    <span class="glyphicon glyphicon-user"></span> <font size="3"><?php echo $qrContactos->Fields('HORA_REGISTRO'); ?></font>
                 </td>
-                <td><span class="glyphicon glyphicon-user"></span> <font size="3"><?php echo utf8_encode($qrContactos->Fields('NOTA_CONTACTO')); ?></font><br>
+                <td><span class="glyphicon glyphicon-user"></span> <font size="3"><?php echo $qrContactos->Fields('NOTA_CONTACTO'); ?></font><br>
 
                     <?php 
                     if ($linkAudio != null) {?>

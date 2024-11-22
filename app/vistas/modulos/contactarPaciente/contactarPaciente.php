@@ -42,11 +42,11 @@ $insertSQL = sprintf("INSERT INTO $MM_oirs_DATABASE.contacto_paciente (ID_DERIVA
     GetSQLValueString($idDerivacion, "text"),
     GetSQLValueString($slTipoContacto, "text"),
     GetSQLValueString($slMedioContacto, "text"),
-    GetSQLValueString(utf8_decode($txaNotaContacto), "text"),
-    GetSQLValueString(utf8_decode($rutaAudio), "text"),
+    GetSQLValueString($txaNotaContacto, "text"),
+    GetSQLValueString($rutaAudio, "text"),
     GetSQLValueString($auditoria, "date"),
     GetSQLValueString($hora, "date"),
-    GetSQLValueString(utf8_decode($rutaAdjuntaDocContactarPaciente), "text"));
+    GetSQLValueString($rutaAdjuntaDocContactarPaciente, "text"));
 $Result1 = $oirs->Execute($insertSQL) or die($oirs->ErrorMsg());
 
 $query_qrPaciente = "SELECT * FROM $MM_oirs_DATABASE.pacientes WHERE ID = '$idPaciente'";
@@ -64,12 +64,12 @@ $asunto= 'Contacto paciente';
 $insertSQL = sprintf("INSERT INTO $MM_oirs_DATABASE.bitacora (ID_DERIVACION, SESION, BITACORA, ASUNTO, AUDITORIA, HORA, RUTA_AUDIO, RUTA_DOCUMENTO) VALUES (%s, %s, %s, %s, %s, %s, %s, %s)",
     GetSQLValueString($idDerivacion, "text"), 
     GetSQLValueString($usuario, "text"),
-    GetSQLValueString(utf8_decode($comentarioBitacora), "text"),
+    GetSQLValueString($comentarioBitacora, "text"),
     GetSQLValueString($asunto, "text"),
     GetSQLValueString($auditoria, "date"),
     GetSQLValueString($hora, "date"),
-    GetSQLValueString(utf8_decode($rutaAudio), "text"),
-    GetSQLValueString(utf8_decode($rutaAdjuntaDocContactarPaciente), "text"));
+    GetSQLValueString($rutaAudio, "text"),
+    GetSQLValueString($rutaAdjuntaDocContactarPaciente, "text"));
 $Result1 = $oirs->Execute($insertSQL) or die($oirs->ErrorMsg());
 
 echo 1;

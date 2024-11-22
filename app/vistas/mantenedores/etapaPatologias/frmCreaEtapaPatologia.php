@@ -49,7 +49,7 @@ $totalRows_qrPatologia = $qrPatologia->RecordCount();
 				            <option value="">Seleccione...</option>
 				             <?php 
 				             while (!$qrTipoPatologia->EOF) {?>
-				               <option value="<?php echo $qrTipoPatologia->Fields('ID_TIPO_PATOLOGIA'); ?>"><?php echo utf8_encode($qrTipoPatologia->Fields('DESC_TIPO_PATOLOGIA')); ?></option>
+				               <option value="<?php echo $qrTipoPatologia->Fields('ID_TIPO_PATOLOGIA'); ?>"><?php echo $qrTipoPatologia->Fields('DESC_TIPO_PATOLOGIA'); ?></option>
 				            <?php $qrTipoPatologia->MoveNext(); } ?> 
 				        </select>
 				    </div>

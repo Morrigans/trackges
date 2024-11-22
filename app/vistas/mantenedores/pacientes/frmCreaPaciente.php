@@ -86,7 +86,7 @@ $totalRows_qrPrevision = $qrPrevision->RecordCount();
 				        <select class="form-control input-sm" name="regionPaciente" id="regionPaciente" onchange="fnBuscaDomicilioProvincia()">
 				          <option value="">Seleccione...</option>
 				          <?php while (!$qrRegion->EOF) {?>
-				            <option value="<?php echo $qrRegion->Fields('region_id') ?>"><?php echo $qrRegion->Fields('region_ordinal') ?> <?php echo utf8_encode($qrRegion->Fields('region_nombre')) ?></option>
+				            <option value="<?php echo $qrRegion->Fields('region_id') ?>"><?php echo $qrRegion->Fields('region_ordinal') ?> <?php echo $qrRegion->Fields('region_nombre') ?></option>
 				          <?php $qrRegion->MoveNext(); } ?>
 				      	</select>
 				    </div>
@@ -127,7 +127,7 @@ $totalRows_qrPrevision = $qrPrevision->RecordCount();
 				        <select class="form-control input-sm" name="previsionPaciente" id="previsionPaciente">
 				          <option value="">Seleccione...</option>
 				          <?php while (!$qrPrevision->EOF) {?>
-				            <option value="<?php echo $qrPrevision->Fields('ID') ?>"><?php echo utf8_encode($qrPrevision->Fields('PREVISION')) ?></option>
+				            <option value="<?php echo $qrPrevision->Fields('ID') ?>"><?php echo $qrPrevision->Fields('PREVISION') ?></option>
 				          <?php $qrPrevision->MoveNext(); } ?>
 				      	</select>
 				    </div>

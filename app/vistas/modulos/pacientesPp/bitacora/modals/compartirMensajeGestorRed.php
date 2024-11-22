@@ -45,8 +45,8 @@ if ($gestorRed == 49) { //si gestor de red es icrs
   $insertSQL = sprintf("INSERT INTO $MM_icrs_DATABASE.bitacora (ID_DERIVACION, SESION, BITACORA, ASUNTO, RUTA_DOCUMENTO, RUTA_AUDIO, AUDITORIA, HORA, ID_BITACORA_REMOTO) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s)",
         GetSQLValueString($idDerivacionIcrs, "int"), 
         GetSQLValueString('CRSS', "text"),
-        GetSQLValueString(utf8_decode($comentarioBitacora), "text"),
-        GetSQLValueString(utf8_decode($asunto), "text"),
+        GetSQLValueString($comentarioBitacora, "text"),
+        GetSQLValueString($asunto, "text"),
         GetSQLValueString($ruta, "text"),
         GetSQLValueString($rutaAudio, "text"),
         GetSQLValueString($auditoria, "date"),
@@ -60,8 +60,8 @@ if ($gestorRed == 49) { //si gestor de red es icrs
 
      $insertSQL2 = sprintf("INSERT INTO $MM_icrs_DATABASE.notificaciones (USUARIO, ASUNTO, MENSAJE, FECHA, HORA, ESTADO) VALUES (%s, %s, %s, %s, %s, %s)",
          GetSQLValueString($receptor, "text"),
-         GetSQLValueString(utf8_decode($asunto), "text"),
-         GetSQLValueString(utf8_decode($comentarioBitacora), "text"),
+         GetSQLValueString($asunto, "text"),
+         GetSQLValueString($comentarioBitacora, "text"),
          GetSQLValueString($auditoria, "date"),
          GetSQLValueString($hora, "date"),
          GetSQLValueString($estadoNoti, "text"));

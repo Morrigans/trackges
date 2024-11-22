@@ -7,7 +7,7 @@ require_once '../../../includes/functions.inc.php';
 
  $fecha= $_REQUEST['fecha'];
  $slEmisorBitacora= $_REQUEST['slEmisorBitacora'];
- $slAsuntoBitacora= utf8_decode($_REQUEST['slAsuntoBitacora']);
+ $slAsuntoBitacora= $_REQUEST['slAsuntoBitacora'];
 
 
 if ($fecha != '' and $slEmisorBitacora == '' and $slAsuntoBitacora == '') {
@@ -60,8 +60,8 @@ if ($fecha != '' and $slEmisorBitacora != '' and $slAsuntoBitacora != '') {
           <td><?php echo $qrReporteDiario->Fields('ID_BITACORA'); ?></td>
           <td><?php echo date("d-m-Y",strtotime($qrReporteDiario->Fields('AUDITORIA'))); ?></td>
           <td> <a class="dropdown-item" href="#" data-toggle="modal" data-target="#modalBitacora" onclick="fnfrmBitacoraDiaria('<?php echo $qrReporteDiario->Fields('ID_DERIVACION'); ?>')"><span class="badge badge-warning"><font size="3"><?php echo $qrReporteDiario->Fields('ID_DERIVACION'); ?></font></span></a></td>
-          <td><?php echo utf8_encode($qrReporteDiario->Fields('ASUNTO')); ?></td>
-          <td><?php echo utf8_encode( $qrReporteDiario->Fields('BITACORA')); ?></td>
+          <td><?php echo $qrReporteDiario->Fields('ASUNTO'); ?></td>
+          <td><?php echo $qrReporteDiario->Fields('BITACORA'); ?></td>
           
         </tr>
         <?php

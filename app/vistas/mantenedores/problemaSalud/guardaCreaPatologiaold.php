@@ -21,7 +21,7 @@ $codigoPatologia = $_POST['codigoPatologia'];
 $slTipoPatologia = $_POST['slTipoPatologia'];
 
 $insertSQL = sprintf("INSERT INTO $MM_oirs_DATABASE.patologia (DESC_PATOLOGIA, CODIGO_PATOLOGIA, ID_TIPO_PATOLOGIA) VALUES (%s, %s, %s)",
-    GetSQLValueString(utf8_decode($descripcionPatologia), "text"),
+    GetSQLValueString($descripcionPatologia, "text"),
     GetSQLValueString($codigoPatologia, "text"),
     GetSQLValueString($slTipoPatologia, "int"));
 $Result1 = $oirs->Execute($insertSQL) or die($oirs->ErrorMsg());

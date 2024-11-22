@@ -21,7 +21,7 @@ $inpTiempoPrestacion=$_REQUEST['inpTiempoPrestacion'];
 
 $insertSQL = sprintf("INSERT INTO $MM_oirs_DATABASE.prestaciones (CODIGO_PRESTACION, PRESTACION, TIEMPO_LIMITE) VALUES (%s,%s,%s)",
     GetSQLValueString($inpCodPrestacion, "text"),
-    GetSQLValueString(utf8_decode($inpPrestacion), "text"),
+    GetSQLValueString($inpPrestacion, "text"),
     GetSQLValueString($inpTiempoPrestacion, "int"));
 $Result1 = $oirs->Execute($insertSQL) or die($oirs->ErrorMsg());
 

@@ -65,12 +65,12 @@ foreach ($array as $value) {
 
     $folio = $value['N° de Folio'];
     $rutPac = $value['Run Paciente'];
-    $nombre = utf8_decode($value['Nombre Paciente']);
-    $pSalud = utf8_decode($value['Problema de Salud']);
-    $iSanitaria = utf8_decode($value['Intervencion sanitaria']);
-    $estado = utf8_decode($value['Estado']);
+    $nombre = $value['Nombre Paciente'];
+    $pSalud = $value['Problema de Salud'];
+    $iSanitaria = $value['Intervencion sanitaria'];
+    $estado = $value['Estado'];
     $mTotal = $value['Monto Total'];
-    $mensaje = utf8_decode($value['Mensaje']);
+    $mensaje = $value['Mensaje'];
 
         if( !empty($folio) ){
             // busca si los folios de la planilla coinciden con los de la tabla para insertar los nuevos o actualizar los existentes
@@ -107,13 +107,13 @@ foreach ($array as $value) {
 
 
             // Crea estados locales basados en estado rn para insertar en tabla de derivaciones y estado_derivaciones*******************************************************************
-                if (utf8_encode($estado) == 'Prestador asignado') {
+                if ($estado == 'Prestador asignado') {
                     $estadoDerivacion = 'pendiente';
                 }
-                if (utf8_encode($estado) == 'Derivación Aceptada' or utf8_encode($estado) == 'Solicita autorización') {
+                if ($estado == 'Derivación Aceptada' or $estado == 'Solicita autorización') {
                     $estadoDerivacion = 'aceptada';
                 }
-                if (utf8_encode($estado) == 'Alta Paciente' or utf8_encode($estado) == 'Autorizado para pago' or utf8_encode($estado) == 'Validado para Pago') {
+                if ($estado == 'Alta Paciente' or $estado == 'Autorizado para pago' or $estado == 'Validado para Pago') {
                     $estadoDerivacion = 'cerrada';
                 }
             //**************************************************************************************************************************************************************************
@@ -229,9 +229,9 @@ foreach ($array as $value) {
                 // Crea mensajes de bitacora, se personalizan segun estados para carga inicial*******************************************************************
                 $ultimaCanasta = '0';
                 $sesion = '99.999.999-9'; // RUT de administrador
-                if (utf8_encode($estado) == 'Prestador asignado') {
+                if ($estado == 'Prestador asignado') {
                     $estadoDerivacion = 'pendiente';
-                    $comentarioBitacora = 'Se crea Derivacion número '.$nderivacion.' para Folio Right Now '.$folio.' de paciente '.utf8_encode($nombre).' rut '.$rutPac;
+                    $comentarioBitacora = 'Se crea Derivacion número '.$nderivacion.' para Folio Right Now '.$folio.' de paciente '.$nombre.' rut '.$rutPac;
                     $asunto= 'Creada';
                     $comentarioBitacoraMonto = 'Se asigna a Derivacion número '.$nderivacion.' Folio Right Now '.$folio.' un monto inicial de $'.number_format($mTotal);
                     $asuntoMonto= 'Monto inicial';
@@ -241,7 +241,7 @@ foreach ($array as $value) {
                         GetSQLValueString($idDerivacion, "text"), 
                         GetSQLValueString($ultimaCanasta, "text"),
                         GetSQLValueString('1', "text"),
-                        GetSQLValueString(utf8_decode($comentarioBitacora), "text"),
+                        GetSQLValueString($comentarioBitacora, "text"),
                         GetSQLValueString($asunto, "text"),
                         GetSQLValueString($fecha, "date"),
                         GetSQLValueString($hora, "date"));
@@ -253,16 +253,16 @@ foreach ($array as $value) {
                         GetSQLValueString($idDerivacion, "text"), 
                         GetSQLValueString($ultimaCanasta, "text"),
                         GetSQLValueString('1', "text"),
-                        GetSQLValueString(utf8_decode($comentarioBitacoraMonto), "text"),
+                        GetSQLValueString($comentarioBitacoraMonto, "text"),
                         GetSQLValueString($asuntoMonto, "text"),
                         GetSQLValueString($fecha, "date"),
                         GetSQLValueString($hora, "date"));
                     $Result1 = $oirs->Execute($insertSQL) or die($oirs->ErrorMsg());
                     //***********************************************************************************************************************************************************
                 }
-                if (utf8_encode($estado) == 'Derivación Aceptada' or utf8_encode($estado) == 'Solicita autorización') {
+                if ($estado == 'Derivación Aceptada' or $estado == 'Solicita autorización') {
                     $estadoDerivacion = 'aceptada';
-                    $comentarioBitacora = 'Derivacion número '.$nderivacion.' de paciente '.utf8_encode($nombre).' rut '.$rutPac.' migrada desde Right Now con folio '.$folio.' en estado *'.utf8_encode($estado).'* con un monto de '.number_format($mTotal);
+                    $comentarioBitacora = 'Derivacion número '.$nderivacion.' de paciente '.nombre.' rut '.$rutPac.' migrada desde Right Now con folio '.$folio.' en estado *'.$estado.'* con un monto de '.number_format($mTotal);
                     $asunto= 'Migrada';
 
                     // Inserto comentario en bitacora ********************************************************************************
@@ -270,16 +270,16 @@ foreach ($array as $value) {
                         GetSQLValueString($idDerivacion, "text"), 
                         GetSQLValueString($ultimaCanasta, "text"),
                         GetSQLValueString('1', "text"),
-                        GetSQLValueString(utf8_decode($comentarioBitacora), "text"),
+                        GetSQLValueString($comentarioBitacora, "text"),
                         GetSQLValueString($asunto, "text"),
                         GetSQLValueString($fecha, "date"),
                         GetSQLValueString($hora, "date"));
                     $Result1 = $oirs->Execute($insertSQL) or die($oirs->ErrorMsg());
                     //********************************************************************************************************************
                 }
-                if (utf8_encode($estado) == 'Alta Paciente' or utf8_encode($estado) == 'Autorizado para pago' or utf8_encode($estado) == 'Validado para Pago') {
+                if ($estado == 'Alta Paciente' or $estado == 'Autorizado para pago' or $estado == 'Validado para Pago') {
                     $estadoDerivacion = 'cerrada';
-                    $comentarioBitacora = 'Derivacion número '.$nderivacion.' de paciente '.utf8_encode($nombre).' rut '.$rutPac.' migrada desde Right Now con folio '.$folio.' en estado *'.utf8_encode($estado).'* con un monto de '.number_format($mTotal);
+                    $comentarioBitacora = 'Derivacion número '.$nderivacion.' de paciente '.$nombre.' rut '.$rutPac.' migrada desde Right Now con folio '.$folio.' en estado *'.$estado.'* con un monto de '.number_format($mTotal);
                     $asunto= 'Migrada';
 
                     // Inserto comentario en bitacora ********************************************************************************
@@ -287,7 +287,7 @@ foreach ($array as $value) {
                         GetSQLValueString($idDerivacion, "text"), 
                         GetSQLValueString($ultimaCanasta, "text"),
                         GetSQLValueString('1', "text"),
-                        GetSQLValueString(utf8_decode($comentarioBitacora), "text"),
+                        GetSQLValueString($comentarioBitacora, "text"),
                         GetSQLValueString($asunto, "text"),
                         GetSQLValueString($fecha, "date"),
                         GetSQLValueString($hora, "date"));
@@ -319,7 +319,7 @@ foreach ($array as $value) {
                 
                 // if estado de la planilla es diferente al ultimo estado del folio se inserta registro en bitacora sobre el cambio de estado**************************************************
                 if ($estadoRn != $estado) {
-                    $comentarioBitacora = 'La Derivacion número '.$nderivacion.' Folio Right Now '.$folio.' cambia de estado *'.utf8_encode($estadoRn). '* a estado *'.utf8_encode($estado).'*';
+                    $comentarioBitacora = 'La Derivacion número '.$nderivacion.' Folio Right Now '.$folio.' cambia de estado *'.$estadoRn. '* a estado *'.$estado.'*';
                     $asunto= 'Cambio estado RN';
 
                     $ultimaCanasta = '0';
@@ -329,7 +329,7 @@ foreach ($array as $value) {
                         GetSQLValueString($idDerivacion, "text"), 
                         GetSQLValueString($ultimaCanasta, "text"),
                         GetSQLValueString('1', "text"),
-                        GetSQLValueString(utf8_decode($comentarioBitacora), "text"),
+                        GetSQLValueString($comentarioBitacora, "text"),
                         GetSQLValueString($asunto, "text"),
                         GetSQLValueString($fecha, "date"),
                         GetSQLValueString($hora, "date"));
@@ -339,7 +339,7 @@ foreach ($array as $value) {
 
                 // if estado de la planilla es diferente al ultimo estado del folio se inserta registro en bitacora sobre el cambio de estado**************************************************
                 if ($montoRn != $mTotal) {
-                    $comentarioBitacora = 'La Derivacion número '.$nderivacion.' Folio Right Now '.$folio.' cambia de monto *'.utf8_encode($montoRn). '* a monto *'.utf8_encode($mTotal).'*';
+                    $comentarioBitacora = 'La Derivacion número '.$nderivacion.' Folio Right Now '.$folio.' cambia de monto *'.$montoRn. '* a monto *'.$mTotal.'*';
                     $asunto= 'Cambio monto RN';
 
                     $ultimaCanasta = '0';
@@ -349,7 +349,7 @@ foreach ($array as $value) {
                         GetSQLValueString($idDerivacion, "text"), 
                         GetSQLValueString($ultimaCanasta, "text"),
                         GetSQLValueString('1', "text"),
-                        GetSQLValueString(utf8_decode($comentarioBitacora), "text"),
+                        GetSQLValueString($comentarioBitacora, "text"),
                         GetSQLValueString($asunto, "text"),
                         GetSQLValueString($fecha, "date"),
                         GetSQLValueString($hora, "date"));
@@ -437,7 +437,7 @@ $totalRows_qrCargaAnterior = $qrCargaAnterior->RecordCount();
         $insertSQL = sprintf("INSERT INTO $MM_oirs_DATABASE.bitacora (ID_DERIVACION, SESION, BITACORA, ASUNTO, AUDITORIA, HORA) VALUES (%s, %s, %s, %s, %s, %s)",
             GetSQLValueString($idDerivacion, "int"), 
             GetSQLValueString('99.999.999-9', "text"),
-            GetSQLValueString(utf8_decode($comentarioBitacora), "text"),
+            GetSQLValueString($comentarioBitacora, "text"),
             GetSQLValueString($asunto, "text"),
             GetSQLValueString($fecha, "date"),
             GetSQLValueString($hora, "date"));
@@ -463,8 +463,8 @@ $totalRows_qrCargaAnterior = $qrCargaAnterior->RecordCount();
         $insertSQL2 = sprintf("INSERT INTO $MM_oirs_DATABASE.notificaciones (ID_DERIVACION, USUARIO, ASUNTO, MENSAJE, FECHA, HORA, ESTADO, USUARIO_EMISOR) VALUES (%s, %s, %s, %s, %s, %s, %s, %s)",
             GetSQLValueString($idDerivacion, "int"),
             GetSQLValueString($receptor, "text"),
-            GetSQLValueString(utf8_decode($asunto), "text"),
-            GetSQLValueString(utf8_decode($comentarioBitacora), "text"),
+            GetSQLValueString($asunto, "text"),
+            GetSQLValueString($comentarioBitacora, "text"),
             GetSQLValueString($fecha, "date"),
             GetSQLValueString($hora, "date"),
             GetSQLValueString($estadoNoti, "text"),
@@ -482,8 +482,8 @@ $totalRows_qrCargaAnterior = $qrCargaAnterior->RecordCount();
             $insertSQL2 = sprintf("INSERT INTO $MM_oirs_DATABASE.notificaciones (ID_DERIVACION, USUARIO, ASUNTO, MENSAJE, FECHA, HORA, ESTADO, USUARIO_EMISOR) VALUES (%s, %s, %s, %s, %s, %s, %s, %s)",
                 GetSQLValueString($idDerivacion, "int"),
                 GetSQLValueString($supervisor, "text"),
-                GetSQLValueString(utf8_decode($asunto), "text"),
-                GetSQLValueString(utf8_decode($comentarioBitacora), "text"),
+                GetSQLValueString($asunto, "text"),
+                GetSQLValueString($comentarioBitacora, "text"),
                 GetSQLValueString($fecha, "date"),
                 GetSQLValueString($hora, "date"),
                 GetSQLValueString($estadoNoti, "text"),

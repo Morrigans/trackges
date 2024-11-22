@@ -40,7 +40,7 @@ $estado = 'finalizada';
 
 $updateSQL1 = sprintf("UPDATE $MM_oirs_DATABASE.derivaciones_canastas_pp SET ESTADO=%s, OBSERVACION=%s, FECHA_FIN_CANASTA=%s, AUDITORIA=%s WHERE ID_DERIVACION = '$idDerivacion'",
             GetSQLValueString($estado, "text"),
-            GetSQLValueString(utf8_decode($observacion), "text"),
+            GetSQLValueString($observacion, "text"),
             GetSQLValueString($fechaFinCanasta, "date"),
             GetSQLValueString($auditoria, "date"));
 $Result1 = $oirs->Execute($updateSQL1) or die($oirs->ErrorMsg());
@@ -52,7 +52,7 @@ $hora= date('G:i');
 $insertSQL = sprintf("INSERT INTO $MM_oirs_DATABASE.bitacora_pp (ID_DERIVACION, SESION, BITACORA, ASUNTO, AUDITORIA, HORA) VALUES (%s, %s, %s, %s, %s, %s)",
     GetSQLValueString($idDerivacion, "text"), 
     GetSQLValueString($usuario, "text"),
-    GetSQLValueString(utf8_decode($comentarioBitacora), "text"),
+    GetSQLValueString($comentarioBitacora, "text"),
     GetSQLValueString($asunto, "text"),
     GetSQLValueString($auditoria, "date"),
     GetSQLValueString($hora, "date"));
@@ -62,7 +62,7 @@ $Result1 = $oirs->Execute($insertSQL) or die($oirs->ErrorMsg());
 $insertSQL = sprintf("INSERT INTO $MM_icrs_DATABASE.bitacora (ID_DERIVACION, SESION, BITACORA, ASUNTO, AUDITORIA, HORA,ID_BITACORA_REMOTO) VALUES (%s, %s, %s, %s, %s, %s, %s)",
     GetSQLValueString($idDerivacionPp, "int"),     
     GetSQLValueString('CRSS', "text"),
-    GetSQLValueString(utf8_decode($comentarioBitacora), "text"),
+    GetSQLValueString($comentarioBitacora, "text"),
     GetSQLValueString($asunto, "text"),
     GetSQLValueString($auditoria, "date"),
     GetSQLValueString($hora, "date"),

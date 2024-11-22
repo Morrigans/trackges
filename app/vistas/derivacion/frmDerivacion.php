@@ -124,7 +124,7 @@ $totalRows_qrAsignarAdministrativa = $qrAsignarAdministrativa->RecordCount();
               <select name="slConvenioDerivacion" id="slConvenioDerivacion" class="form-control input-sm">
                   <option value="">Seleccione...</option>
                   <?php while (!$qrConvenio->EOF) {?>
-                    <option value="<?php echo $qrConvenio->Fields('ID_CONVENIO') ?>"><?php echo utf8_encode($qrConvenio->Fields('DESC_CONVENIO')) ?></option>
+                    <option value="<?php echo $qrConvenio->Fields('ID_CONVENIO') ?>"><?php echo $qrConvenio->Fields('DESC_CONVENIO') ?></option>
                   <?php $qrConvenio->MoveNext(); } ?>
               </select>
           </div>
@@ -137,7 +137,7 @@ $totalRows_qrAsignarAdministrativa = $qrAsignarAdministrativa->RecordCount();
                   <option value="">Seleccione...</option>
                    <?php 
                    while (!$qrTipoPatologia->EOF) {?>
-                     <option value="<?php echo $qrTipoPatologia->Fields('ID_TIPO_PATOLOGIA'); ?>"><?php echo utf8_encode($qrTipoPatologia->Fields('DESC_TIPO_PATOLOGIA')); ?></option>
+                     <option value="<?php echo $qrTipoPatologia->Fields('ID_TIPO_PATOLOGIA'); ?>"><?php echo $qrTipoPatologia->Fields('DESC_TIPO_PATOLOGIA'); ?></option>
                   <?php $qrTipoPatologia->MoveNext(); } ?> 
               </select>
           </div>
@@ -251,7 +251,7 @@ $totalRows_qrAsignarAdministrativa = $qrAsignarAdministrativa->RecordCount();
               <select name="slAsignarEnfermeriaDerivacion" id="slAsignarEnfermeriaDerivacion" class="form-control input-sm">
                   <option value="">Seleccione...</option>
                   <?php while (!$qrAsignarEnfermeria->EOF) {?>
-                    <option value="<?php echo $qrAsignarEnfermeria->Fields('ID') ?>"><?php echo utf8_encode($qrAsignarEnfermeria->Fields('NOMBRE')) ?></option>
+                    <option value="<?php echo $qrAsignarEnfermeria->Fields('ID') ?>"><?php echo $qrAsignarEnfermeria->Fields('NOMBRE') ?></option>
                   <?php $qrAsignarEnfermeria->MoveNext(); } ?>
               </select>
           </div>
@@ -263,7 +263,7 @@ $totalRows_qrAsignarAdministrativa = $qrAsignarAdministrativa->RecordCount();
               <select name="slAsignarAdministrativaDerivacion" id="slAsignarAdministrativaDerivacion" class="form-control input-sm">
                   <option value="">Seleccione...</option>
                   <?php while (!$qrAsignarAdministrativa->EOF) {?>
-                    <option value="<?php echo $qrAsignarAdministrativa->Fields('ID') ?>"><?php echo utf8_encode($qrAsignarAdministrativa->Fields('NOMBRE')) ?></option>
+                    <option value="<?php echo $qrAsignarAdministrativa->Fields('ID') ?>"><?php echo $qrAsignarAdministrativa->Fields('NOMBRE') ?></option>
                   <?php $qrAsignarAdministrativa->MoveNext(); } ?>
               </select>
           </div> -->

@@ -38,7 +38,7 @@ $totalRows_qrCanasta = $qrCanasta->RecordCount();
 				        <select name="slCanasta" id="slCanasta" class="form-control input-sm select2bs4">
 				            <option value="">Seleccione...</option>
                   <?php while (!$qrCanasta->EOF) {?>
-                    <option value="<?php echo $qrCanasta->Fields('ID_CANASTA_PATOLOGIA') ?>"><?php echo utf8_encode($qrCanasta->Fields('DESC_CANASTA_PATOLOGIA')) ?></option>
+                    <option value="<?php echo $qrCanasta->Fields('ID_CANASTA_PATOLOGIA') ?>"><?php echo $qrCanasta->Fields('DESC_CANASTA_PATOLOGIA') ?></option>
                   <?php $qrCanasta->MoveNext(); } ?>
 				        </select>
 				        

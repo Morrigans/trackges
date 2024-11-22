@@ -58,9 +58,9 @@ $totalRows_qrNotificación = $qrNotificación->RecordCount();
 			<td><font size="2"><?php echo date("d-m-Y",strtotime($qrNotificación->Fields('FECHA'))); ?></font></td>
 			<td><a href="#" data-dismiss="modal"><span class="badge badge-warning" data-toggle="modal" data-target="#modalBitacora" onclick="fnfrmBitacora('<?php echo $qrNotificación->Fields('ID_DERIVACION') ?>')"><?php echo 'R0'.$qrNotificación->Fields('ID_DERIVACION'); ?></span></a></td>
 			<td><span><font size="2"><?php echo $qrNotificación->Fields('COD_RUTPAC'); ?></font></span></td>
-			<td><span><font size="2"><?php echo utf8_encode($qrNotificación->Fields('NOMBRE')); ?></font></span></td>
-			<td><span><font size="2"><?php echo utf8_encode($qrNotificación->Fields('ASUNTO')); ?></font></span></td>
-			<td><span><font size="3"><?php echo utf8_encode($qrNotificación->Fields('MENSAJE')); ?></font></span></td>
+			<td><span><font size="2"><?php echo $qrNotificación->Fields('NOMBRE'); ?></font></span></td>
+			<td><span><font size="2"><?php echo $qrNotificación->Fields('ASUNTO'); ?></font></span></td>
+			<td><span><font size="3"><?php echo $qrNotificación->Fields('MENSAJE'); ?></font></span></td>
 			<td><span><font size="1"><?php echo $n; ?></font></span></td>
 		</tr>
 		<?php

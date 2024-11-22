@@ -157,16 +157,16 @@ if ($perfil == '3') {//gestora
 					?>
 				</font>
 			</td>
-			<td><font size="1"><b><?php echo utf8_encode(strtoupper($qrPaciente->Fields('NOMBRE'))); ?></b></font></td>
-			<td><span><font size="2"><?php echo utf8_encode($qrPatologia->Fields('DESC_PATOLOGIA')); ?></font></span></td>			
-			<td><span><font size="2"><?php echo utf8_encode($qrEtapaPatologia->Fields('DESC_ETAPA_PATOLOGIA')); ?></font></span></td>			
-			<td><span><font size="2"><b><?php echo utf8_encode($qrCanastaPatologia->Fields('DESC_CANASTA_PATOLOGIA')); ?></b></font></span></td>			
-			<td><span><font size="2"><?php echo utf8_encode($qrPrestador->Fields('DESC_PRESTADOR')); ?></font></span></td>			
+			<td><font size="1"><b><?php echo strtoupper($qrPaciente->Fields('NOMBRE')); ?></b></font></td>
+			<td><span><font size="2"><?php echo $qrPatologia->Fields('DESC_PATOLOGIA'); ?></font></span></td>			
+			<td><span><font size="2"><?php echo $qrEtapaPatologia->Fields('DESC_ETAPA_PATOLOGIA'); ?></font></span></td>			
+			<td><span><font size="2"><b><?php echo $qrCanastaPatologia->Fields('DESC_CANASTA_PATOLOGIA'); ?></b></font></span></td>			
+			<td><span><font size="2"><?php echo $qrPrestador->Fields('DESC_PRESTADOR'); ?></font></span></td>			
 			<td><span><font size="2"><?php echo date("d-m-Y",strtotime($qrVencecidas->Fields('FECHA_CANASTA'))); ?></font></span></td>			
 			<td><span><font size="2"><?php echo date("d-m-Y",strtotime($qrVencecidas->Fields('FECHA_FIN_CANASTA'))); ?></font></span></td>			
 			<td><span><font size="2"><?php echo date("d-m-Y",strtotime($qrVencecidas->Fields('FECHA_LIMITE'))); ?></font></span></td>			
-			<td><font size="2"><?php echo utf8_encode($qrVencecidas->Fields('OBSERVACION')); ?></font></td>
-			<td><font size="2"><?php echo utf8_encode($qrMotivoFinCanasta->Fields('DESC_MOTIVO')); ?></font></td>
+			<td><font size="2"><?php echo $qrVencecidas->Fields('OBSERVACION'); ?></font></td>
+			<td><font size="2"><?php echo $qrMotivoFinCanasta->Fields('DESC_MOTIVO'); ?></font></td>
 			<td><font size="2"><?php echo $n; ?></font></td>
 		</tr>
 		<?php

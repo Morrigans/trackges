@@ -61,7 +61,7 @@ $insertSQL = sprintf("INSERT INTO $MM_oirs_DATABASE.events (ID_DERIVACION, TIPO_
     GetSQLValueString($horaAgendamiento, "date"),
     GetSQLValueString($color, "text"),
     GetSQLValueString($estado, "text"),
-    GetSQLValueString(utf8_decode($obsAgendamientoEvents), "text"),
+    GetSQLValueString($obsAgendamientoEvents, "text"),
     GetSQLValueString($auditoria, "date"),
     GetSQLValueString($hrAuditoria, "date"),
     GetSQLValueString($usuario, "text"));
@@ -86,7 +86,7 @@ if($tipoAtencion=='otraConsulta'){
     $estado='otraConsultaAgendada';
 }
 
-$comentarioBitacora = $cons.' de la derivación N°: '.$nDerivacion.'<br/> Fecha agendamiento '.$fechaAgendamiento.' a las '.$horaAgendamiento.'<br/> Para el paciente: '.utf8_encode($nomPaciente).'<br/> Con el profesional: '.utf8_encode($profesionSinGenero).' / '.utf8_encode($nomProfesional).'.<br/> Comentario: '.$obsAgendamientoEvents;
+$comentarioBitacora = $cons.' de la derivación N°: '.$nDerivacion.'<br/> Fecha agendamiento '.$fechaAgendamiento.' a las '.$horaAgendamiento.'<br/> Para el paciente: '.$nomPaciente.'<br/> Con el profesional: '.$profesionSinGenero.' / '.$nomProfesional.'.<br/> Comentario: '.$obsAgendamientoEvents;
 $asunto= 'Cita asignada';
 $hora= date('G:i');
 
@@ -105,7 +105,7 @@ $idUsuario = $_SESSION['idUsuario'];
 $insertSQL = sprintf("INSERT INTO $MM_oirs_DATABASE.bitacora (ID_DERIVACION, SESION, BITACORA, ASUNTO, AUDITORIA, HORA) VALUES (%s, %s, %s, %s, %s, %s)",
     GetSQLValueString($idDerivacion, "int"), 
     GetSQLValueString($usuario, "text"),
-    GetSQLValueString(utf8_decode($comentarioBitacora), "text"),
+    GetSQLValueString($comentarioBitacora, "text"),
     GetSQLValueString($asunto, "text"),
     GetSQLValueString($auditoria, "date"),
     GetSQLValueString($hora, "date"));

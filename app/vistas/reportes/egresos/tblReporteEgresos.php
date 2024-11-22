@@ -60,13 +60,13 @@ if ($fecha != '' and $fecha2 != '') {
       <tbody>
         <?php
          while (!$qrReporteDiario->EOF) { 
-          $bitacora = utf8_encode($qrReporteDiario->Fields('BITACORA'));
+          $bitacora = $qrReporteDiario->Fields('BITACORA');
 
           // Expresión regular para encontrar el ID de admisión
           $pattern = '/id de admision (\d+-[A-Z0-9]+)/';
 
           // Buscar la coincidencia en el string
-          if (preg_match($pattern, utf8_encode( $qrReporteDiario->Fields('BITACORA')), $matches)) {
+          if (preg_match($pattern, $qrReporteDiario->Fields('BITACORA'), $matches)) {
               // El ID de admisión está en la primera captura de grupo
               $id_admision = $matches[1];
 
@@ -105,19 +105,19 @@ if ($fecha != '' and $fecha2 != '') {
          ?>
         <tr>
           <td> <span><font size="3"><?php echo $folio; ?></font></span></td>
-          <td> <span><font size="3"><?php echo utf8_encode($qrDerivacion->Fields('ESTADO_RN')); ?></font></span></td>
+          <td> <span><font size="3"><?php echo $qrDerivacion->Fields('ESTADO_RN'); ?></font></span></td>
           <td><?php echo date("d-m-Y",strtotime($qrReporteDiario->Fields('AUDITORIA'))); ?></td>
-          <td><?php echo utf8_encode($qrPaciente->Fields('COD_RUTPAC')); ?></td>
-          <td><?php echo utf8_encode($qrPaciente->Fields('NOMBRE')); ?></td>
-          <td><?php echo utf8_encode($qrPatologia->Fields('DESC_PATOLOGIA')); ?></td>
+          <td><?php echo $qrPaciente->Fields('COD_RUTPAC'); ?></td>
+          <td><?php echo $qrPaciente->Fields('NOMBRE'); ?></td>
+          <td><?php echo $qrPatologia->Fields('DESC_PATOLOGIA'); ?></td>
           <td><?php echo $id_admision; ?></td>
           <td><?php echo $qrCenso->Fields('fecha_ingreso'); ?></td>
           <td><?php echo $qrCenso->Fields('dias_ingresado'); ?></td>
           <td><?php echo $qrCenso->Fields('codigo_prestacion'); ?></td>
-          <td><?php echo utf8_encode($qrCenso->Fields('diagnostico')); ?></td>
-          <td><?php echo utf8_encode($qrCenso->Fields('nombre_convenio')); ?></td>
-          <td><?php echo utf8_encode($qrCenso->Fields('ley_urgencia')); ?></td>
-          <td><?php echo utf8_encode($qrLogin->Fields('NOMBRE')); ?></td>
+          <td><?php echo $qrCenso->Fields('diagnostico'); ?></td>
+          <td><?php echo $qrCenso->Fields('nombre_convenio'); ?></td>
+          <td><?php echo $qrCenso->Fields('ley_urgencia'); ?></td>
+          <td><?php echo $qrLogin->Fields('NOMBRE'); ?></td>
           
         </tr>
         <?php

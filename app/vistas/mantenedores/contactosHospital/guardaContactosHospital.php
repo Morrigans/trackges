@@ -15,11 +15,11 @@ require_once '../../../includes/functions.inc.php';
 
 $insertSQL = sprintf("INSERT INTO $MM_oirs_DATABASE.hospitales_contactos (ID_HOSPITAL,NOMBRE,EMAIL,TELEFONO,CARGO_UNIDAD,OBSERVACION) VALUES (%s, %s, %s, %s, %s, %s)",
     GetSQLValueString($idHospital, "int"),
-    GetSQLValueString(utf8_decode($nombre), "text"),
-    GetSQLValueString(utf8_decode($email), "text"),
-    GetSQLValueString(utf8_decode($telefono), "text"),
-    GetSQLValueString(utf8_decode($unidadServicio), "text"),
-    GetSQLValueString(utf8_decode($obsevacion), "text")); 
+    GetSQLValueString($nombre, "text"),
+    GetSQLValueString($email, "text"),
+    GetSQLValueString($telefono, "text"),
+    GetSQLValueString($unidadServicio, "text"),
+    GetSQLValueString($obsevacion, "text")); 
 $Result1 = $oirs->Execute($insertSQL) or die($oirs->ErrorMsg());
 
 echo 1;

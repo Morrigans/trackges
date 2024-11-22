@@ -60,7 +60,7 @@ $totalRows_qrProfesion = $qrProfesion->RecordCount();
 $profesionSinGenero = $qrProfesion->Fields('PROFESION');
 
 
-$comentarioBitacora = 'El profesional '.$nomProfesional.' rut: '.$codRutPro.' de profesion: '.utf8_encode($profesionSinGenero).', fue asignado a la derivacion numero D0'.$idDerivacion;
+$comentarioBitacora = 'El profesional '.$nomProfesional.' rut: '.$codRutPro.' de profesion: '.$profesionSinGenero.', fue asignado a la derivacion numero D0'.$idDerivacion;
 $asunto= 'Profesional Asignado';
 
 $hora= date('G:i');
@@ -71,7 +71,7 @@ $insertSQL = sprintf("INSERT INTO $MM_oirs_DATABASE.bitacora_pp (ID_DERIVACION,I
     GetSQLValueString($idDerivacion, "int"), 
     GetSQLValueString($idDerivacionPp, "int"), 
     GetSQLValueString($usuario, "text"),
-    GetSQLValueString(utf8_decode($comentarioBitacora), "text"),
+    GetSQLValueString($comentarioBitacora, "text"),
     GetSQLValueString($asunto, "text"),
     GetSQLValueString($auditoria, "date"),
     GetSQLValueString($hora, "date"));
@@ -83,7 +83,7 @@ $insertSQL2 = sprintf("INSERT INTO $MM_oirs_DATABASE.notificaciones_pp ( USUARIO
     
     GetSQLValueString($codRutPro, "text"),
     GetSQLValueString($asunto, "text"),
-    GetSQLValueString(utf8_decode($comentarioBitacora), "text"),
+    GetSQLValueString($comentarioBitacora, "text"),
     GetSQLValueString($auditoria, "date"),
     GetSQLValueString($hora, "date"),
     GetSQLValueString($estadoNoti, "text"),
@@ -92,7 +92,7 @@ $Result2 = $oirs->Execute($insertSQL2) or die($oirs->ErrorMsg());
 
 //###############################INSERTA DATOS EN ICRS    ##############################################################
 if ($idDerivacionPp != '') {
-    $comentarioBitacoraPp = 'El profesional '.$nomProfesional.' rut: '.$codRutPro.' de profesion: '.utf8_encode($profesionSinGenero).', fue asignado a la derivacion numero P0'.$idDerivacionPp;
+    $comentarioBitacoraPp = 'El profesional '.$nomProfesional.' rut: '.$codRutPro.' de profesion: '.$profesionSinGenero.', fue asignado a la derivacion numero P0'.$idDerivacionPp;
     $asunto= 'Profesional Asignado';
     $hora= date('G:i');
 
@@ -111,7 +111,7 @@ if ($idDerivacionPp != '') {
     $insertSQL = sprintf("INSERT INTO $MM_icrs_DATABASE.bitacora (ID_DERIVACION, SESION, BITACORA, ASUNTO, AUDITORIA, HORA,ID_BITACORA_REMOTO) VALUES (%s, %s, %s, %s, %s, %s, %s)",
         GetSQLValueString($idDerivacionPp, "int"),     
         GetSQLValueString('CRSS', "text"),
-        GetSQLValueString(utf8_decode($comentarioBitacoraPp), "text"),
+        GetSQLValueString($comentarioBitacoraPp, "text"),
         GetSQLValueString($asunto, "text"),
         GetSQLValueString($auditoria, "date"),
         GetSQLValueString($hora, "date"),
@@ -125,7 +125,7 @@ if ($idDerivacionPp != '') {
       
         GetSQLValueString($gestoraPp, "text"),
         GetSQLValueString($asuntoPp, "text"),
-        GetSQLValueString(utf8_decode($comentarioBitacoraPp), "text"),
+        GetSQLValueString($comentarioBitacoraPp, "text"),
         GetSQLValueString($auditoria, "date"),
         GetSQLValueString($hora, "date"),
         GetSQLValueString($estadoNoti, "text"),

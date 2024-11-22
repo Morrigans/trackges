@@ -44,7 +44,7 @@ $totalRows_func = $func->RecordCount();
 			    	?>
 						<tr>
 						<!-- 	<td><?php echo $func->Fields('ID_ETAPA_PATOLOGIA'); ?></td> -->
-							<td><?php echo utf8_encode ( $func->Fields('DESC_ETAPA_PATOLOGIA')); ?></td>
+							<td><?php echo $func->Fields('DESC_ETAPA_PATOLOGIA'); ?></td>
 							<td><?php echo $func->Fields('CODIGO_ETAPA_PATOLOGIA'); ?></td>
 							<td>
 								<?php 
@@ -52,7 +52,7 @@ $totalRows_func = $func->RecordCount();
 									 	$query_NomPatologia = "SELECT * FROM $MM_oirs_DATABASE.patologia where ID_PATOLOGIA='$codPatologia'";
 										$NomPatologia = $oirs->SelectLimit($query_NomPatologia) or die($oirs->ErrorMsg());
 										$totalRows_NomPatologia = $NomPatologia->RecordCount();
-									 echo utf8_encode( $NomPatologia->Fields('DESC_PATOLOGIA'));
+									 echo $NomPatologia->Fields('DESC_PATOLOGIA');
 
 
 								  ?>

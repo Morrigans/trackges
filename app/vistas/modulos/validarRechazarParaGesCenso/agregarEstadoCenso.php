@@ -34,7 +34,7 @@ $auditoria= date('Y-m-d');
 if ($estadoCenso=='validado') {
 	    $updateSQL = sprintf("UPDATE $MM_oirs_DATABASE.api_censo SET ESTADO=%s, COMENTARIO=%s WHERE id_censo= '$idCenso'",
             GetSQLValueString($estadoCenso, "text"),
-            GetSQLValueString (utf8_decode($comentarioCenso), "text"));
+            GetSQLValueString ($comentarioCenso, "text"));
     $Result1 = $oirs->Execute($updateSQL) or die($oirs->ErrorMsg());
 
 
@@ -48,7 +48,7 @@ $asunto= 'Validado para ges';
 
          $updateSQL = sprintf("UPDATE $MM_oirs_DATABASE.api_censo SET ESTADO=%s, COMENTARIO=%s WHERE id_censo= '$idCenso'",
             GetSQLValueString($estadoCenso, "text"),
-            GetSQLValueString (utf8_decode($comentarioCenso), "text"));
+            GetSQLValueString ($comentarioCenso, "text"));
             $Result1 = $oirs->Execute($updateSQL) or die($oirs->ErrorMsg());
 
 $comentarioBitacora = 'Se ha rechazado ingreso hospitalario para Ges con fecha: '. $fechaIngreso.' y codigo prestación '.$codigoPrestacion.', comentario: '.$comentarioCenso ;
@@ -66,7 +66,7 @@ $idUsuario = $_SESSION['idUsuario'];
 $insertSQL = sprintf("INSERT INTO $MM_oirs_DATABASE.bitacora (ID_DERIVACION, SESION, BITACORA, ASUNTO, AUDITORIA, HORA) VALUES (%s, %s, %s, %s, %s, %s)",
     GetSQLValueString($idDerivacion, "text"), 
     GetSQLValueString($usuario, "text"),
-    GetSQLValueString(utf8_decode($comentarioBitacora), "text"),
+    GetSQLValueString($comentarioBitacora, "text"),
     GetSQLValueString($asunto, "text"),
     GetSQLValueString($auditoria, "date"),
     GetSQLValueString($hora, "date"));

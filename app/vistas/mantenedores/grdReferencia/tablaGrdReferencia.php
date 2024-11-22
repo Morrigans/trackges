@@ -45,16 +45,16 @@ $totalRows_patologia = $patologia->RecordCount();
 						<?php
 					while (!$patologia->EOF) { ?>
 						<tr>
-							<td><?php echo utf8_encode($patologia->Fields('ID')); ?></td>
-							<td><?php echo utf8_encode($patologia->Fields('descripcion_patologia')); ?></td>
-							<td><?php echo utf8_encode($patologia->Fields('avg_estancia')); ?></td>
-							<td><?php echo utf8_encode($patologia->Fields('limite_inferior_peso_grd')); ?></td>
-							<td><?php echo utf8_encode($patologia->Fields('avg_peso_grd')); ?></td>
-							<td><?php echo utf8_encode($patologia->Fields('avg_monto_grd_total')); ?></td>
-							<td><?php echo utf8_encode($patologia->Fields('peso_grd_real')); ?></td>
-							<td><?php echo utf8_encode($patologia->Fields('monto_grd_total_real')); ?></td>
-							<td><?php echo utf8_encode($patologia->Fields('monto_x_linea')); ?></td>
-							<td><?php echo utf8_encode($patologia->Fields('diferencia_montos')); ?></td>
+							<td><?php echo $patologia->Fields('ID'); ?></td>
+							<td><?php echo $patologia->Fields('descripcion_patologia'); ?></td>
+							<td><?php echo $patologia->Fields('avg_estancia'); ?></td>
+							<td><?php echo $patologia->Fields('limite_inferior_peso_grd'); ?></td>
+							<td><?php echo $patologia->Fields('avg_peso_grd'); ?></td>
+							<td><?php echo $patologia->Fields('avg_monto_grd_total'); ?></td>
+							<td><?php echo $patologia->Fields('peso_grd_real'); ?></td>
+							<td><?php echo $patologia->Fields('monto_grd_total_real'); ?></td>
+							<td><?php echo $patologia->Fields('monto_x_linea'); ?></td>
+							<td><?php echo $patologia->Fields('diferencia_montos'); ?></td>
 						</tr>
 						<?php
 			   	 	$patologia->MoveNext();

@@ -49,8 +49,8 @@ $totalRows_func = $func->RecordCount();
 			    	?>
 						<tr>
 							
-							<td><?php echo utf8_encode($func->Fields('DESC_PAQUETE')); ?></td>
-							<td><?php echo utf8_encode($qrCanasta->Fields('DESC_CANASTA_PATOLOGIA')); ?></td>
+							<td><?php echo $func->Fields('DESC_PAQUETE'); ?></td>
+							<td><?php echo $qrCanasta->Fields('DESC_CANASTA_PATOLOGIA'); ?></td>
 							<td>
 								<div align="center" class="row">
 									<a href="#" class="btn btn-warning btn-sm" data-toggle="modal" data-target="#modalAsociaPrestaciones" onclick="fnCargaFrmAsociaPrestaciones(<?php echo $func->Fields('ID_PAQUETE'); ?>)">Prestaciones</a>

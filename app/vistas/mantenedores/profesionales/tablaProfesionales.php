@@ -51,9 +51,9 @@ $totalRows_func = $func->RecordCount();
 							<tr>
 								<td><?php echo $func->Fields('USUARIO'); ?></td>
 								<td>
-									<?php echo utf8_encode($func->Fields('NOMBRE')); ?>
+									<?php echo $func->Fields('NOMBRE'); ?>
 									<br>
-									<small style="background-color:<?php echo $qrProfesion->Fields('COLOR'); ?>;"> <?php echo utf8_encode($qrProfesion->Fields('PROFESION')); ?></i></small>
+									<small style="background-color:<?php echo $qrProfesion->Fields('COLOR'); ?>;"> <?php echo $qrProfesion->Fields('PROFESION'); ?></i></small>
 								</td>
 								<td><?php echo $func->Fields('FONO'); ?></td>
 								<td><?php echo $func->Fields('MAIL'); ?></td>

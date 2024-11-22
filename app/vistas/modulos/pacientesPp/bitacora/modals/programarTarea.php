@@ -30,13 +30,13 @@ $query_qrBitacora= "SELECT * FROM $MM_oirs_DATABASE.bitacora_pp WHERE ID_BITACOR
 $qrBitacora = $oirs->SelectLimit($query_qrBitacora) or die($oirs->ErrorMsg());
 $totalRows_qrBitacora = $qrBitacora->RecordCount();
 
-$mensaje = utf8_encode($qrBitacora->Fields('BITACORA'));
+$mensaje = $qrBitacora->Fields('BITACORA');
 $estado = 'activa';
 
 
 $insertSQL = sprintf("INSERT INTO $MM_oirs_DATABASE.alarmas_pp (ID_BITACORA, MENSAJE, USUARIO_EMISOR, USUARIO_RECEPTOR, ESTADO, FECHA_ALARMA, FECHA_REGISTRO, HORA_REGISTRO) VALUES (%s, %s, %s, %s, %s, %s, %s, %s)",
     GetSQLValueString($idBitacora, "int"), 
-    GetSQLValueString(utf8_decode($mensaje), "text"),
+    GetSQLValueString($mensaje, "text"),
     GetSQLValueString($usuario, "text"),
     GetSQLValueString($usuarioReceptor, "text"),
     GetSQLValueString($estado, "text"),

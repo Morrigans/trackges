@@ -19,7 +19,7 @@ $inpConvenio=$_REQUEST['inpConvenio'];
 
 $insertSQL = sprintf("INSERT INTO $MM_oirs_DATABASE.convenio (DESC_CONVENIO) VALUES (%s)",
    
-    GetSQLValueString(utf8_decode($inpConvenio), "text"));
+    GetSQLValueString($inpConvenio, "text"));
 $Result1 = $oirs->Execute($insertSQL) or die($oirs->ErrorMsg());
 
 

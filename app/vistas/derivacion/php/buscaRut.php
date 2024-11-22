@@ -21,9 +21,9 @@ $query_VerComuna = "SELECT * FROM $MM_oirs_DATABASE.comunas WHERE comuna_id = '$
 $VerComuna = $oirs->SelectLimit($query_VerComuna) or die($oirs->ErrorMsg());
 $totalRows_VerComuna = $VerComuna->RecordCount();
 
-$comuna = utf8_encode($VerComuna->Fields('comuna_nombre'));
+$comuna = $VerComuna->Fields('comuna_nombre');
 
-$respuesta=$select2->Fields('COD_RUTPAC').'!'.utf8_encode($select2->Fields('NOMBRE')).'!'.utf8_encode($select2->Fields('DIRECCION')).'!'.$comuna.'!'.$idComuna.'!'.$idPaciente;
+$respuesta=$select2->Fields('COD_RUTPAC').'!'.$select2->Fields('NOMBRE').'!'.$select2->Fields('DIRECCION').'!'.$comuna.'!'.$idComuna.'!'.$idPaciente;
 
 echo $respuesta;
 

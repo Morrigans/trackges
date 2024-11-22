@@ -184,9 +184,9 @@ $hoy= date('Y-m-d');
 					?>
 				</font>
 			</td>
-			<td><a href="#" data-toggle="modal" data-target="#modalEditaInformacionPacienteSupervisora" onclick="fnFrmEditaInformacionPacienteSupervisora('<?php echo $qrDerivacion->Fields('ID_DERIVACION') ?>')"><font size="1"><b><?php echo utf8_encode(strtoupper($qrDerivacion->Fields('NOMBRE_PACIENTE'))); ?></b></font></a></td>
+			<td><a href="#" data-toggle="modal" data-target="#modalEditaInformacionPacienteSupervisora" onclick="fnFrmEditaInformacionPacienteSupervisora('<?php echo $qrDerivacion->Fields('ID_DERIVACION') ?>')"><font size="1"><b><?php echo strtoupper($qrDerivacion->Fields('NOMBRE_PACIENTE')); ?></b></font></a></td>
 			<td><font size="2"><?php echo $qrDerivacion->Fields('DESC_TIPO_PATOLOGIA'); ?></font></td>
-			<td><font size="2"><?php echo utf8_encode($qrDerivacion->Fields('DESC_PATOLOGIA')); ?></font></td>
+			<td><font size="2"><?php echo $qrDerivacion->Fields('DESC_PATOLOGIA'); ?></font></td>
 			
 			<td>
 				<font size="2">
@@ -202,7 +202,7 @@ $hoy= date('Y-m-d');
 								$qrCanastaPatologia = $oirs->SelectLimit($query_qrCanastaPatologia) or die($oirs->ErrorMsg());
 								$totalRows_qrCanastaPatologia = $qrCanastaPatologia->RecordCount();
 
-								echo $i.'.- <font size="1" color="grey"><strong>'.date("d-m-Y",strtotime($qrDerivacionCanasta->Fields('FECHA_CANASTA'))).'</strong></font> '.utf8_encode($qrCanastaPatologia->Fields('DESC_CANASTA_PATOLOGIA')).'.</br>';
+								echo $i.'.- <font size="1" color="grey"><strong>'.date("d-m-Y",strtotime($qrDerivacionCanasta->Fields('FECHA_CANASTA'))).'</strong></font> '.$qrCanastaPatologia->Fields('DESC_CANASTA_PATOLOGIA').'.</br>';
 
 								$i++;
 							$qrDerivacionCanasta->MoveNext();
@@ -221,7 +221,7 @@ $hoy= date('Y-m-d');
 			<td>
 				<font size="2">
 					<?php
-					echo utf8_encode($qrDerivacion->Fields('NOMBRE_PROFESIONAL')); ?>
+					echo $qrDerivacion->Fields('NOMBRE_PROFESIONAL'); ?>
 				</font>
 			</td>
 			<td><font size="2"><?php echo $n; ?></font></td>

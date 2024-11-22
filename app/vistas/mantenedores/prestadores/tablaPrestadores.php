@@ -39,7 +39,7 @@ $totalRows_prestador = $prestador->RecordCount();
 					while (!$prestador->EOF) { ?>
 						<tr>
 							<!-- <td><?php echo $prestador->Fields('RUT_PRESTADOR'); ?></td> -->
-							<td><?php echo utf8_encode($prestador->Fields('DESC_PRESTADOR')); ?></td>
+							<td><?php echo $prestador->Fields('DESC_PRESTADOR'); ?></td>
 							<td><div align="center"><a href="#" class="btn btn-danger btn-sm" onclick="preguntarSiNoEliminaPac(<?php echo $prestador->Fields('ID_PRESTADOR'); ?>)">Quitar</a></div></td>
 						</tr>
 						<?php

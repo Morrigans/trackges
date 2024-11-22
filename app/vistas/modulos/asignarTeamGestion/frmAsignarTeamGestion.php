@@ -104,7 +104,7 @@ $totalRows_qrProfesion = $qrProfesion->RecordCount();
 							    <select name="slProfesionTeamGestion" id="slProfesionTeamGestion" class="form-control input-sm" onchange="fnAsignaProfesional(this.value)">
 							        <option value="">Seleccione...</option>
 							        <?php while (!$qrProfesion->EOF) {?>
-							          <option value="<?php echo $qrProfesion->Fields('ID') ?>"><?php echo utf8_encode($qrProfesion->Fields('PROFESION')) ?></option>
+							          <option value="<?php echo $qrProfesion->Fields('ID') ?>"><?php echo $qrProfesion->Fields('PROFESION') ?></option>
 							        <?php $qrProfesion->MoveNext(); } ?>
 							    </select>
 							</div>

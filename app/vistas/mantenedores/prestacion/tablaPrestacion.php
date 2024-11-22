@@ -41,7 +41,7 @@ $totalRows_func = $func->RecordCount();
 				
 			    	?>
 						<tr>
-							<td><span class="badge badge-pill badge-secondary"><?php echo $func->Fields('CODIGO_PRESTACION'); ?></span> | <?php echo utf8_encode($func->Fields('PRESTACION')); ?></td>
+							<td><span class="badge badge-pill badge-secondary"><?php echo $func->Fields('CODIGO_PRESTACION'); ?></span> | <?php echo $func->Fields('PRESTACION'); ?></td>
 							<td><?php echo $func->Fields('TIEMPO_LIMITE'); ?></td>
 							<td><div align="center"><a href="#" class="btn btn-danger btn-sm" onclick="preguntarSiNoEliminaPrestacion(<?php echo $func->Fields('ID_PRESTACION'); ?>)">Quitar</a></div></td>
 						</tr>

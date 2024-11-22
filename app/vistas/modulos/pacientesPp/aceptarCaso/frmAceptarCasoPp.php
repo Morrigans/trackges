@@ -40,7 +40,7 @@ $codRutPac = $qrPaciente->Fields('COD_RUTPAC');
 						<div class="col-md-6">
 							<span class="label label-default">Comentario bitácora<br></span>
 						<!-- si no viene reasignada -->
-						    <textarea name="comentarioBitacoraAceptarCaso" id="comentarioBitacoraAceptarCaso" cols="11" rows="10" class="form-control input-sm">La derivación número <?php echo $qrDerivacion->Fields('N_DERIVACION'); ?> del paciente <?php echo utf8_encode($qrPaciente->Fields('NOMBRE')); ?> rut <?php echo $codRutPac; ?> ha sido aceptada. </textarea>
+						    <textarea name="comentarioBitacoraAceptarCaso" id="comentarioBitacoraAceptarCaso" cols="11" rows="10" class="form-control input-sm">La derivación número <?php echo $qrDerivacion->Fields('N_DERIVACION'); ?> del paciente <?php echo $qrPaciente->Fields('NOMBRE'); ?> rut <?php echo $codRutPac; ?> ha sido aceptada. </textarea>
 						</div>
 					</div>  
 					<div class="modal-footer" align="right">	

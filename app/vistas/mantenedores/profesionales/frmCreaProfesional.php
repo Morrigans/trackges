@@ -57,7 +57,7 @@ $totalRows_qrEspecialidad = $qrEspecialidad->RecordCount();
                     <option value="">Seleccione...</option>
                      <?php 
                      while (!$qrProfesion->EOF) {?>
-                       <option value="<?php echo $qrProfesion->Fields('ID'); ?>"><?php echo utf8_encode($qrProfesion->Fields('PROFESION')); ?></option>
+                       <option value="<?php echo $qrProfesion->Fields('ID'); ?>"><?php echo $qrProfesion->Fields('PROFESION'); ?></option>
                     <?php $qrProfesion->MoveNext(); } ?>
                 </select>
               </div>
@@ -70,7 +70,7 @@ $totalRows_qrEspecialidad = $qrEspecialidad->RecordCount();
                     <option value="">Seleccione...</option>
                      <?php 
                      while (!$qrEspecialidad->EOF) {?>
-                       <option value="<?php echo $qrEspecialidad->Fields('ID_ESPECIALIDAD'); ?>"><?php echo utf8_encode($qrEspecialidad->Fields('ESPECIALIDAD')); ?></option>
+                       <option value="<?php echo $qrEspecialidad->Fields('ID_ESPECIALIDAD'); ?>"><?php echo $qrEspecialidad->Fields('ESPECIALIDAD'); ?></option>
                     <?php $qrEspecialidad->MoveNext(); } ?>
                 </select>
               </div>

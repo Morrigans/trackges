@@ -91,15 +91,15 @@ $totalRows_qrDerivacionCanastaInicial = $qrDerivacionCanastaInicial->RecordCount
 							    <div class="input-group-prepend">
 							      <span class="input-group-text">Asignar a</span>
 							    </div>
-							    <select name="slAsignarPrestadorDerivacion" id="slAsignarPrestadorDerivacion" class="form-control input-sm" onchange="fnCambiaComentarioBitacora(this.value,'<?php echo $qrDerivacion->Fields('N_DERIVACION'); ?>','<?php echo utf8_encode($qrPaciente->Fields('NOMBRE')); ?>','<?php echo $qrPaciente->Fields('COD_RUTPAC'); ?>','<?php echo $canasta; ?>'), fnConsultaSiTieneModuloPrestador()">
+							    <select name="slAsignarPrestadorDerivacion" id="slAsignarPrestadorDerivacion" class="form-control input-sm" onchange="fnCambiaComentarioBitacora(this.value,'<?php echo $qrDerivacion->Fields('N_DERIVACION'); ?>','<?php echo $qrPaciente->Fields('NOMBRE'); ?>','<?php echo $qrPaciente->Fields('COD_RUTPAC'); ?>','<?php echo $canasta; ?>'), fnConsultaSiTieneModuloPrestador()">
 							        <option value="">Seleccione...</option>
 							        <?php while (!$qrAsignarPrestador->EOF) {?>
-							          <option value="<?php echo $qrAsignarPrestador->Fields('RUT_PRESTADOR') ?>"><?php echo utf8_encode($qrAsignarPrestador->Fields('DESC_PRESTADOR')) ?></option>
+							          <option value="<?php echo $qrAsignarPrestador->Fields('RUT_PRESTADOR') ?>"><?php echo $qrAsignarPrestador->Fields('DESC_PRESTADOR') ?></option>
 							        <?php $qrAsignarPrestador->MoveNext(); } ?>
 							    </select>
 							</div>
 							<span class="label label-default">Comentario bitácora<br></span>
-		  				<textarea name="comentarioBitacoraAsignarPrestadorCaso" id="comentarioBitacoraAsignarPrestadorCaso" cols="11" rows="10" class="form-control input-sm"><?php if ($qrTipoPatologia->Fields('DESC_TIPO_PATOLOGIA') == 'GES') { ?>A la canasta [<?php echo utf8_encode($qrCanastaPatologia->Fields('DESC_CANASTA_PATOLOGIA')) ?>] de la derivación número <?php echo $qrDerivacion->Fields('N_DERIVACION'); ?> del paciente <?php echo utf8_encode($qrPaciente->Fields('NOMBRE')); ?> rut <?php echo $qrDerivacion->Fields('COD_RUTPAC'); ?> se le asigno el prestador: (seleccione el prestador).<?php }else{ ?>A la derivación número <?php echo $qrDerivacion->Fields('N_DERIVACION'); ?> del paciente <?php echo utf8_encode($qrPaciente->Fields('NOMBRE')); ?> rut <?php echo $qrDerivacion->Fields('COD_RUTPAC'); ?> se le asigno el prestador: (seleccione el prestador).
+		  				<textarea name="comentarioBitacoraAsignarPrestadorCaso" id="comentarioBitacoraAsignarPrestadorCaso" cols="11" rows="10" class="form-control input-sm"><?php if ($qrTipoPatologia->Fields('DESC_TIPO_PATOLOGIA') == 'GES') { ?>A la canasta [<?php echo $qrCanastaPatologia->Fields('DESC_CANASTA_PATOLOGIA') ?>] de la derivación número <?php echo $qrDerivacion->Fields('N_DERIVACION'); ?> del paciente <?php echo $qrPaciente->Fields('NOMBRE'); ?> rut <?php echo $qrDerivacion->Fields('COD_RUTPAC'); ?> se le asigno el prestador: (seleccione el prestador).<?php }else{ ?>A la derivación número <?php echo $qrDerivacion->Fields('N_DERIVACION'); ?> del paciente <?php echo $qrPaciente->Fields('NOMBRE'); ?> rut <?php echo $qrDerivacion->Fields('COD_RUTPAC'); ?> se le asigno el prestador: (seleccione el prestador).
 		  					<?php } ?>
 		  					 </textarea>  
 						</div>
@@ -122,20 +122,20 @@ $totalRows_qrDerivacionCanastaInicial = $qrDerivacionCanastaInicial->RecordCount
 					    	'<?php echo $qrDerivacionCanastaInicial->Fields('FECHA_LIMITE'); ?>',
 					    	'<?php echo $qrDerivacionCanastaInicial->Fields('ID_CANASTA_PATOLOGIA'); ?>',
 					    	'<?php echo $qrDerivacionCanastaInicial->Fields('ID_ETAPA_PATOLOGIA'); ?>',
-					    	'<?php echo utf8_encode($qrPaciente->Fields('NOMBRE')) ?>',
-					    	'<?php echo utf8_encode($qrPaciente->Fields('FEC_NACIMI')) ?>',
-					    	'<?php echo utf8_encode($qrPaciente->Fields('FONO')) ?>',
-					    	'<?php echo utf8_encode($qrPaciente->Fields('DIRECCION')) ?>',
-					    	'<?php echo utf8_encode($qrPaciente->Fields('REGION')) ?>',
-					    	'<?php echo utf8_encode($qrPaciente->Fields('PROVINCIA')) ?>',
-					    	'<?php echo utf8_encode($qrPaciente->Fields('COMUNA')) ?>',
-					    	'<?php echo utf8_encode($qrPaciente->Fields('MAIL')) ?>',
-					    	'<?php echo utf8_encode($qrPaciente->Fields('OCUPACION')) ?>',
-					    	'<?php echo utf8_encode($qrPaciente->Fields('PREVISION')) ?>',
-					    	'<?php echo utf8_encode($qrPaciente->Fields('PLAN_SALUD')) ?>',
-					    	'<?php echo utf8_encode($qrPaciente->Fields('SEGURO_COMPLEMENTARIO')) ?>',
-					    	'<?php echo utf8_encode($qrPaciente->Fields('COMPANIA_SEGURO')) ?>',
-					    	'<?php echo utf8_encode($qrPaciente->Fields('SEXO')) ?>')">Asignar Prestador</button> 
+					    	'<?php echo $qrPaciente->Fields('NOMBRE') ?>',
+					    	'<?php echo $qrPaciente->Fields('FEC_NACIMI') ?>',
+					    	'<?php echo $qrPaciente->Fields('FONO') ?>',
+					    	'<?php echo $qrPaciente->Fields('DIRECCION') ?>',
+					    	'<?php echo $qrPaciente->Fields('REGION') ?>',
+					    	'<?php echo $qrPaciente->Fields('PROVINCIA') ?>',
+					    	'<?php echo $qrPaciente->Fields('COMUNA') ?>',
+					    	'<?php echo $qrPaciente->Fields('MAIL') ?>',
+					    	'<?php echo $qrPaciente->Fields('OCUPACION') ?>',
+					    	'<?php echo $qrPaciente->Fields('PREVISION') ?>',
+					    	'<?php echo $qrPaciente->Fields('PLAN_SALUD') ?>',
+					    	'<?php echo $qrPaciente->Fields('SEGURO_COMPLEMENTARIO') ?>',
+					    	'<?php echo $qrPaciente->Fields('COMPANIA_SEGURO') ?>',
+					    	'<?php echo $qrPaciente->Fields('SEXO') ?>')">Asignar Prestador</button> 
 			  	</div>     
 	  		</div>
 	  		<!-- lleno este hidden desde la funcion fnConsultaSiTieneModuloPrestador, para capturarlo en la funcion  fnAsignarPrestadorCaso y evaluar si llama o no a la API que le manda la derivacion-->

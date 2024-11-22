@@ -57,10 +57,10 @@ foreach ($array as $value) {
         GetSQLValueString($value['id_reserva'], "text"),
         GetSQLValueString($value['fecha_reserva'], "date"),
         GetSQLValueString($value['fecha_inicio_pabellon'], "date"),
-        GetSQLValueString(utf8_decode($value['nombre_medico']), "text"),
+        GetSQLValueString($value['nombre_medico'], "text"),
         GetSQLValueString($value['codigo_prestacion'], "text"),
-        GetSQLValueString(utf8_decode($value['nombre_cirugia']), "text"),
-        GetSQLValueString(utf8_decode($value['estado']), "text"),
+        GetSQLValueString($value['nombre_cirugia'], "text"),
+        GetSQLValueString($value['estado'], "text"),
         GetSQLValueString($auditoria, "date"),
         GetSQLValueString($idDerivacion, "int"),
         GetSQLValueString($folioRn, "text"));
@@ -77,10 +77,10 @@ foreach ($array as $value) {
         $updateSQL = sprintf("UPDATE $MM_oirs_DATABASE.api_pabellones SET fecha_reserva=%s, fecha_inicio_pabellon=%s, nombre_medico=%s, codigo_prestacion=%s, nombre_cirugia=%s, estado=%s, fecha_registro=%s WHERE id_reserva= '$id_reserva'",
             GetSQLValueString($value['fecha_reserva'], "date"),
             GetSQLValueString($value['fecha_inicio_pabellon'], "date"),
-            GetSQLValueString(utf8_decode($value['nombre_medico']), "text"),
+            GetSQLValueString($value['nombre_medico'], "text"),
             GetSQLValueString($value['codigo_prestacion'], "text"),
             GetSQLValueString($value['nombre_cirugia'], "text"),
-            GetSQLValueString(utf8_decode($value['estado']), "text"),
+            GetSQLValueString($value['estado'], "text"),
             GetSQLValueString($auditoria, "date"));
         $Result1 = $oirs->Execute($updateSQL) or die($oirs->ErrorMsg());
 
@@ -91,10 +91,10 @@ foreach ($array as $value) {
         GetSQLValueString($value['id_reserva'], "text"),
         GetSQLValueString($value['fecha_reserva'], "date"),
         GetSQLValueString($value['fecha_inicio_pabellon'], "date"),
-        GetSQLValueString(utf8_decode($value['nombre_medico']), "text"),
+        GetSQLValueString($value['nombre_medico'], "text"),
         GetSQLValueString($value['codigo_prestacion'], "text"),
-        GetSQLValueString(utf8_decode($value['nombre_cirugia']), "text"),
-        GetSQLValueString(utf8_decode($value['estado']), "text"),
+        GetSQLValueString($value['nombre_cirugia'], "text"),
+        GetSQLValueString($value['estado'], "text"),
         GetSQLValueString($auditoria, "date"),
         GetSQLValueString($idDerivacion, "int"),
         GetSQLValueString($folioRn, "text"),
@@ -103,13 +103,13 @@ foreach ($array as $value) {
     //**********************************************************************************************************
 
     //registro en bitacora la nueva hospitalizacion
-    $comentarioBitacora = 'El paciente '.utf8_encode($nomPaciente).' registra un ingreso a pabellon con id de reserva '.$value['id_reserva'].' y codigo de prestacion '.$value['codigo_prestacion'];
+    $comentarioBitacora = 'El paciente '.$nomPaciente.' registra un ingreso a pabellon con id de reserva '.$value['id_reserva'].' y codigo de prestacion '.$value['codigo_prestacion'];
     $asunto= 'Ingreso pabellon';
 
     $insertSQL = sprintf("INSERT INTO $MM_oirs_DATABASE.bitacora (ID_DERIVACION, SESION, BITACORA, ASUNTO, AUDITORIA, HORA) VALUES (%s, %s, %s, %s, %s, %s)",
         GetSQLValueString($idDerivacion, "text"), 
         GetSQLValueString('99.999.999-9', "text"),
-        GetSQLValueString(utf8_decode($comentarioBitacora), "text"),
+        GetSQLValueString($comentarioBitacora, "text"),
         GetSQLValueString($asunto, "text"),
         GetSQLValueString($auditoria, "date"),
         GetSQLValueString($hora, "date"));
@@ -127,8 +127,8 @@ foreach ($array as $value) {
     $insertSQL2 = sprintf("INSERT INTO $MM_oirs_DATABASE.notificaciones (ID_DERIVACION, USUARIO, ASUNTO, MENSAJE, FECHA, HORA, ESTADO, USUARIO_EMISOR) VALUES (%s, %s, %s, %s, %s, %s, %s, %s)",
         GetSQLValueString($idDerivacion, "int"),
         GetSQLValueString($receptor, "text"),
-        GetSQLValueString(utf8_decode($asunto), "text"),
-        GetSQLValueString(utf8_decode($comentarioBitacora), "text"),
+        GetSQLValueString($asunto, "text"),
+        GetSQLValueString($comentarioBitacora, "text"),
         GetSQLValueString($auditoria, "date"),
         GetSQLValueString($hora, "date"),
         GetSQLValueString($estadoNoti, "text"),
@@ -146,8 +146,8 @@ foreach ($array as $value) {
         $insertSQL2 = sprintf("INSERT INTO $MM_oirs_DATABASE.notificaciones (ID_DERIVACION, USUARIO, ASUNTO, MENSAJE, FECHA, HORA, ESTADO, USUARIO_EMISOR) VALUES (%s, %s, %s, %s, %s, %s, %s, %s)",
             GetSQLValueString($idDerivacion, "int"),
             GetSQLValueString($supervisor, "text"),
-            GetSQLValueString(utf8_decode($asunto), "text"),
-            GetSQLValueString(utf8_decode($comentarioBitacora), "text"),
+            GetSQLValueString($asunto, "text"),
+            GetSQLValueString($comentarioBitacora, "text"),
             GetSQLValueString($auditoria, "date"),
             GetSQLValueString($hora, "date"),
             GetSQLValueString($estadoNoti, "text"),

@@ -30,11 +30,11 @@ $insertSQL = sprintf("INSERT INTO $MM_oirs_DATABASE.atenciones_pp (ID_DERIVACION
     GetSQLValueString($idCitacion, "int"),
     GetSQLValueString($slAtiendePaciente, "text"),
     GetSQLValueString($slCorrespondeCanasta, "text"),
-    GetSQLValueString(utf8_decode($slComentarioAtiendePaciente), "text"),
+    GetSQLValueString($slComentarioAtiendePaciente, "text"),
     GetSQLValueString($auditoria, "date"),
     GetSQLValueString($hora, "date"),
     GetSQLValueString($slQuirurgico, "date"),
-    GetSQLValueString(utf8_decode($rutaAdjuntaDocAtencion), "text"));
+    GetSQLValueString($rutaAdjuntaDocAtencion, "text"));
 $Result1 = $oirs->Execute($insertSQL) or die($oirs->ErrorMsg());
 
 $estado = 'otraConsultaAtendida';
@@ -67,11 +67,11 @@ $idUsuario = $_SESSION['idUsuario'];
 $insertSQL = sprintf("INSERT INTO $MM_oirs_DATABASE.bitacora_pp (ID_DERIVACION, SESION, BITACORA, ASUNTO, AUDITORIA, HORA, RUTA_DOCUMENTO) VALUES (%s, %s, %s, %s, %s, %s, %s)",
     GetSQLValueString($idDerivacion, "text"), 
     GetSQLValueString($usuario, "text"),
-    GetSQLValueString(utf8_decode($comentarioBitacora), "text"),
+    GetSQLValueString($comentarioBitacora, "text"),
     GetSQLValueString($asunto, "text"),
     GetSQLValueString($auditoria, "date"),
     GetSQLValueString($hora, "date"),
-    GetSQLValueString(utf8_decode($rutaAdjuntaDocAtencion), "text"));
+    GetSQLValueString($rutaAdjuntaDocAtencion, "text"));
 $Result1 = $oirs->Execute($insertSQL) or die($oirs->ErrorMsg());
 
 //#############################################################  guarda daTos ICRS##########################################################
@@ -98,7 +98,7 @@ if ($idDerivacionPp != '') {
     $insertSQL = sprintf("INSERT INTO $MM_icrs_DATABASE.bitacora (ID_DERIVACION, SESION, BITACORA, ASUNTO, AUDITORIA, HORA,ID_BITACORA_REMOTO) VALUES (%s, %s, %s, %s, %s, %s, %s)",
         GetSQLValueString($idDerivacionPp, "int"),     
         GetSQLValueString('CRSS', "text"),
-        GetSQLValueString(utf8_decode($comentarioBitacoraPp), "text"),
+        GetSQLValueString($comentarioBitacoraPp, "text"),
         GetSQLValueString($asunto, "text"),
         GetSQLValueString($auditoria, "date"),
         GetSQLValueString($hora, "date"),
@@ -109,7 +109,7 @@ if ($idDerivacionPp != '') {
       
         GetSQLValueString($gestoraPp, "text"),
         GetSQLValueString($asuntoPp, "text"),
-        GetSQLValueString(utf8_decode($comentarioBitacoraPp), "text"),
+        GetSQLValueString($comentarioBitacoraPp, "text"),
         GetSQLValueString($auditoria, "date"),
         GetSQLValueString($hora, "date"),
         GetSQLValueString($estadoNoti, "text"),

@@ -114,15 +114,15 @@ $totalRows_qrDerivacionCanastaInicial = $qrDerivacionCanastaInicial->RecordCount
 							    <div class="input-group-prepend">
 							      <span class="input-group-text">Asignar a</span>
 							    </div>
-							    <select name="slAsignarMedicoDerivacion" id="slAsignarMedicoDerivacion" class="form-control input-sm select2bs4" onchange="fnCambiaComentarioBitacora(this.value,'<?php echo $qrDerivacion->Fields('N_DERIVACION'); ?>','<?php echo utf8_encode($qrPaciente->Fields('NOMBRE')); ?>','<?php echo $codRutPac; ?>','<?php echo $canasta; ?>')">
+							    <select name="slAsignarMedicoDerivacion" id="slAsignarMedicoDerivacion" class="form-control input-sm select2bs4" onchange="fnCambiaComentarioBitacora(this.value,'<?php echo $qrDerivacion->Fields('N_DERIVACION'); ?>','<?php echo $qrPaciente->Fields('NOMBRE'); ?>','<?php echo $codRutPac; ?>','<?php echo $canasta; ?>')">
 							        <option value="">Seleccione...</option>
 							        <?php while (!$qrAsignarMedico->EOF) {?>
-							          <option value="<?php echo $qrAsignarMedico->Fields('ID') ?>"><?php echo utf8_encode($qrAsignarMedico->Fields('NOMBRE')) ?> - <?php echo utf8_encode($qrAsignarMedico->Fields('ESPECIALIDAD')) ?> - <?php echo utf8_encode($qrAsignarMedico->Fields('SUBESPECIALIDAD')) ?></option>
+							          <option value="<?php echo $qrAsignarMedico->Fields('ID') ?>"><?php echo $qrAsignarMedico->Fields('NOMBRE') ?> - <?php echo $qrAsignarMedico->Fields('ESPECIALIDAD') ?> - <?php echo $qrAsignarMedico->Fields('SUBESPECIALIDAD') ?></option>
 							        <?php $qrAsignarMedico->MoveNext(); } ?>
 							    </select>
 							</div>
 							<span class="label label-default">Comentario bitácora<br></span>
-		  				<textarea name="comentarioBitacoraAsignarMedicoCaso" id="comentarioBitacoraAsignarMedicoCaso" cols="11" rows="10" class="form-control input-sm"><?php if ($qrTipoPatologia->Fields('DESC_TIPO_PATOLOGIA') == 'GES') { ?>A la derivación número <?php echo $qrDerivacion->Fields('N_DERIVACION'); ?> del paciente <?php echo utf8_encode($qrPaciente->Fields('NOMBRE')); ?> rut <?php echo $codRutPac; ?> se le asigno el médico tratante: (seleccione el médico).<?php }else{ ?>A la derivación número <?php echo $qrDerivacion->Fields('N_DERIVACION'); ?> del paciente <?php echo utf8_encode($qrPaciente->Fields('NOMBRE')); ?> rut <?php echo $codRutPac; ?> se le asigno el Medico: (seleccione el médico).
+		  				<textarea name="comentarioBitacoraAsignarMedicoCaso" id="comentarioBitacoraAsignarMedicoCaso" cols="11" rows="10" class="form-control input-sm"><?php if ($qrTipoPatologia->Fields('DESC_TIPO_PATOLOGIA') == 'GES') { ?>A la derivación número <?php echo $qrDerivacion->Fields('N_DERIVACION'); ?> del paciente <?php echo $qrPaciente->Fields('NOMBRE'); ?> rut <?php echo $codRutPac; ?> se le asigno el médico tratante: (seleccione el médico).<?php }else{ ?>A la derivación número <?php echo $qrDerivacion->Fields('N_DERIVACION'); ?> del paciente <?php echo $qrPaciente->Fields('NOMBRE'); ?> rut <?php echo $codRutPac; ?> se le asigno el Medico: (seleccione el médico).
 		  					<?php } ?>
 		  					 </textarea>  
 						</div>

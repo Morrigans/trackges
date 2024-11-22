@@ -12,7 +12,7 @@ $totalRows_select = $select->RecordCount();
  <option value="">Seleccione...</option>
  <?php
 while(!$select->EOF){  ?> 	 
-    <option value="<?php echo $select->Fields('CODIGO_PATOLOGIA')?>"><?php echo utf8_encode($select->Fields('DESC_PATOLOGIA'))?></option>
+    <option value="<?php echo $select->Fields('CODIGO_PATOLOGIA')?>"><?php echo $select->Fields('DESC_PATOLOGIA')?></option>
 <?php
   $select->MoveNext();
   } 

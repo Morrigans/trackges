@@ -38,7 +38,7 @@ $qrPaciente = $oirs->SelectLimit($query_qrPaciente) or die($oirs->ErrorMsg());
 $totalRows_qrPaciente = $qrPaciente->RecordCount();
 
 $codRutPac = $qrPaciente->Fields('COD_RUTPAC');
-$nPaciente = utf8_encode($qrPaciente->Fields('NOMBRE')); 
+$nPaciente = $qrPaciente->Fields('NOMBRE'); 
 $idSesion = $qrLoginId->Fields('ID'); 
  
 $idClinica = '19';
@@ -55,8 +55,8 @@ $insertSQL = sprintf("INSERT INTO $MM_oirs_DATABASE.derivaciones (FOLIO, ID_CONV
     GetSQLValueString($idSesion, "int"),
     GetSQLValueString($auditoria, "text"),
     GetSQLValueString($estado, "text"),
-    GetSQLValueString(utf8_decode($_POST['estadoRn']), "text"),
-    GetSQLValueString(utf8_decode($_POST['montoInicial']), "text"),
+    GetSQLValueString($_POST['estadoRn'], "text"),
+    GetSQLValueString($_POST['montoInicial'], "text"),
     GetSQLValueString($_POST['slAsignarAdministrativaDerivacion'], "int"),
     GetSQLValueString($idPatologia, "text"),
     GetSQLValueString($idPaciente, "int"),
@@ -183,7 +183,7 @@ $insertSQL = sprintf("INSERT INTO $MM_oirs_DATABASE.bitacora (ID_DERIVACION, ID_
     GetSQLValueString($idDerivacion, "text"), 
     GetSQLValueString($ultimaCanasta, "text"),
     GetSQLValueString($usuario, "text"),
-    GetSQLValueString(utf8_decode($comentarioBitacora), "text"),
+    GetSQLValueString($comentarioBitacora, "text"),
     GetSQLValueString($asunto, "text"),
     GetSQLValueString($auditoria, "date"),
     GetSQLValueString($hora, "date"));
@@ -198,7 +198,7 @@ $insertSQL = sprintf("INSERT INTO $MM_oirs_DATABASE.bitacora (ID_DERIVACION, ID_
     GetSQLValueString($idDerivacion, "text"), 
     GetSQLValueString($ultimaCanasta, "text"),
     GetSQLValueString($usuario, "text"),
-    GetSQLValueString(utf8_decode($comentarioBitacora), "text"),
+    GetSQLValueString($comentarioBitacora, "text"),
     GetSQLValueString($asunto, "text"),
     GetSQLValueString($auditoria, "date"),
     GetSQLValueString($hora, "date"));
@@ -212,7 +212,7 @@ $estadoNoti = 'nuevo';
 $insertSQL2 = sprintf("INSERT INTO $MM_oirs_DATABASE.notificaciones (USUARIO, ASUNTO, MENSAJE, FECHA, HORA, ESTADO) VALUES (%s, %s, %s, %s, %s, %s)",
     GetSQLValueString($_POST['slAsignarEnfermeriaDerivacion'], "text"),
     GetSQLValueString($asunto, "text"),
-    GetSQLValueString(utf8_decode($comentarioBitacora), "text"),
+    GetSQLValueString($comentarioBitacora, "text"),
     GetSQLValueString($auditoria, "date"),
     GetSQLValueString($hora, "date"),
     GetSQLValueString($estadoNoti, "text"));

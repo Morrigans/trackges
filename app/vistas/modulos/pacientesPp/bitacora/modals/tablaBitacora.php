@@ -61,7 +61,7 @@ $totalRows_qrBitacora = $qrBitacora->RecordCount();
 	      					$idBitacora = $qrBitacora->Fields('ID_BITACORA');
 	      					$ruta = $qrBitacora->Fields('RUTA_DOCUMENTO');
 	      					$rutaAudio = $qrBitacora->Fields('RUTA_AUDIO');
-	      					$comentarioBitacora = utf8_encode($qrBitacora->Fields('BITACORA'));
+	      					$comentarioBitacora = $qrBitacora->Fields('BITACORA');
 	      					//quito las comillas al registro en bitacora para pasarlo por la api.
 	      					$comentarioBitacora = str_replace('"', '/', $comentarioBitacora);
 	      					//preg_replace( class="hljs-string">'~[\\\\/:*?"<>|]~', ' ', $string); probar en caso de que existan mas caracteres extraños que boten la api
@@ -76,7 +76,7 @@ $totalRows_qrBitacora = $qrBitacora->RecordCount();
 		      					$qrLogin = $oirs->SelectLimit($query_qrLogin) or die($oirs->ErrorMsg());
 		      					$totalRows_qrLogin = $qrLogin->RecordCount();
 
-		      					$usuarioComparte=utf8_encode($qrLogin->Fields('NOMBRE'));
+		      					$usuarioComparte=$qrLogin->Fields('NOMBRE');
 
 	      					}
 	      				?>
@@ -89,7 +89,7 @@ $totalRows_qrBitacora = $qrBitacora->RecordCount();
 	      								<?php echo $usuarioComparte; ?>
 	      						<?php } ?>
 
-	      						<font color="white">/</font><br><small><?php echo date("d-m-Y",strtotime($qrBitacora->Fields('AUDITORIA'))); ?>/<?php echo $qrBitacora->Fields('HORA'); ?><font color="white">/</font><br>Asunto: <?php echo utf8_encode($qrBitacora->Fields('ASUNTO')); ?></small><br> 
+	      						<font color="white">/</font><br><small><?php echo date("d-m-Y",strtotime($qrBitacora->Fields('AUDITORIA'))); ?>/<?php echo $qrBitacora->Fields('HORA'); ?><font color="white">/</font><br>Asunto: <?php echo $qrBitacora->Fields('ASUNTO'); ?></small><br> 
 	      						
 
 	      						<?php 
@@ -157,7 +157,7 @@ $totalRows_qrBitacora = $qrBitacora->RecordCount();
 	      						 if ($qrBitacora->Fields('SESION') != null and $qrBitacora->Fields('COMPARTIDO') != 'si' and $qrBitacora->Fields('SESION') == $usuario) {?>
       								<a href="#" onclick="fnMuestraSelectPrestadorCompartir('<?php echo $idBitacora ?>')"><span class="badge badge-info"><i class="fas fa-share-alt"></i></span></a>
 
-      								<select style="display: none;" name="slElijePrestador<?php echo $idBitacora ?>" id="slElijePrestador<?php echo $idBitacora ?>" onchange="preguntarSiNoCompartirRegistroBitacora('<?php echo $idBitacora ?>','<?php echo $ruta ?>','<?php echo $idDerivacion ?>','<?php echo trim(preg_replace('/\s+/', ' ',$comentarioBitacora)); ?>','<?php echo utf8_encode($asunto) ?>','<?php echo $rutaAudio ?>','<?php echo $qrDerivacionPp->Fields('PRESTADOR_ORIGEN') ?>')">
+      								<select style="display: none;" name="slElijePrestador<?php echo $idBitacora ?>" id="slElijePrestador<?php echo $idBitacora ?>" onchange="preguntarSiNoCompartirRegistroBitacora('<?php echo $idBitacora ?>','<?php echo $ruta ?>','<?php echo $idDerivacion ?>','<?php echo trim(preg_replace('/\s+/', ' ',$comentarioBitacora)); ?>','<?php echo $asunto ?>','<?php echo $rutaAudio ?>','<?php echo $qrDerivacionPp->Fields('PRESTADOR_ORIGEN') ?>')">
 		  						        <option value="">Seleccione...</option>
 					                    <?php 
 					                    	$gestorRed = $qrPrestadoresDerivados->Fields('PRESTADOR_ORIGEN');
@@ -166,7 +166,7 @@ $totalRows_qrBitacora = $qrBitacora->RecordCount();
 					                    	$qrPrestador = $oirs->SelectLimit($query_qrPrestador) or die($oirs->ErrorMsg());
 					                    	$totalRows_qrPrestador = $qrPrestador->RecordCount();
 					                    ?>
-					                    <option value="<?php echo $qrPrestadoresDerivados->Fields('PRESTADOR_ORIGEN') ?>"><?php echo utf8_encode($qrPrestador->Fields('DESC_PRESTADOR')) ?></option>
+					                    <option value="<?php echo $qrPrestadoresDerivados->Fields('PRESTADOR_ORIGEN') ?>"><?php echo $qrPrestador->Fields('DESC_PRESTADOR') ?></option>
 					                    <?php $qrPrestadoresDerivados->MoveNext(); } ?> 
 		  						    </select>
 	      						<?php 
@@ -186,7 +186,7 @@ $totalRows_qrBitacora = $qrBitacora->RecordCount();
 
 
  	      					</th>
-	      					<td><?php echo utf8_encode(nl2br($qrBitacora->Fields('BITACORA'))); ?></td>
+	      					<td><?php echo nl2br($qrBitacora->Fields('BITACORA')); ?></td>
 	      					<td><?php echo $qrBitacora->Fields('AUDITORIA'); ?></td>
 	      				</tr>
 	      				<?php $qrBitacora->MoveNext(); } ?>

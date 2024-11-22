@@ -46,7 +46,7 @@ foreach ($array as $value) {
     $idPaciente = $qrPacientes->Fields('ID');
     $nomPaciente = $qrPacientes->Fields('NOMBRE');
 
-    echo $query_qrDerivacion = "SELECT ID_DERIVACION,FOLIO,ENFERMERA FROM $MM_oirs_DATABASE.derivaciones WHERE ID_PACIENTE = '$idPaciente'";
+    $query_qrDerivacion = "SELECT ID_DERIVACION,FOLIO,ENFERMERA FROM $MM_oirs_DATABASE.derivaciones WHERE ID_PACIENTE = '$idPaciente'";
     $qrDerivacion = $oirs->SelectLimit($query_qrDerivacion) or die($oirs->ErrorMsg());
     $totalRows_qrDerivacion = $qrDerivacion->RecordCount();
 
@@ -59,10 +59,10 @@ foreach ($array as $value) {
         GetSQLValueString($idDerivacion, "text"), 
         GetSQLValueString($folio, "int"), 
         GetSQLValueString($rutPac, "date"), 
-        GetSQLValueString(utf8_decode($codPrestacion), "text"), 
-        GetSQLValueString(utf8_decode($cirugia), "text"), 
-        GetSQLValueString(utf8_decode($estado), "text"), 
-        GetSQLValueString(utf8_decode($idReserva), "int"), 
+        GetSQLValueString($codPrestacion, "text"), 
+        GetSQLValueString($cirugia, "text"), 
+        GetSQLValueString($estado, "text"), 
+        GetSQLValueString($idReserva, "int"), 
         GetSQLValueString($fechaReserva, "date"));
     $Result1 = $oirs->Execute($insertSQL) or die($oirs->ErrorMsg());
 

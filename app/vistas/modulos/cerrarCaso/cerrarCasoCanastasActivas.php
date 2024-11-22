@@ -32,7 +32,7 @@ $estado = 'finalizada';
 
 $updateSQL1 = sprintf("UPDATE $MM_oirs_DATABASE.derivaciones_canastas SET ESTADO=%s, OBSERVACION=%s, FECHA_FIN_CANASTA=%s, AUDITORIA=%s WHERE ID_DERIVACION = '$idDerivacion'",
             GetSQLValueString($estado, "text"),
-            GetSQLValueString(utf8_decode($observacion), "text"),
+            GetSQLValueString($observacion, "text"),
             GetSQLValueString($fechaFinCanasta, "date"),
             GetSQLValueString($auditoria, "date"));
 $Result1 = $oirs->Execute($updateSQL1) or die($oirs->ErrorMsg());
@@ -44,7 +44,7 @@ $hora= date('G:i');
 $insertSQL = sprintf("INSERT INTO $MM_oirs_DATABASE.bitacora (ID_DERIVACION, SESION, BITACORA, ASUNTO, AUDITORIA, HORA) VALUES (%s, %s, %s, %s, %s, %s)",
     GetSQLValueString($idDerivacion, "text"), 
     GetSQLValueString($usuario, "text"),
-    GetSQLValueString(utf8_decode($comentarioBitacora), "text"),
+    GetSQLValueString($comentarioBitacora, "text"),
     GetSQLValueString($asunto, "text"),
     GetSQLValueString($auditoria, "date"),
     GetSQLValueString($hora, "date"));

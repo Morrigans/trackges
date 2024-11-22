@@ -35,7 +35,7 @@ $totalRows_qrPresta = $qrPresta->RecordCount();
 				        <select name="slPrestaciones" id="slPrestaciones" class="form-control input-sm select2bs4" onchange="fnGuardaPaquetePrestacion()">
 				            <option value="">Seleccione...</option>
                   <?php while (!$qrPresta->EOF) {?>
-                    <option value="<?php echo $qrPresta->Fields('ID_PRESTACION') ?>"><?php echo utf8_encode($qrPresta->Fields('PRESTACION')) ?></option>
+                    <option value="<?php echo $qrPresta->Fields('ID_PRESTACION') ?>"><?php echo $qrPresta->Fields('PRESTACION') ?></option>
                   <?php $qrPresta->MoveNext(); } ?>
 				        </select>
 				        

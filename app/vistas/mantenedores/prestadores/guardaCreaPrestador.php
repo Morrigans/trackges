@@ -20,7 +20,7 @@ $auditoria= date('Y-m-d');
 $nombrePrestador = $_POST['nombrePrestador'];
 
 $insertSQL = sprintf("INSERT INTO $MM_oirs_DATABASE.prestador (DESC_PRESTADOR) VALUES (%s)",
-    GetSQLValueString(utf8_decode($nombrePrestador), "text"));
+    GetSQLValueString($nombrePrestador, "text"));
 $Result1 = $oirs->Execute($insertSQL) or die($oirs->ErrorMsg());
 
 // $nombrePrestador = $_POST['nombrePrestador'];

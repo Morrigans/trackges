@@ -57,11 +57,11 @@ $totalRows_func = $func->RecordCount();
 						<tr>
 					<?php  $idHospital=$func->Fields('ID_HOSPITAL'); ?> 
 		 				<?php   $idHospitalContacto=$func->Fields('ID_HOSPITAL_CONTACTO'); ?>	
-							<td><?php echo utf8_encode($func->Fields('NOMBRE')) ?></td>
-							<td><?php echo utf8_encode($func->Fields('EMAIL')) ?></td>
-							<td><?php echo utf8_encode($func->Fields('TELEFONO')) ?></td>
-							<td><?php echo utf8_encode($func->Fields('CARGO_UNIDAD')) ?></td>
-							<td><?php echo utf8_encode($func->Fields('OBSERVACION')) ?></td>													
+							<td><?php echo $func->Fields('NOMBRE') ?></td>
+							<td><?php echo $func->Fields('EMAIL') ?></td>
+							<td><?php echo $func->Fields('TELEFONO') ?></td>
+							<td><?php echo $func->Fields('CARGO_UNIDAD') ?></td>
+							<td><?php echo $func->Fields('OBSERVACION') ?></td>													
 							<td><div align="center"><a href="#" class="btn btn-danger btn-sm" onclick="preguntarSiNoEliminaPac('<?php echo $idHospitalContacto ?>','<?php echo $idHospital ?>')">Quitar</a></div></td>
 						</tr>
 						<?php

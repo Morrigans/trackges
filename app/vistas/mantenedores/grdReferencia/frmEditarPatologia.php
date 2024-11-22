@@ -11,7 +11,7 @@ $query_buscaPatologia= "SELECT * FROM $MM_oirs_DATABASE.patologia WHERE ID_PATOL
 $buscaPatologia = $oirs->SelectLimit($query_buscaPatologia) or die($oirs->ErrorMsg());
 $totalRows_buscaPatologia = $buscaPatologia->RecordCount();
 
-  $descPatologia= utf8_encode($buscaPatologia->Fields('DESC_PATOLOGIA'));
+  $descPatologia= $buscaPatologia->Fields('DESC_PATOLOGIA');
   $codPatologia= $buscaPatologia->Fields('CODIGO_PATOLOGIA');
   $idTipoPatologia= $buscaPatologia->Fields('ID_TIPO_PATOLOGIA');
   $diasVigencia= $buscaPatologia->Fields('DIAS_VIGENCIA');

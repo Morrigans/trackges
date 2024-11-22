@@ -73,7 +73,7 @@ $totalRows_qrPrevi = $qrPrevi->RecordCount();
 		  				</tr>
 		  				<tr>
 		  					<th>Nombre:</th>
-		  					<td><input type="" name="" id="inpNombre" class="form-control " value="<?php echo utf8_encode($qrPaciente->Fields('NOMBRE')); ?>" ></td>
+		  					<td><input type="" name="" id="inpNombre" class="form-control " value="<?php echo $qrPaciente->Fields('NOMBRE'); ?>" ></td>
 		  				</tr>
 		  				<tr>
 		  					<th>Fecha Nac:</th>
@@ -83,7 +83,7 @@ $totalRows_qrPrevi = $qrPrevi->RecordCount();
 		  					<th style="">Telefono:</th>
 		  					<td>
 		  						<div class="input-group mb-3">
-		  							<input type="" id="inpTelefono" class="form-control " value="<?php echo utf8_encode($qrPaciente->Fields('FONO')); ?>" >
+		  							<input type="" id="inpTelefono" class="form-control " value="<?php echo $qrPaciente->Fields('FONO'); ?>" >
 		  						</div>
 		  					</td>
 		  				</tr>
@@ -99,9 +99,9 @@ $totalRows_qrPrevi = $qrPrevi->RecordCount();
 		  					<th>Región:</th>
 		  					<td>
   					 	   <select class="form-control input-sm" name="slRegionPaciente" id="slRegionPaciente"  onchange="fnBuscaDomicilioProvincia()">
-	          				<option value="<?php echo utf8_encode($qrRegionPac->Fields('region_id')); ?>"><?php echo utf8_encode($qrRegionPac->Fields('region_nombre')); ?></option>
+	          				<option value="<?php echo $qrRegionPac->Fields('region_id'); ?>"><?php echo $qrRegionPac->Fields('region_nombre'); ?></option>
 	          				<?php while (!$qrRegion->EOF) {?>
-	           				<option value="<?php echo utf8_encode($qrRegion->Fields('region_id')); ?>"><?php echo $qrRegionPac->Fields('region_ordinal') ?> <?php echo utf8_encode($qrRegion->Fields('region_nombre')) ?></option>
+	           				<option value="<?php echo $qrRegion->Fields('region_id'); ?>"><?php echo $qrRegionPac->Fields('region_ordinal') ?> <?php echo $qrRegion->Fields('region_nombre') ?></option>
 				          <?php $qrRegion->MoveNext(); } ?>
 				      	</select>
 		  					</td>
@@ -110,9 +110,9 @@ $totalRows_qrPrevi = $qrPrevi->RecordCount();
 		  					<th>Provincia:</th>
 		  					<td>
 	  						  <select class="form-control input-sm" name="slProvinciaPaciente" id="slProvinciaPaciente" onchange="fnBuscaDomicilioComuna()">
-	  						 		<option value="<?php echo utf8_encode($qrProvinciaPac->Fields('provincia_id')); ?>"><?php echo utf8_encode($qrProvinciaPac->Fields('provincia_nombre')); ?></option>
+	  						 		<option value="<?php echo $qrProvinciaPac->Fields('provincia_id'); ?>"><?php echo $qrProvinciaPac->Fields('provincia_nombre'); ?></option>
 	  						 		<?php while (!$qrProvincia->EOF) {?>
-			           		<option value="<?php echo utf8_encode($qrProvincia->Fields('provincia_id')); ?>"><?php echo utf8_encode($qrProvincia->Fields('provincia_nombre')) ?></option>
+			           		<option value="<?php echo $qrProvincia->Fields('provincia_id'); ?>"><?php echo $qrProvincia->Fields('provincia_nombre') ?></option>
 				          	<?php $qrProvincia->MoveNext(); } ?>
 		  						</select>
 		  					</td>
@@ -121,31 +121,31 @@ $totalRows_qrPrevi = $qrPrevi->RecordCount();
 		  					<th>Comuna:</th>
 		  					<td>
 		  						<select class="form-control input-sm" name="slComunaPaciente" id="slComunaPaciente">
-				          	<option value="<?php echo utf8_encode($qrComunaPac->Fields('comuna_id')); ?>"><?php echo utf8_encode($qrComunaPac->Fields('comuna_nombre')); ?></option>
+				          	<option value="<?php echo $qrComunaPac->Fields('comuna_id'); ?>"><?php echo $qrComunaPac->Fields('comuna_nombre'); ?></option>
 				          	<?php while (!$qrComuna->EOF) {?>
-				           				 <option value="<?php echo utf8_encode($qrComuna->Fields('comuna_id')); ?>"><?php echo utf8_encode($qrComuna->Fields('comuna_nombre')) ?></option>
+				           				 <option value="<?php echo $qrComuna->Fields('comuna_id'); ?>"><?php echo $qrComuna->Fields('comuna_nombre') ?></option>
 				          	<?php $qrComuna->MoveNext(); } ?>
 				        	</select>
 		  					</td>
 		  				</tr>
 		  				<tr>
 		  					<th>Dirección:</th>
-		  					<td><input type=""  id="inpDireccion" class="form-control" value="<?php echo utf8_encode($qrPaciente->Fields('DIRECCION')); ?>" ></td>
+		  					<td><input type=""  id="inpDireccion" class="form-control" value="<?php echo $qrPaciente->Fields('DIRECCION'); ?>" ></td>
 		  				</tr>
 		  				<tr>
 		  					<th>Previsión:</th>
-		  					<td><?php echo utf8_encode($qrPrevi->Fields('PREVISION')); ?>
-		  						<input type="hidden"  id="slPrevisonPaciente" name="hdPrevisonPaciente" class="form-control" value="<?php echo utf8_encode($qrPrevi->Fields('ID')); ?>" >
+		  					<td><?php echo $qrPrevi->Fields('PREVISION'); ?>
+		  						<input type="hidden"  id="slPrevisonPaciente" name="hdPrevisonPaciente" class="form-control" value="<?php echo $qrPrevi->Fields('ID'); ?>" >
 							    
 		  					</td>
 		  				</tr>
 		  				<!-- <tr>
 		  					<th>Plan salud:</th>
-		  					<td><?php echo utf8_encode($qrPaciente->Fields('PLAN_SALUD')); ?></td>
+		  					<td><?php echo $qrPaciente->Fields('PLAN_SALUD'); ?></td>
 		  				</tr>
 		  				<tr>
 		  					<th>Cía Seguro:</th>
-		  					<td><?php echo utf8_encode($qrPaciente->Fields('COMPAÑIA_SEGURO')); ?></td>
+		  					<td><?php echo $qrPaciente->Fields('COMPAÑIA_SEGURO'); ?></td>
 		  				</tr> -->
 		  			</table>
 		  		</div>		

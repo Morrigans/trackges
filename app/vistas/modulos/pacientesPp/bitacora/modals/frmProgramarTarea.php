@@ -39,7 +39,7 @@ $minimo = date("Y-m-d",strtotime($hoy."+ 0 days"));
         	<div class="row">
         		<div class="input-group mb-3 col-sm-12">
         			<em>Mensaje a alertar:<br>
-		            "<?php echo utf8_encode($mensaje); ?>"</em><br><br>
+		            "<?php echo $mensaje; ?>"</em><br><br>
 		        </div>
 				<div class="input-group mb-3 col-sm-6">
 				  <div class="input-group-prepend">
@@ -55,7 +55,7 @@ $minimo = date("Y-m-d",strtotime($hoy."+ 0 days"));
 				  <select id="usuarioReceptor" class="form-control input-sm" onchange="fnProgramarTarea('<?php echo $idBitacora ?>','<?php echo $usuario ?>','<?php echo $idDerivacion ?>')">
 				  		<option value="">Seleccione...</option>
 				  		<?php while (!$qrLogin->EOF) {?>
-				  		  <option value="<?php echo $qrLogin->Fields('USUARIO') ?>"><?php echo utf8_encode($qrLogin->Fields('NOMBRE')) ?></option>
+				  		  <option value="<?php echo $qrLogin->Fields('USUARIO') ?>"><?php echo $qrLogin->Fields('NOMBRE') ?></option>
 				  		<?php $qrLogin->MoveNext(); } ?>
 				  </select>
 				</div>

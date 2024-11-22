@@ -52,7 +52,7 @@ $totalRows_qrDerivacion = $qrDerivacion->RecordCount();
 	        <div align="center" class="icon">
 	      		<i class="fas fa-user-circle"></i>
 	        </div>
-	        <h3><?php echo utf8_encode($qrDerivacion->Fields('NOMBRE_PACIENTE'))?></h3>
+	        <h3><?php echo $qrDerivacion->Fields('NOMBRE_PACIENTE')?></h3>
 
 	    	<p class="text-muted text-center"><span class="badge badge-success">Registrado</span></p>
 	    </div>
@@ -65,10 +65,10 @@ $totalRows_qrDerivacion = $qrDerivacion->RecordCount();
 	        <b>Fecha Derivación: </b> <a class="float-right"><?php echo date("d-m-Y", strtotime($qrDerivacion->Fields('FECHA_DERIVACION')))?></a>
 	      </li>
 	      <li class="list-group-item">
-	        <b>Patología: </b> <a class="float-right"><?php echo  utf8_encode($qrDerivacion->Fields('DESC_PATOLOGIA')); ?></a>
+	        <b>Patología: </b> <a class="float-right"><?php echo  $qrDerivacion->Fields('DESC_PATOLOGIA'); ?></a>
 	      </li>
 	      <li class="list-group-item">
-	        <b>Gestora: </b> <a class="float-right"><?php echo  utf8_encode($qrDerivacion->Fields('NOMBRE_PROFESIONAL')); ?></a>
+	        <b>Gestora: </b> <a class="float-right"><?php echo  $qrDerivacion->Fields('NOMBRE_PROFESIONAL'); ?></a>
 	      </li>
 	    </ul>
 

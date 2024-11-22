@@ -24,7 +24,7 @@ $totalRows_qrDerivacion = $qrDerivacion->RecordCount();
 $idDerivacion = $qrDerivacion->Fields('ID_DERIVACION');
 $receptor = $qrDerivacion->Fields('USUARIO_EMISOR');
 $idBitacora = $qrDerivacion->Fields('ID_BITACORA');
-$asunto = utf8_encode($qrDerivacion->Fields('ASUNTO'));
+$asunto = $qrDerivacion->Fields('ASUNTO');
 date_default_timezone_set('America/Santiago');
 $auditoria= date('Y-m-d');
 $hora= date('G:i');
@@ -32,8 +32,8 @@ $hora= date('G:i');
 $insertSQL = sprintf("INSERT INTO $MM_oirs_DATABASE.bitacora (ID_DERIVACION, SESION, BITACORA, ASUNTO, AUDITORIA, HORA) VALUES (%s, %s, %s, %s, %s, %s)",
     GetSQLValueString($idDerivacion, "text"), 
     GetSQLValueString($usuario, "text"),
-    GetSQLValueString(utf8_decode($respuesta), "text"),
-    GetSQLValueString(utf8_decode($asunto), "text"),
+    GetSQLValueString($respuesta, "text"),
+    GetSQLValueString($asunto, "text"),
     GetSQLValueString($auditoria, "date"),
     GetSQLValueString($hora, "date"));
 $Result1 = $oirs->Execute($insertSQL) or die($oirs->ErrorMsg());
@@ -50,8 +50,8 @@ $estadoNoti = 'nuevo';
     GetSQLValueString($idDerivacion, "int"),
     GetSQLValueString($id, "int"),
     GetSQLValueString($receptor, "text"),// este es el rut del emisor original que recibira la respuesta
-    GetSQLValueString(utf8_decode($asunto), "text"),
-    GetSQLValueString(utf8_decode($respuesta), "text"),
+    GetSQLValueString($asunto, "text"),
+    GetSQLValueString($respuesta, "text"),
     GetSQLValueString($auditoria, "date"),
     GetSQLValueString($hora, "date"),
     GetSQLValueString($estadoNoti, "text"),

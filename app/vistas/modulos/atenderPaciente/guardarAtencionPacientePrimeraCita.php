@@ -29,10 +29,10 @@ $insertSQL = sprintf("INSERT INTO $MM_oirs_DATABASE.atenciones (ID_DERIVACION, I
     GetSQLValueString($idCitacion, "int"),
     GetSQLValueString($slAtiendePaciente, "text"),
     GetSQLValueString($slCorrespondeCanasta, "text"),
-    GetSQLValueString(utf8_decode($slComentarioAtiendePaciente), "text"),
+    GetSQLValueString($slComentarioAtiendePaciente, "text"),
     GetSQLValueString($auditoria, "date"),
     GetSQLValueString($hora, "date"),
-    GetSQLValueString(utf8_decode($rutaAdjuntaDocAtencion), "text"));
+    GetSQLValueString($rutaAdjuntaDocAtencion, "text"));
 $Result1 = $oirs->Execute($insertSQL) or die($oirs->ErrorMsg());
 
 $estado = 'primeraConsultaAtendida';
@@ -66,11 +66,11 @@ $idUsuario = $_SESSION['idUsuario'];
 $insertSQL = sprintf("INSERT INTO $MM_oirs_DATABASE.bitacora (ID_DERIVACION, SESION, BITACORA, ASUNTO, AUDITORIA, HORA, RUTA_DOCUMENTO) VALUES (%s, %s, %s, %s, %s, %s, %s)",
     GetSQLValueString($idDerivacion, "text"), 
     GetSQLValueString($usuario, "text"),
-    GetSQLValueString(utf8_decode($comentarioBitacora), "text"),
+    GetSQLValueString($comentarioBitacora, "text"),
     GetSQLValueString($asunto, "text"),
     GetSQLValueString($auditoria, "date"),
     GetSQLValueString($hora, "date"),
-    GetSQLValueString(utf8_decode($rutaAdjuntaDocAtencion), "text"));
+    GetSQLValueString($rutaAdjuntaDocAtencion, "text"));
 $Result1 = $oirs->Execute($insertSQL) or die($oirs->ErrorMsg());
 
 echo 1;

@@ -30,7 +30,7 @@ $totalRows_func = $func->RecordCount();
 	<body>
       <div class="card card-secondary">
         <div class="card-header">
-          <h3 class="card-title">Detalle paquete: <KBD><?php echo utf8_encode($func->Fields("DESC_PAQUETE")); ?></KBD></h3>
+          <h3 class="card-title">Detalle paquete: <KBD><?php echo $func->Fields("DESC_PAQUETE"); ?></KBD></h3>
           <div class="card-tools">
             <button type="button" class="btn bg-secondary btn-sm" data-card-widget="collapse">
               <i class="fas fa-minus"></i>
@@ -51,7 +51,7 @@ $totalRows_func = $func->RecordCount();
 					<tbody>
 						<?php
 					while (!$func->EOF) {
-						$prestacion = utf8_encode($func->Fields('PRESTACION'));
+						$prestacion = $func->Fields('PRESTACION');
 				
 			    	?>
 						<tr>

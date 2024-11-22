@@ -22,7 +22,7 @@ $colorProfesion = $_POST['colorProfesion'];
 
 
 $insertSQL = sprintf("INSERT INTO $MM_oirs_DATABASE.profesion (PROFESION, VALOR_PAGO, COLOR) VALUES (%s, %s, %s)",
-    GetSQLValueString(utf8_decode($profesion), "text"),
+    GetSQLValueString($profesion, "text"),
     GetSQLValueString($pagoProfesional, "int"),
     GetSQLValueString($colorProfesion, "text")); 
 $Result1 = $oirs->Execute($insertSQL) or die($oirs->ErrorMsg());

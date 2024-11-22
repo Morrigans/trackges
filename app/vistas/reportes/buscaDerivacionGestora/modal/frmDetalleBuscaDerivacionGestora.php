@@ -83,7 +83,7 @@ $totalRows_qrDerivacionCanasta = $qrDerivacionCanasta->RecordCount();
 					<!-- <td><div><strong>N° DERIVACION:</strong> <?php echo $qrDerivacion->Fields('N_DERIVACION'); ?></div></td>	 -->								
 				</tr>
 				<tr>
-					<td><div><strong>NOMBRE DEL PACIENTE:</strong> <?php echo utf8_encode($qrPaciente->Fields('NOMBRE')); ?></div></td>										
+					<td><div><strong>NOMBRE DEL PACIENTE:</strong> <?php echo $qrPaciente->Fields('NOMBRE'); ?></div></td>										
 				</tr>
 				<tr>
 					<td><div><strong>RUT:</strong><?php echo $codRutPac; ?></div></td>									
@@ -95,10 +95,10 @@ $totalRows_qrDerivacionCanasta = $qrDerivacionCanasta->RecordCount();
 					<td><div><strong>TIPO PATOLOGIA:</strong> <?php echo $qrTipoPatologia->Fields('DESC_TIPO_PATOLOGIA'); ?> </div></td>				
 				</tr>
 				<tr>					
-					<td><div><strong>PATOLOGIA:</strong> <?php echo utf8_encode ($qrPatologia->Fields('DESC_PATOLOGIA')); ?> </div></td>				
+					<td><div><strong>PATOLOGIA:</strong> <?php echo $qrPatologia->Fields('DESC_PATOLOGIA'); ?> </div></td>				
 				</tr>
 				<tr>					
-					<td><div><strong>ESTADO:</strong> <?php echo utf8_encode($qrDerivacionCanasta->Fields('ESTADO')); ?> </div></td>				
+					<td><div><strong>ESTADO:</strong> <?php echo $qrDerivacionCanasta->Fields('ESTADO'); ?> </div></td>				
 				</tr>
 				
 			</table>
@@ -143,12 +143,12 @@ $totalRows_qrDerivacionCanasta = $qrDerivacionCanasta->RecordCount();
 					 ?>
 
 						<tr>
-						<td><?php echo utf8_encode($qrCanastaPatologia->Fields('DESC_CANASTA_PATOLOGIA')); ?></td>
-						<td><?php echo utf8_encode($qrEtapaPatologia->Fields('DESC_ETAPA_PATOLOGIA')); ?></td>
+						<td><?php echo $qrCanastaPatologia->Fields('DESC_CANASTA_PATOLOGIA'); ?></td>
+						<td><?php echo $qrEtapaPatologia->Fields('DESC_ETAPA_PATOLOGIA'); ?></td>
 						<td><?php echo date("d-m-Y",strtotime($qrDerivacionCanasta->Fields('FECHA_CANASTA'))); ?></td>
 						<td><?php echo date("d-m-Y",strtotime($qrDerivacionCanasta->Fields('FECHA_LIMITE'))); ?></td>
 						<td><?php echo date("d-m-Y",strtotime($qrDerivacionCanasta->Fields('FECHA_FIN_CANASTA'))); ?></td>
-						<td><?php echo utf8_encode($qrPrestador->Fields('DESC_PRESTADOR')); ?></td>
+						<td><?php echo $qrPrestador->Fields('DESC_PRESTADOR'); ?></td>
 						 
 						</tr>
 						<?php

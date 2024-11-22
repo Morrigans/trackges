@@ -39,7 +39,7 @@ $totalRows_patologia = $patologia->RecordCount();
 						<?php
 					while (!$patologia->EOF) { ?>
 						<tr>
-							<td><?php echo utf8_encode($patologia->Fields('DESC_PATOLOGIA')); ?></td>
+							<td><?php echo $patologia->Fields('DESC_PATOLOGIA'); ?></td>
 							<td><?php echo $patologia->Fields('CODIGO_PATOLOGIA'); ?></td>
 							<td><?php echo $patologia->Fields('DIAS_VIGENCIA'); ?></td>
 							<td>

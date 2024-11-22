@@ -40,7 +40,7 @@ $totalRows_func = $func->RecordCount();
 						while (!$func->EOF) {
 				    	?>
 							<tr>
-								<td><?php echo utf8_encode($func->Fields('PROFESION')); ?></td>
+								<td><?php echo $func->Fields('PROFESION'); ?></td>
 								<td><small style="background-color:<?php echo $func->Fields('COLOR'); ?>;"><?php echo $func->Fields('COLOR'); ?></small></td>
 							</tr>
 							<?php

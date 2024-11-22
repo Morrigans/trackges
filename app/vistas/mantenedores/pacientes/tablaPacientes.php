@@ -66,20 +66,20 @@ $totalRows_func = $func->RecordCount();
 			    	?>			    	
 						<tr>
 							<td><?php echo $func->Fields('COD_RUTPAC'); ?></td>
-							<td><!-- <?php echo utf8_encode($func->Fields('NOMBRE')) ?>
+							<td><!-- <?php echo $func->Fields('NOMBRE') ?>
 							<button type="button" class="btn" data-toggle="modal" data-target="#modalInfoPaciente" onclick="fnLevantaModalInfoPaciente(<?php echo $rutPaciente ?>)"><i class="fas fa-info-circle"></i></button> -->
-								<a href="#" onclick="fnLevantaModalInfoPaciente('<?php echo $rutPaciente ?>')"><?php echo utf8_encode($func->Fields('NOMBRE')) ?></a>	
+								<a href="#" onclick="fnLevantaModalInfoPaciente('<?php echo $rutPaciente ?>')"><?php echo $func->Fields('NOMBRE') ?></a>	
 							</td>
 							<td><?php echo date("d-m-Y", strtotime($func->Fields('FEC_NACIMI'))); ?></td>
-							<td><?php echo utf8_encode($func->Fields('FONO')) ?></td>
-							<td><?php echo utf8_encode($func->Fields('MAIL')) ?></td>
-							<td><?php echo utf8_encode($comuna) ?></td>
-							<td><?php echo utf8_encode($func->Fields('DIRECCION')) ?></td>
-							<td><?php echo utf8_encode($func->Fields('OCUPACION')) ?></td>
-							<td><?php echo utf8_encode($prevision) ?></td>
-							<td><?php echo utf8_encode($func->Fields('PLAN_SALUD')) ?></td>
-							<td><?php echo utf8_encode($func->Fields('SEGURO_COMPLEMENTARIO')) ?></td>
-							<td><?php echo utf8_encode($func->Fields('COMPANIA_SEGURO')) ?></td>
+							<td><?php echo $func->Fields('FONO') ?></td>
+							<td><?php echo $func->Fields('MAIL') ?></td>
+							<td><?php echo $comuna ?></td>
+							<td><?php echo $func->Fields('DIRECCION') ?></td>
+							<td><?php echo $func->Fields('OCUPACION') ?></td>
+							<td><?php echo $prevision ?></td>
+							<td><?php echo $func->Fields('PLAN_SALUD') ?></td>
+							<td><?php echo $func->Fields('SEGURO_COMPLEMENTARIO') ?></td>
+							<td><?php echo $func->Fields('COMPANIA_SEGURO') ?></td>
 							<td><div align="center"><a href="#" class="btn btn-danger btn-sm" onclick="preguntarSiNoEliminaPac(<?php echo $func->Fields('ID'); ?>)">Quitar</a></div></td>
 						</tr>
 						<?php

@@ -13,7 +13,7 @@ $totalRows_select = $select->RecordCount();
  <option value="">Seleccione...</option> 
  <?php
 while(!$select->EOF){  ?> 	 
-    <option value="<?php echo $select->Fields('ID_SUBESPECIALIDAD')?>"><?php echo utf8_encode($select->Fields('SUBESPECIALIDAD'))?></option>
+    <option value="<?php echo $select->Fields('ID_SUBESPECIALIDAD')?>"><?php echo $select->Fields('SUBESPECIALIDAD')?></option>
 <?php
   $select->MoveNext();
   } 

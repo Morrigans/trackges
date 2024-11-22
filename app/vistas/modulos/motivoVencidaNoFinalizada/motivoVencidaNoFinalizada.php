@@ -30,7 +30,7 @@ $query_qrMotivo= "SELECT * FROM $MM_oirs_DATABASE.motivo_vencida_no_finalizada W
 $qrMotivo = $oirs->SelectLimit($query_qrMotivo) or die($oirs->ErrorMsg());
 $totalRows_qrMotivo = $qrMotivo->RecordCount();
 
-$motivo = utf8_encode($qrMotivo->Fields('MOTIVO'));
+$motivo = $qrMotivo->Fields('MOTIVO');
 
 $comentarioBitacora = 'A la derivacion R0'.$idDerivacion.' se le asigna el motivo de vencimiento: '.$motivo;
 $asunto= 'Cierre pendiente';
@@ -41,7 +41,7 @@ $idUsuario = $_SESSION['idUsuario'];
 $insertSQL = sprintf("INSERT INTO $MM_oirs_DATABASE.bitacora (ID_DERIVACION, SESION, BITACORA, ASUNTO, AUDITORIA, HORA) VALUES (%s, %s, %s, %s, %s, %s)",
     GetSQLValueString($idDerivacion, "text"), 
     GetSQLValueString($usuario, "text"),
-    GetSQLValueString(utf8_decode($comentarioBitacora), "text"),
+    GetSQLValueString($comentarioBitacora, "text"),
     GetSQLValueString($asunto, "text"),
     GetSQLValueString($auditoria, "date"),
     GetSQLValueString($hora, "date"));

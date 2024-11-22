@@ -85,13 +85,13 @@ foreach ($array as $value) {
 
 
         //registro en bitacora la nueva hospitalizacion
-        $comentarioBitacora = 'El paciente '.utf8_encode($nomPaciente).' registra un ingreso a urgencias con id de admision '.$value['id_urgencia'].' en area de atencion '.$value['area_atencion'];
+        $comentarioBitacora = 'El paciente '.$nomPaciente.' registra un ingreso a urgencias con id de admision '.$value['id_urgencia'].' en area de atencion '.$value['area_atencion'];
         $asunto= 'Ingreso urgencia';
 
         $insertSQL = sprintf("INSERT INTO $MM_oirs_DATABASE.bitacora (ID_DERIVACION, SESION, BITACORA, ASUNTO, AUDITORIA, HORA) VALUES (%s, %s, %s, %s, %s, %s)",
             GetSQLValueString($idDerivacion, "text"), 
             GetSQLValueString('99.999.999-9', "text"),
-            GetSQLValueString(utf8_decode($comentarioBitacora), "text"),
+            GetSQLValueString($comentarioBitacora, "text"),
             GetSQLValueString($asunto, "text"),
             GetSQLValueString($auditoria, "date"),
             GetSQLValueString($hora, "date"));
@@ -109,8 +109,8 @@ foreach ($array as $value) {
         $insertSQL2 = sprintf("INSERT INTO $MM_oirs_DATABASE.notificaciones (ID_DERIVACION, USUARIO, ASUNTO, MENSAJE, FECHA, HORA, ESTADO, USUARIO_EMISOR) VALUES (%s, %s, %s, %s, %s, %s, %s, %s)",
             GetSQLValueString($idDerivacion, "int"),
             GetSQLValueString($receptor, "text"),
-            GetSQLValueString(utf8_decode($asunto), "text"),
-            GetSQLValueString(utf8_decode($comentarioBitacora), "text"),
+            GetSQLValueString($asunto, "text"),
+            GetSQLValueString($comentarioBitacora, "text"),
             GetSQLValueString($auditoria, "date"),
             GetSQLValueString($hora, "date"),
             GetSQLValueString($estadoNoti, "text"),
@@ -128,8 +128,8 @@ foreach ($array as $value) {
             $insertSQL2 = sprintf("INSERT INTO $MM_oirs_DATABASE.notificaciones (ID_DERIVACION, USUARIO, ASUNTO, MENSAJE, FECHA, HORA, ESTADO, USUARIO_EMISOR) VALUES (%s, %s, %s, %s, %s, %s, %s, %s)",
                 GetSQLValueString($idDerivacion, "int"),
                 GetSQLValueString($supervisor, "text"),
-                GetSQLValueString(utf8_decode($asunto), "text"),
-                GetSQLValueString(utf8_decode($comentarioBitacora), "text"),
+                GetSQLValueString($asunto, "text"),
+                GetSQLValueString($comentarioBitacora, "text"),
                 GetSQLValueString($auditoria, "date"),
                 GetSQLValueString($hora, "date"),
                 GetSQLValueString($estadoNoti, "text"),

@@ -49,14 +49,14 @@ $totalRows_qrBuscaAlarmas = $qrBuscaAlarmas->RecordCount();
 		$ruta = $qrBuscaBitacora->Fields('RUTA_DOCUMENTO');
 		?>
 		<tr>
-			<td><?php echo utf8_encode($slProfesional->Fields('NOMBRE')); ?></td>
+			<td><?php echo $slProfesional->Fields('NOMBRE'); ?></td>
 			<td>
 				<a href="#" data-dismiss="modal"><span class="badge badge-warning" data-toggle="modal" data-target="#modalBitacora" onclick="fnfrmBitacora('<?php echo $qrBuscaBitacora->Fields('ID_DERIVACION') ?>')"><?php echo 'D0'.$qrBuscaBitacora->Fields('ID_DERIVACION'); ?><br>
 			</span></a><font size="3"><br><?php echo date("d-m-Y",strtotime($qrBuscaAlarmas->Fields('FECHA_ALARMA'))); ?></font>
 			</td>
 			<td>
 				<font size="3"><?php 
-				echo utf8_encode($qrBuscaAlarmas->Fields('MENSAJE'));?><br> 
+				echo $qrBuscaAlarmas->Fields('MENSAJE');?><br> 
 				<?php if($qrBuscaBitacora->Fields('RUTA_DOCUMENTO')!='' and $qrBuscaBitacora->Fields('SESION') != null){ ?>
 				<span class=""><a target="_blank" class="btn btn-xs btn-success" href="vistas/bitacora/adjuntaDoc/<?php echo $ruta; ?>" ><i class="far fa-file-pdf"></i></a></span>
 				<?php } 

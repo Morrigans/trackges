@@ -73,7 +73,7 @@ $totalRows_qrNotificaciónIcrs = $qrNotificaciónIcrs->RecordCount();
 						  	    	<?php while (!$qrNotificaciónIcrs->EOF) {?>
 						  	    	<div class="dropdown-divider"></div>
 						  	    	<a href="#" class="dropdown-item" data-toggle="modal" data-target="#modalMensajeRecibidoIcrs" onclick="fnVerMensajeRecibidoIcrs(<?php echo $qrNotificaciónIcrs->Fields('ID'); ?>)">
-						  	      		<i class="fas fa-envelope mr-2"></i> <?php echo utf8_encode($qrNotificaciónIcrs->Fields('ASUNTO')); ?><br>&ensp;&ensp;&ensp;<span class="text-muted text-sm"><?php echo date("d-m-Y",strtotime($qrNotificaciónIcrs->Fields('FECHA'))); ?></span><span class="float-right text-muted text-sm"><?php echo date("G:i",strtotime($qrNotificaciónIcrs->Fields('HORA'))); ?></span>
+						  	      		<i class="fas fa-envelope mr-2"></i> <?php echo $qrNotificaciónIcrs->Fields('ASUNTO'); ?><br>&ensp;&ensp;&ensp;<span class="text-muted text-sm"><?php echo date("d-m-Y",strtotime($qrNotificaciónIcrs->Fields('FECHA'))); ?></span><span class="float-right text-muted text-sm"><?php echo date("G:i",strtotime($qrNotificaciónIcrs->Fields('HORA'))); ?></span>
 						  	    	</a>
 						  	    	<?php $qrNotificaciónIcrs->MoveNext();
 									}?>
@@ -111,7 +111,7 @@ $totalRows_qrNotificaciónIcrs = $qrNotificaciónIcrs->RecordCount();
 				  	    	<?php while (!$qrNotificación->EOF) {?>
 				  	    	<div class="dropdown-divider"></div>
 				  	    	<a href="#" class="dropdown-item" data-toggle="modal" data-target="#modalMensajeRecibido" onclick="fnVerMensajeRecibido(<?php echo $qrNotificación->Fields('ID'); ?>)">
-				  	      		<i class="fas fa-envelope mr-2"></i> <?php echo utf8_encode($qrNotificación->Fields('ASUNTO')).' R0'.$qrNotificación->Fields('ID_DERIVACION'); ?><br>&ensp;&ensp;&ensp;<span class="text-muted text-sm"><?php echo date("d-m-Y",strtotime($qrNotificación->Fields('FECHA'))); ?></span><span class="float-right text-muted text-sm"><?php echo date("G:i",strtotime($qrNotificación->Fields('HORA'))); ?></span>
+				  	      		<i class="fas fa-envelope mr-2"></i> <?php echo $qrNotificación->Fields('ASUNTO').' R0'.$qrNotificación->Fields('ID_DERIVACION'); ?><br>&ensp;&ensp;&ensp;<span class="text-muted text-sm"><?php echo date("d-m-Y",strtotime($qrNotificación->Fields('FECHA'))); ?></span><span class="float-right text-muted text-sm"><?php echo date("G:i",strtotime($qrNotificación->Fields('HORA'))); ?></span>
 				  	    	</a>
 				  	    	<?php $qrNotificación->MoveNext();
 							}?>
@@ -138,7 +138,7 @@ $totalRows_qrNotificaciónIcrs = $qrNotificaciónIcrs->RecordCount();
 			    	    	<?php while (!$qrNotificación2->EOF) {?>
 			    	    	<div class="dropdown-divider"></div>
 			    	    	<a href="#" class="dropdown-item" data-toggle="modal" data-target="#modalMensajeRecibido" onclick="fnVerMensajeRecibido(<?php echo $qrNotificación2->Fields('ID'); ?>)">
-			    	      		<i class="fas fa-envelope mr-2"></i> <?php echo utf8_encode($qrNotificación2->Fields('ASUNTO')).' R0'.$qrNotificación2->Fields('ID_DERIVACION'); ?><br>&ensp;&ensp;&ensp;<span class="text-muted text-sm"><?php echo date("d-m-Y",strtotime($qrNotificación2->Fields('FECHA'))); ?></span><span class="float-right text-muted text-sm"><?php echo date("G:i",strtotime($qrNotificación2->Fields('HORA'))); ?></span>
+			    	      		<i class="fas fa-envelope mr-2"></i> <?php echo $qrNotificación2->Fields('ASUNTO').' R0'.$qrNotificación2->Fields('ID_DERIVACION'); ?><br>&ensp;&ensp;&ensp;<span class="text-muted text-sm"><?php echo date("d-m-Y",strtotime($qrNotificación2->Fields('FECHA'))); ?></span><span class="float-right text-muted text-sm"><?php echo date("G:i",strtotime($qrNotificación2->Fields('HORA'))); ?></span>
 			    	    	</a>
 			    	    	<?php $qrNotificación2->MoveNext();
 			  				}?>

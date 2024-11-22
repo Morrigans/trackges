@@ -16,7 +16,7 @@ $totalRows_func = $func->RecordCount(); ?>
 
 while (!$func->EOF) {
  
-   echo '<option value="'.$func->Fields('provincia_id').'">'.utf8_encode($func->Fields('provincia_nombre')).'</option>';
+   echo '<option value="'.$func->Fields('provincia_id').'">'.$func->Fields('provincia_nombre').'</option>';
  $func->MoveNext(); } 
 
 

@@ -65,7 +65,7 @@ $insertSQL = sprintf("INSERT INTO $MM_oirs_DATABASE.bitacora_pp (ID_DERIVACION,I
     GetSQLValueString($idPrestador, "int"), 
     GetSQLValueString($idDerivacionPp, "int"), 
     GetSQLValueString($usuario, "text"),
-    GetSQLValueString(utf8_decode($comentarioBitacora), "text"),
+    GetSQLValueString($comentarioBitacora, "text"),
     GetSQLValueString($asunto, "text"),
     GetSQLValueString($auditoria, "date"),
     GetSQLValueString($hora, "date"));
@@ -85,12 +85,12 @@ if ($idDerivacionPp != '') {
 
     $ultimoIdBitacoraPp=$qrBuscaUltimoRegistroBitPp->Fields('ID_BITACORA');
 
-    $comentarioBitacoraPp = 'La derivación número ' . $qrDerivacion->Fields('ID_DERIVACION_PP') . ' del paciente ' . utf8_encode($qrNomPaciente->Fields('NOMBRE')) . ' rut ' . $codRutPac . ' ha sido aceptada.';
+    $comentarioBitacoraPp = 'La derivación número ' . $qrDerivacion->Fields('ID_DERIVACION_PP') . ' del paciente ' . $qrNomPaciente->Fields('NOMBRE') . ' rut ' . $codRutPac . ' ha sido aceptada.';
 
     $insertSQL = sprintf("INSERT INTO $MM_icrs_DATABASE.bitacora (ID_DERIVACION, SESION, BITACORA, ASUNTO, AUDITORIA, HORA,ID_BITACORA_REMOTO) VALUES (%s, %s, %s, %s, %s, %s, %s)",
         GetSQLValueString($idDerivacionPp, "int"),     
         GetSQLValueString('CRSS', "text"),
-        GetSQLValueString(utf8_decode($comentarioBitacoraPp), "text"),
+        GetSQLValueString($comentarioBitacoraPp, "text"),
         GetSQLValueString($asunto, "text"),
         GetSQLValueString($auditoria, "date"),
         GetSQLValueString($hora, "date"),
@@ -103,7 +103,7 @@ if ($idDerivacionPp != '') {
       
         GetSQLValueString($gestora, "text"),
         GetSQLValueString($asuntoPp, "text"),
-        GetSQLValueString(utf8_decode($comentarioBitacoraPp), "text"),
+        GetSQLValueString($comentarioBitacoraPp, "text"),
         GetSQLValueString($auditoria, "date"),
         GetSQLValueString($hora, "date"),
         GetSQLValueString($estadoNoti, "text"),

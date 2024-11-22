@@ -24,11 +24,11 @@ $idDerivacion = $qrNotificación->Fields('ID_DERIVACION');
 ?>
 <strong>Fecha:</strong> <?php echo date("d-m-Y",strtotime($fecha)); ?><br>
 <strong>Hora:</strong> <?php echo $hora; ?>
-<p><strong>Asunto:</strong> <?php echo utf8_encode($asunto); ?><br>
+<p><strong>Asunto:</strong> <?php echo $asunto; ?><br>
 <strong>Derivación:</strong> <a href="#" data-dismiss="modal"><span class="badge badge-warning" data-toggle="modal" data-target="#modalBitacora" onclick="fnfrmBitacora('<?php echo $qrNotificación->Fields('ID_DERIVACION') ?>')"><font size="3"><?php echo 'R0'.$qrNotificación->Fields('ID_DERIVACION'); ?></font></span></a></p><br>
 <!-- <strong>mensaje:</strong> -->
 <p><?php
-	 echo utf8_encode(nl2br($mensaje)); 
+	 echo nl2br($mensaje); 
 	
 	 if ($idRespuesta != '') {
 	 	$query_qrRespuestas = "SELECT * FROM $MM_oirs_DATABASE.notificaciones where ID='$idRespuesta'";
@@ -40,7 +40,7 @@ $idDerivacion = $qrNotificación->Fields('ID_DERIVACION');
 	 	<span class="text-muted"><br><br>
 	 		<!-- <strong>Mensaje:</strong> -->
 	 		<br>
-	 		<?php echo utf8_encode(nl2br($mensajeOriginal)); ?></span> 
+	 		<?php echo nl2br($mensajeOriginal); ?></span> 
 
 	 <?php }else{ ?><br>
 	 	<!-- <button type="button" id="btnResponderNotificacion" class="btn btn-info btn-xs" onclick="fnResponderNotificacion(<?php echo $id ?>)">Responder</button> -->

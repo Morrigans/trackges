@@ -82,7 +82,7 @@ $totalRows_qrDerivacion = $qrDerivacion->RecordCount();
 		<tr>
 			<td><font size="2"><?php echo $qrDerivacion->Fields('N_DERIVACION') ?></font></td>
 			<td><font size="2"><?php echo $qrDerivacion->Fields('COD_RUTPAC') ?></font></td>
-			<td><font size="2"><?php echo utf8_encode($qrDerivacion->Fields('NOMBRE')) ?></font></td>
+			<td><font size="2"><?php echo $qrDerivacion->Fields('NOMBRE') ?></font></td>
 			<td><font size="2"><?php echo $qrDerivacion->Fields('PREVISION') ?></font></td>
 			<td><font size="2"><?php echo $qrDerivacion->Fields('SEXO') ?></font></td>
 			<td><font size="2"><?php 
@@ -93,14 +93,14 @@ $totalRows_qrDerivacion = $qrDerivacion->RecordCount();
 				}
 			?></font></td>
 			<td><font size="2"><?php echo $qrDerivacion->Fields('FONO') ?></font></td>
-			<td><font size="2"><?php echo utf8_encode($qrDerivacion->Fields('region_nombre')) ?></font></td>
-			<td><font size="2"><?php echo utf8_encode($qrDerivacion->Fields('provincia_nombre')) ?></font></td>
-			<td><font size="2"><?php echo utf8_encode($qrDerivacion->Fields('comuna_nombre')) ?></font></td>
+			<td><font size="2"><?php echo $qrDerivacion->Fields('region_nombre') ?></font></td>
+			<td><font size="2"><?php echo $qrDerivacion->Fields('provincia_nombre') ?></font></td>
+			<td><font size="2"><?php echo $qrDerivacion->Fields('comuna_nombre') ?></font></td>
 			<td><font size="2"><?php echo $qrDerivacion->Fields('FECHA_DERIVACION') ?></font></td>
 			<td><font size="2"><?php echo $qrDerivacion->Fields('FECHA_CANASTA') ?></font></td>
-			<td><font size="2"><?php echo utf8_encode($qrDerivacion->Fields('DESC_TIPO_PATOLOGIA')) ?></font></td>
-			<td><font size="2"><?php echo utf8_encode($qrDerivacion->Fields('DESC_PRESTADOR')) ?></font></td>
-			<td><font size="2"><?php echo utf8_encode($qrPatologia->Fields('DESC_PATOLOGIA')) ?></font></td>
+			<td><font size="2"><?php echo $qrDerivacion->Fields('DESC_TIPO_PATOLOGIA') ?></font></td>
+			<td><font size="2"><?php echo $qrDerivacion->Fields('DESC_PRESTADOR') ?></font></td>
+			<td><font size="2"><?php echo $qrPatologia->Fields('DESC_PATOLOGIA') ?></font></td>
 			
 		</tr>
 		<?php

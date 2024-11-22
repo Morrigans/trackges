@@ -3,7 +3,7 @@ require_once '../../../Connections/oirs.php';
 require_once '../../../includes/functions.inc.php';
 
 $idPatologiaEd = $_REQUEST['idPatologiaEd'];
-$descripcionPatologiaEd = utf8_decode($_REQUEST['descripcionPatologiaEd']);
+$descripcionPatologiaEd = $_REQUEST['descripcionPatologiaEd'];
 $vigenciaPatologiaEd = $_REQUEST['vigenciaPatologiaEd'];
 
 

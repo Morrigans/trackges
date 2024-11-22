@@ -33,7 +33,7 @@ foreach ($array as $value) {
     $qrDerivaciones = $oirs->SelectLimit($query_qrDerivaciones) or die($oirs->ErrorMsg());
     $totalRows_qrDerivaciones = $qrDerivaciones->RecordCount();
 
-    $estadoRn = utf8_encode($qrDerivaciones->Fields('ESTADO_RN'));
+    $estadoRn = $qrDerivaciones->Fields('ESTADO_RN');
 
     if ($estadoRn == 'Prestador Asignado' or $estadoRn == 'Derivación Aceptada' or $estadoRn == 'Solicita autorización') {
 

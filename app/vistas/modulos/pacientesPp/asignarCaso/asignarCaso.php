@@ -42,7 +42,7 @@ $nDerivacion = 'P0'.$idDerivacion;
 
 // $folio = $qrDerivacion->Fields('FOLIO');
 
-$comentarioBitacora = 'Se asigna a '.utf8_encode($nomPro).' rut '.$codRutPro.' como gestor a derivación '.$nDerivacion;
+$comentarioBitacora = 'Se asigna a '.$nomPro.' rut '.$codRutPro.' como gestor a derivación '.$nDerivacion;
 $asunto= 'Gestor asignado';
 $hora= date('G:i');
 
@@ -51,7 +51,7 @@ $hora= date('G:i');
 $insertSQL = sprintf("INSERT INTO $MM_oirs_DATABASE.bitacora_pp (ID_DERIVACION, SESION, BITACORA, ASUNTO, AUDITORIA, HORA) VALUES (%s, %s, %s, %s, %s, %s)",
     GetSQLValueString($idDerivacion, "int"), 
     GetSQLValueString($usuario, "text"),
-    GetSQLValueString(utf8_decode($comentarioBitacora), "text"),
+    GetSQLValueString($comentarioBitacora, "text"),
     GetSQLValueString($asunto, "text"),
     GetSQLValueString($auditoria, "date"),
     GetSQLValueString($hora, "date"));
@@ -64,7 +64,7 @@ $estadoNoti = 'nuevo';
 $insertSQL2 = sprintf("INSERT INTO $MM_oirs_DATABASE.notificaciones_pp (USUARIO, ASUNTO, MENSAJE, FECHA, HORA, ESTADO, ID_DERIVACION) VALUES (%s, %s, %s, %s, %s, %s, %s)",    
     GetSQLValueString($usuario, "text"),
     GetSQLValueString($asunto, "text"),
-    GetSQLValueString(utf8_decode($comentarioBitacora), "text"),
+    GetSQLValueString($comentarioBitacora, "text"),
     GetSQLValueString($auditoria, "date"),
     GetSQLValueString($hora, "date"),
     GetSQLValueString($estadoNoti, "text"),
@@ -89,14 +89,14 @@ if ($idDerivacionPp != '') {
 
     $ultimoIdBitacoraPp = $qrUltimaBitacora->Fields('ID_BITACORA');
     $nDerivacionPp = 'D0'.$idDerivacionPp;
-    $comentarioBitacoraPp = 'Se asigna a '.utf8_encode($nomPro).' rut '.$codRutPro.' como gestor a derivación '.$nDerivacionPp;
+    $comentarioBitacoraPp = 'Se asigna a '.$nomPro.' rut '.$codRutPro.' como gestor a derivación '.$nDerivacionPp;
     $asuntoPp = 'Derivacion asignada (D0'.$idDerivacionPp.')';
 
 
     $insertSQL = sprintf("INSERT INTO $MM_icrs_DATABASE.bitacora (ID_DERIVACION, SESION, BITACORA, ASUNTO, AUDITORIA, HORA,ID_BITACORA_REMOTO) VALUES (%s, %s, %s, %s, %s, %s, %s)",
         GetSQLValueString($idDerivacionPp, "int"),     
         GetSQLValueString('CRSS', "text"),
-        GetSQLValueString(utf8_decode($comentarioBitacoraPp), "text"),
+        GetSQLValueString($comentarioBitacoraPp, "text"),
         GetSQLValueString($asuntoPp, "text"),
         GetSQLValueString($auditoria, "date"),
         GetSQLValueString($hora, "date"),
@@ -110,7 +110,7 @@ if ($idDerivacionPp != '') {
       
         GetSQLValueString($gestoraPp, "text"),
         GetSQLValueString($asuntoPp, "text"),
-        GetSQLValueString(utf8_decode($comentarioBitacoraPp), "text"),
+        GetSQLValueString($comentarioBitacoraPp, "text"),
         GetSQLValueString($auditoria, "date"),
         GetSQLValueString($hora, "date"),
         GetSQLValueString($estadoNoti, "text"),

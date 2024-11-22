@@ -33,7 +33,7 @@ $auditoria= date('Y-m-d');
 
 $insertSQL = sprintf("INSERT INTO $MM_oirs_DATABASE.etapa_patologia(CODIGO_PATOLOGIA, DESC_ETAPA_PATOLOGIA, CODIGO_ETAPA_PATOLOGIA) VALUES (%s, %s, %s)",
     GetSQLValueString($codigoPatologia, "text"),
-    GetSQLValueString(utf8_decode($inpEtapaPatologia), "text"),
+    GetSQLValueString($inpEtapaPatologia, "text"),
     GetSQLValueString($nuevoCodEtapaPatologia, "text"));
 $Result1 = $oirs->Execute($insertSQL) or die($oirs->ErrorMsg());
 

@@ -137,7 +137,7 @@ $html= '
 
 	$mpdf= new mPDF('c', 'A4');
 	//$mpdf->writeHTML('<div>holaaaa.......</div>');
-	$mpdf->writeHTML(utf8_encode($html)); 
+	$mpdf->writeHTML($html); 
 	$mpdf->Output('informe.pdf', 'I');
 
 	?>

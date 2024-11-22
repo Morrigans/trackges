@@ -44,11 +44,11 @@ $insertSQL = sprintf("INSERT INTO $MM_oirs_DATABASE.contacto_paciente_pp (ID_DER
     GetSQLValueString($idDerivacion, "text"),
     GetSQLValueString($slTipoContacto, "text"),
     GetSQLValueString($slMedioContacto, "text"),
-    GetSQLValueString(utf8_decode($txaNotaContacto), "text"),
-    GetSQLValueString(utf8_decode($rutaAudio), "text"),
+    GetSQLValueString($txaNotaContacto, "text"),
+    GetSQLValueString($rutaAudio, "text"),
     GetSQLValueString($auditoria, "date"),
     GetSQLValueString($hora, "date"),
-    GetSQLValueString(utf8_decode($rutaAdjuntaDocContactarPaciente), "text"));
+    GetSQLValueString($rutaAdjuntaDocContactarPaciente, "text"));
 $Result1 = $oirs->Execute($insertSQL) or die($oirs->ErrorMsg());
 
 $query_qrPaciente = "SELECT * FROM $MM_oirs_DATABASE.pacientes WHERE ID = '$idPaciente'";
@@ -66,12 +66,12 @@ $asunto= 'Contacto paciente';
 $insertSQL = sprintf("INSERT INTO $MM_oirs_DATABASE.bitacora_pp (ID_DERIVACION, SESION, BITACORA, ASUNTO, AUDITORIA, HORA, RUTA_AUDIO, RUTA_DOCUMENTO) VALUES (%s, %s, %s, %s, %s, %s, %s, %s)",
     GetSQLValueString($idDerivacion, "text"), 
     GetSQLValueString($usuario, "text"),
-    GetSQLValueString(utf8_decode($comentarioBitacora), "text"),
+    GetSQLValueString($comentarioBitacora, "text"),
     GetSQLValueString($asunto, "text"),
     GetSQLValueString($auditoria, "date"),
     GetSQLValueString($hora, "date"),
-    GetSQLValueString(utf8_decode($rutaAudio), "text"),
-    GetSQLValueString(utf8_decode($rutaAdjuntaDocContactarPaciente), "text"));
+    GetSQLValueString($rutaAudio, "text"),
+    GetSQLValueString($rutaAdjuntaDocContactarPaciente, "text"));
 $Result1 = $oirs->Execute($insertSQL) or die($oirs->ErrorMsg());
 
 //#############################################################  guarda daTos ICRS##########################################################
@@ -99,12 +99,12 @@ if ($idDerivacionPp != '') {
     $insertSQL = sprintf("INSERT INTO $MM_icrs_DATABASE.bitacora (ID_DERIVACION, SESION, BITACORA, ASUNTO, AUDITORIA, HORA,ID_BITACORA_REMOTO,RUTA_DOCUMENTO) VALUES (%s, %s, %s, %s, %s, %s, %s, %s)",
         GetSQLValueString($idDerivacionPp, "int"),     
         GetSQLValueString('CRSS', "text"),
-        GetSQLValueString(utf8_decode($comentarioBitacoraPp), "text"),
+        GetSQLValueString($comentarioBitacoraPp, "text"),
         GetSQLValueString($asuntoPp, "text"),
         GetSQLValueString($auditoria, "date"),
         GetSQLValueString($hora, "date"),
         GetSQLValueString($ultimoIdBitacoraPp, "int"),
-        GetSQLValueString(utf8_decode($rutaAdjuntaDocContactarPacientePp), "text"));
+        GetSQLValueString($rutaAdjuntaDocContactarPacientePp, "text"));
     $Result1 = $icrs->Execute($insertSQL) or die($icrs->ErrorMsg());
 
 
@@ -114,7 +114,7 @@ if ($idDerivacionPp != '') {
       
         GetSQLValueString($gestoraPp, "text"),
         GetSQLValueString($asuntoPp, "text"),
-        GetSQLValueString(utf8_decode($comentarioBitacoraPp), "text"),
+        GetSQLValueString($comentarioBitacoraPp, "text"),
         GetSQLValueString($auditoria, "date"),
         GetSQLValueString($hora, "date"),
         GetSQLValueString($estadoNoti, "text"),

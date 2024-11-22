@@ -37,8 +37,8 @@ $totalRows_patologia = $patologia->RecordCount();
 						<?php
 					while (!$patologia->EOF) { ?>
 						<tr>
-							<td><?php echo utf8_encode($patologia->Fields('ID_PROBLEMA_SALUD')); ?></td>
-							<td><?php echo utf8_encode($patologia->Fields('PROBLEMA_SALUD')); ?></td>
+							<td><?php echo $patologia->Fields('ID_PROBLEMA_SALUD'); ?></td>
+							<td><?php echo $patologia->Fields('PROBLEMA_SALUD'); ?></td>
 						</tr>
 						<?php
 			   	 	$patologia->MoveNext();

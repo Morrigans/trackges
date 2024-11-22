@@ -22,7 +22,7 @@ $slTipoPatologia = $_POST['slTipoPatologia'];
 $diasDeVigencia = $_POST['diasDeVigencia'];
 
 $insertSQL = sprintf("INSERT INTO $MM_oirs_DATABASE.patologia (DESC_PATOLOGIA, CODIGO_PATOLOGIA, ID_TIPO_PATOLOGIA,DIAS_VIGENCIA) VALUES (%s, %s, %s, %s)",
-    GetSQLValueString(utf8_decode($descripcionPatologia), "text"),
+    GetSQLValueString($descripcionPatologia, "text"),
     GetSQLValueString($codigoPatologia, "text"),
     GetSQLValueString($slTipoPatologia, "int"),
     GetSQLValueString($diasDeVigencia, "int"));

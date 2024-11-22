@@ -39,7 +39,7 @@ $totalRows_qrAlarmas = $qrAlarmas->RecordCount(); ?>
                 
                     <tr>
                         <td><p><span class="glyphicon glyphicon-user"></span> <font size="3"><?php echo date("d-m-Y",strtotime($qrAlarmas->Fields('FECHA_ALARMA'))) ?></font></p></td>
-                        <td><p><span class="glyphicon glyphicon-user"></span> <font size="3"><?php echo utf8_encode($slProfesional->Fields('NOMBRE')); ?></font></p></td>
+                        <td><p><span class="glyphicon glyphicon-user"></span> <font size="3"><?php echo $slProfesional->Fields('NOMBRE'); ?></font></p></td>
                         <td>
                             <p><span class="glyphicon glyphicon-user"></span>
                                 <font size="3">
