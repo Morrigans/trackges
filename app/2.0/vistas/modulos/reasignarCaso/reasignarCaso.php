@@ -35,7 +35,7 @@ $updateSQL = sprintf("UPDATE $MM_oirs_DATABASE.2_derivaciones SET ENFERMERA=%s, 
             GetSQLValueString($reasignada, "text"));
 $Result1 = $oirs->Execute($updateSQL) or die($oirs->ErrorMsg());
 
-$comentarioBitacora = 'a la profesional '.utf8_encode($nomGestora).' rut: '.$codRutPro.' , le fue reasignado el caso del Folio Rigth Now '.$folio;
+$comentarioBitacora = 'a la profesional '.$nomGestora.' rut: '.$codRutPro.' , le fue reasignado el caso del Folio Rigth Now '.$folio;
 $asunto= 'Reasignada';
 $hora= date('G:i');
 
@@ -43,7 +43,7 @@ $insertSQL = sprintf("INSERT INTO $MM_oirs_DATABASE.2_bitacora (ID_DERIVACION, F
     GetSQLValueString($idDerivacion, "int"), 
     GetSQLValueString($folio, "text"), 
     GetSQLValueString($usuario, "text"),
-    GetSQLValueString(utf8_decode($comentarioBitacora), "text"),
+    GetSQLValueString($comentarioBitacora, "text"),
     GetSQLValueString($asunto, "text"),
     GetSQLValueString($auditoria, "date"),
     GetSQLValueString($hora, "date"));
@@ -57,7 +57,7 @@ $insertSQL2 = sprintf("INSERT INTO $MM_oirs_DATABASE.2_notificaciones (ID_DERIVA
     GetSQLValueString($folio, "text"),
     GetSQLValueString($codRutPro, "text"),
     GetSQLValueString($asunto, "text"),
-    GetSQLValueString(utf8_decode($comentarioBitacora), "text"),
+    GetSQLValueString($comentarioBitacora, "text"),
     GetSQLValueString($auditoria, "date"),
     GetSQLValueString($hora, "date"),
     GetSQLValueString($estadoNoti, "text"));

@@ -31,11 +31,11 @@ $auditoria= date('Y-m-d');
 
 
 $updateSQL = sprintf("UPDATE $MM_oirs_DATABASE.pacientes SET NOMBRE=%s, FEC_NACIMI=%s, FONO=%s, MAIL=%s, DIRECCION=%s, REGION=%s, PROVINCIA=%s, COMUNA=%s, PREVISION=%s WHERE COD_RUTPAC= '$rutPac'",
-            GetSQLValueString(utf8_decode($nombrePac), "text"),
+            GetSQLValueString($nombrePac, "text"),
             GetSQLValueString($nacPac, "date"),
             GetSQLValueString($telefonoPac, "text"),
             GetSQLValueString($correoPac, "text"),
-            GetSQLValueString(utf8_decode($direccionPac), "text"),
+            GetSQLValueString($direccionPac, "text"),
       		GetSQLValueString($region, "int"),
 			GetSQLValueString($provincia, "int"),
 			GetSQLValueString($comuna, "int"),

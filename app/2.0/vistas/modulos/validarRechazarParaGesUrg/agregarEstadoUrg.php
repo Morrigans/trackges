@@ -34,7 +34,7 @@ $auditoria= date('Y-m-d');
 if ($estadoUrg=='validado') {
 	    $updateSQL = sprintf("UPDATE $MM_oirs_DATABASE.api_urgencias SET ESTADO_VALIDACION=%s, COMENTARIO=%s WHERE id_urgencias= '$idUrg'",
             GetSQLValueString($estadoUrg, "text"),
-            GetSQLValueString (utf8_decode($comentarioUrg), "text"));
+            GetSQLValueString ($comentarioUrg, "text"));
     $Result1 = $oirs->Execute($updateSQL) or die($oirs->ErrorMsg());
 
 
@@ -46,7 +46,7 @@ $asunto= 'Validado para ges';
 }else{
          $updateSQL = sprintf("UPDATE $MM_oirs_DATABASE.api_urgencias SET ESTADO_VALIDACION=%s, COMENTARIO=%s WHERE id_urgencias= '$idUrg'",
             GetSQLValueString($estadoUrg, "text"),
-            GetSQLValueString (utf8_decode($comentarioUrg), "text"));
+            GetSQLValueString ($comentarioUrg, "text"));
             $Result1 = $oirs->Execute($updateSQL) or die($oirs->ErrorMsg());
 
 $comentarioBitacora = 'Se ha rechazado ingreso a urgencia para Ges con fecha: '. $fechaReserva.' y área de atención '.$area_atencion.', comentario: '.$comentarioUrg ;
@@ -64,7 +64,7 @@ $idUsuario = $_SESSION['idUsuario'];
 $insertSQL = sprintf("INSERT INTO $MM_oirs_DATABASE.bitacora (ID_DERIVACION, SESION, BITACORA, ASUNTO, AUDITORIA, HORA) VALUES (%s, %s, %s, %s, %s, %s)",
     GetSQLValueString($idDerivacion, "text"), 
     GetSQLValueString($usuario, "text"),
-    GetSQLValueString(utf8_decode($comentarioBitacora), "text"),
+    GetSQLValueString($comentarioBitacora, "text"),
     GetSQLValueString($asunto, "text"),
     GetSQLValueString($auditoria, "date"),
     GetSQLValueString($hora, "date"));
