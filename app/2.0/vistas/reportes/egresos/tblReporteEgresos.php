@@ -69,13 +69,13 @@ if ($fecha != '' and $fecha2 != '') {
       <tbody>
         <?php
          while (!$qrReporteDiario->EOF) { 
-          $bitacora = utf8_encode($qrReporteDiario->Fields('BITACORA'));
+          $bitacora = $qrReporteDiario->Fields('BITACORA');
 
           // Expresión regular para encontrar el ID de admisión
           $pattern = '/id de admision (\d+-[A-Z0-9]+)/';
 
           // Buscar la coincidencia en el string
-          if (preg_match($pattern, utf8_encode( $qrReporteDiario->Fields('BITACORA')), $matches)) {
+          if (preg_match($pattern, $qrReporteDiario->Fields('BITACORA'), $matches)) {
               // El ID de admisión está en la primera captura de grupo
               $id_admision = $matches[1];
 
@@ -113,28 +113,28 @@ if ($fecha != '' and $fecha2 != '') {
          ?>
         <tr>
           <td><font size="3"><?php echo $folio; ?></font></td>
-          <td> <span><font size="2"><?php echo utf8_encode($qrDerivacion->Fields('ESTADO_RN')); ?></font></span></td>
+          <td> <span><font size="2"><?php echo $qrDerivacion->Fields('ESTADO_RN'); ?></font></span></td>
           <td><?php echo date("d-m-Y",strtotime($qrReporteDiario->Fields('AUDITORIA'))); ?></td>
-          <td><?php echo utf8_encode($qrDerivacion->Fields('COD_RUTPAC')); ?></td>
-          <td><font size="2"><?php echo utf8_encode($qrPaciente->Fields('NOMBRE')); ?></font></td>
-          <td><font size="2"><?php echo utf8_encode($qrDerivacion->Fields('PROBLEMA_SALUD')); ?></font></td>
+          <td><?php echo $qrDerivacion->Fields('COD_RUTPAC'); ?></td>
+          <td><font size="2"><?php echo $qrPaciente->Fields('NOMBRE'); ?></font></td>
+          <td><font size="2"><?php echo $qrDerivacion->Fields('PROBLEMA_SALUD'); ?></font></td>
           
           <td><?php echo $id_admision; ?></td>
           <td><?php echo $qrCenso->Fields('fecha_ingreso'); ?></td>
           <td><?php echo $qrCenso->Fields('dias_ingresado'); ?></td>
           <td><?php echo $qrCenso->Fields('codigo_prestacion'); ?></td>
-          <td><?php echo utf8_encode($qrCenso->Fields('diagnostico')); ?></td>
+          <td><?php echo $qrCenso->Fields('diagnostico'); ?></td>
           
           
-          <td><?php echo utf8_encode($qrLogin->Fields('NOMBRE')); ?></td>
-          <td><?php echo utf8_encode($qrGrd->Fields('avg_estancia')); ?></td>
-          <td><?php echo utf8_encode($qrGrd->Fields('limite_inferior_peso_grd')); ?></td>
-          <td><?php echo utf8_encode($qrGrd->Fields('avg_peso_grd')); ?></td>
-          <td><?php echo utf8_encode($qrGrd->Fields('avg_monto_grd_total')); ?></td>
-          <td><?php echo utf8_encode($qrGrd->Fields('peso_grd_real')); ?></td>
-          <td><?php echo utf8_encode($qrGrd->Fields('monto_grd_total_real')); ?></td>
-          <td><?php echo utf8_encode($qrGrd->Fields('monto_x_linea')); ?></td>
-          <td><?php echo utf8_encode($qrGrd->Fields('diferencia_montos')); ?></td>
+          <td><?php echo $qrLogin->Fields('NOMBRE'); ?></td>
+          <td><?php echo $qrGrd->Fields('avg_estancia'); ?></td>
+          <td><?php echo $qrGrd->Fields('limite_inferior_peso_grd'); ?></td>
+          <td><?php echo $qrGrd->Fields('avg_peso_grd'); ?></td>
+          <td><?php echo $qrGrd->Fields('avg_monto_grd_total'); ?></td>
+          <td><?php echo $qrGrd->Fields('peso_grd_real'); ?></td>
+          <td><?php echo $qrGrd->Fields('monto_grd_total_real'); ?></td>
+          <td><?php echo $qrGrd->Fields('monto_x_linea'); ?></td>
+          <td><?php echo $qrGrd->Fields('diferencia_montos'); ?></td>
           
 
           

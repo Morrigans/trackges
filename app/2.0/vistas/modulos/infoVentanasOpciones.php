@@ -21,7 +21,7 @@ $totalRows_qrDerivacion = $qrDerivacion->RecordCount();
 
 $codRutPac = $qrDerivacion->Fields('COD_RUTPAC');
 $enfermera = $qrDerivacion->Fields('ENFERMERA');
-$estadoRn = utf8_encode($qrDerivacion->Fields('ESTADO_RN'));
+$estadoRn = $qrDerivacion->Fields('ESTADO_RN');
 
 $query_qrPaciente= "SELECT * FROM $MM_oirs_DATABASE.pacientes WHERE COD_RUTPAC = '$codRutPac'";
 $qrPaciente = $oirs->SelectLimit($query_qrPaciente) or die($oirs->ErrorMsg());
@@ -34,7 +34,7 @@ $totalRows_qrPaciente = $qrPaciente->RecordCount();
 				<tr>
 					<th style="">Folio Right Now:</th>
 					<td>
-						<?php echo utf8_encode($qrDerivacion->Fields('FOLIO')); ?>
+						<?php echo $qrDerivacion->Fields('FOLIO'); ?>
 					</td>
 				</tr>
 				<tr>
@@ -46,16 +46,16 @@ $totalRows_qrPaciente = $qrPaciente->RecordCount();
 						$rut2 = $codRutPac[2]; // porción2
 						$codRutPac = $rut0.$rut1.$rut2;
 						echo $codRutPac;
-					?> <?php echo utf8_encode($qrPaciente->Fields('NOMBRE')); ?>
+					?> <?php echo $qrPaciente->Fields('NOMBRE'); ?>
 				</td>
 				</tr>
 				<tr>
 					<th style="">Lateralidad:</th>
-					<td><?php echo utf8_encode($qrDerivacion->Fields('LATERALIDAD')); ?></td>
+					<td><?php echo $qrDerivacion->Fields('LATERALIDAD'); ?></td>
 				</tr>
 				<tr>
 					<th style="">Proceso:</th>
-					<td><?php echo utf8_encode($qrDerivacion->Fields('PROCESO')); ?>.-</td>
+					<td><?php echo $qrDerivacion->Fields('PROCESO'); ?>.-</td>
 				</tr>
 				<tr>
 					<th style="">Fecha Derivación:</th>
@@ -63,15 +63,15 @@ $totalRows_qrPaciente = $qrPaciente->RecordCount();
 				</tr>
 				<tr>
 					<th>Categoria:</th>
-					<td><?php echo utf8_encode($qrDerivacion->Fields('CATEGORIA')); ?></td>
+					<td><?php echo $qrDerivacion->Fields('CATEGORIA'); ?></td>
 				</tr>
 				<tr>
 					<th>Int. Sanitaria:</th>
-					<td><?php echo utf8_encode($qrDerivacion->Fields('INTERVENCION_SANITARIA')); ?></td>
+					<td><?php echo $qrDerivacion->Fields('INTERVENCION_SANITARIA'); ?></td>
 				</tr>
 				<tr>
 					<th>Patología:</th>
-					<td><?php echo utf8_encode($qrDerivacion->Fields('PROBLEMA_SALUD')); ?></td>
+					<td><?php echo $qrDerivacion->Fields('PROBLEMA_SALUD'); ?></td>
 				</tr>
 			
 			</table>

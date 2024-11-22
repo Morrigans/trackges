@@ -127,9 +127,9 @@ exit; }
 					?>
 				</font>
 			</td>
-			<td><font size="2"><b><?php echo utf8_encode(strtoupper($qrPaciente->Fields('NOMBRE'))); ?></b></font></td>
+			<td><font size="2"><b><?php echo strtoupper($qrPaciente->Fields('NOMBRE')); ?></b></font></td>
 			 <td><font size="3"><?php echo $qrTipoPatologia->Fields('DESC_TIPO_PATOLOGIA'); ?></font></td>
-			<td><font size="3"><?php echo utf8_encode($qrPatologia->Fields('DESC_PATOLOGIA')); ?></font></td>
+			<td><font size="3"><?php echo $qrPatologia->Fields('DESC_PATOLOGIA'); ?></font></td>
 			<td>
 				<font size="3">
 					<?php

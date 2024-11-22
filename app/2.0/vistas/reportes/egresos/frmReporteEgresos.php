@@ -61,7 +61,7 @@ $totalRows_qrAsunto = $qrAsunto->RecordCount();
                 <select name="slAsuntoBitacora" id="slAsuntoBitacora" class="form-control input-sm select2bs4" onchange="fnReporteDiarioBitacora(this.value)">
                   <option value="">Seleccione...</option>
                   <?php while (!$qrAsunto->EOF) {?>
-                    <option value="<?php echo $qrAsunto->Fields('ASUNTO') ?>"><?php echo utf8_encode($qrAsunto->Fields('ASUNTO')) ?></option>
+                    <option value="<?php echo $qrAsunto->Fields('ASUNTO') ?>"><?php echo $qrAsunto->Fields('ASUNTO') ?></option>
                   <?php $qrAsunto->MoveNext(); } ?>
                 </select>
             </div> -->

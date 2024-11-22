@@ -23,7 +23,7 @@ $idPaciente = $qrDerivacion->Fields('ID_PACIENTE');
 $enfermera = $qrDerivacion->Fields('ENFERMERA');
 $marca = $qrDerivacion->Fields('MARCA');
 $decreto = $qrDerivacion->Fields('DECRETO');
-$estadoRn = utf8_encode($qrDerivacion->Fields('ESTADO_RN'));
+$estadoRn = $qrDerivacion->Fields('ESTADO_RN');
 
 $query_qrMontos= "SELECT * FROM $MM_oirs_DATABASE.montos WHERE ID_DERIVACION = '$idDerivacion'";
 $qrMontos = $oirs->SelectLimit($query_qrMontos) or die($oirs->ErrorMsg());
@@ -84,7 +84,7 @@ $totalRows_qrDerivacionEtapa = $qrDerivacionEtapa->RecordCount();
 			<tr>
 		<!-- 		<th style="">Folio Right Now:</th>
 				<td>
-					<?php echo utf8_encode($qrDerivacion->Fields('FOLIO'));
+					<?php echo $qrDerivacion->Fields('FOLIO');
 						if ($marca == 'para_cierre') { ?>
 							<span class="badge"><font size="3">[Marcada para cierre]</font></span>
 						<?php }else{
@@ -106,16 +106,16 @@ $totalRows_qrDerivacionEtapa = $qrDerivacionEtapa->RecordCount();
 					$rut2 = $codRutPac[2]; // porción2
 					$codRutPac = $rut0.$rut1.$rut2;
 					echo $codRutPac;
-				?> <?php echo utf8_encode($qrPaciente->Fields('NOMBRE')); ?>
+				?> <?php echo $qrPaciente->Fields('NOMBRE'); ?>
 			</td>
 			</tr>
 			<tr>
 				<th style="">Convenio:</th>
-				<td><?php echo utf8_encode($qrConvenio->Fields('PREVISION')); ?></td>
+				<td><?php echo $qrConvenio->Fields('PREVISION'); ?></td>
 			</tr>
 			<!-- <tr>
 				<th style="">Monto Inicial:</th>
-				<td>$<?php echo utf8_encode(number_format($qrMontos->Fields('MONTO'))); ?>.-</td>
+				<td>$<?php echo number_format($qrMontos->Fields('MONTO')); ?>.-</td>
 			</tr> -->
 			<tr>
 				<th style="">Fecha Derivación:</th>
@@ -123,11 +123,11 @@ $totalRows_qrDerivacionEtapa = $qrDerivacionEtapa->RecordCount();
 			</tr>
 			<tr>
 				<th>Tipo patología:</th>
-				<td><?php echo utf8_encode($qrTipoPatologia->Fields('DESC_TIPO_PATOLOGIA')); ?></td>
+				<td><?php echo ($qrTipoPatologia->Fields('DESC_TIPO_PATOLOGIA'); ?></td>
 			</tr>
 			<tr>
 				<th>Patología:</th>
-				<td><?php echo utf8_encode($qrPatologia->Fields('DESC_PATOLOGIA')); ?></td>
+				<td><?php echo $qrPatologia->Fields('DESC_PATOLOGIA'); ?></td>
 			</tr>
 			<tr>
 				<th>Etapa patología:</th>
@@ -154,7 +154,7 @@ $totalRows_qrDerivacionEtapa = $qrDerivacionEtapa->RecordCount();
 								if ($totalRows_qrBuscaCanastaPatologia == 0) {
 									// code...
 								}else{
-									echo $i.'.- '.utf8_encode($qrEtapaPatologia->Fields('DESC_ETAPA_PATOLOGIA')).'.</br>';
+									echo $i.'.- '.$qrEtapaPatologia->Fields('DESC_ETAPA_PATOLOGIA').'.</br>';
 									$i++;
 								}
 
@@ -182,7 +182,7 @@ $totalRows_qrDerivacionEtapa = $qrDerivacionEtapa->RecordCount();
 								$qrCanastaPatologia = $oirs->SelectLimit($query_qrCanastaPatologia) or die($oirs->ErrorMsg());
 								$totalRows_qrCanastaPatologia = $qrCanastaPatologia->RecordCount();
 
-								echo $i.'.- '.utf8_encode($qrCanastaPatologia->Fields('DESC_CANASTA_PATOLOGIA')).'.</br>';
+								echo $i.'.- '.$qrCanastaPatologia->Fields('DESC_CANASTA_PATOLOGIA').'.</br>';
 
 								$i++;
 							$qrDerivacionCanasta->MoveNext();

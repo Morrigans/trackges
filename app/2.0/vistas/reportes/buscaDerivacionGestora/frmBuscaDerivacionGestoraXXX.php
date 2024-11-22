@@ -38,7 +38,7 @@ $totalRows_qrBuscaGestor = $qrBuscaGestor->RecordCount();
                     <option  value="">Seleccione...</option>
                      <?php 
                      while (!$qrBuscaGestor->EOF) {?>
-                       <option value="<?php echo $qrBuscaGestor->Fields('USUARIO'); ?>"><?php echo utf8_encode($qrBuscaGestor->Fields('NOMBRE')); ?></option>
+                       <option value="<?php echo $qrBuscaGestor->Fields('USUARIO'); ?>"><?php echo $qrBuscaGestor->Fields('NOMBRE'); ?></option>
                     <?php $qrBuscaGestor->MoveNext(); } ?>
                 </select>
               </div>
