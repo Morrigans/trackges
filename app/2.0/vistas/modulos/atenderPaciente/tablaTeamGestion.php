@@ -39,7 +39,7 @@ $totalRows_slTeamAtencion = $slTeamAtencion->RecordCount(); ?>
                     <tr>
                         <td><p><span class="glyphicon glyphicon-credit-card"></span> <font size="2"><?php echo $slProfesional->Fields('USUARIO'); ?></font></p></td>
 
-                        <td><p><span class="glyphicon glyphicon-user"></span> <font size="2"><?php echo utf8_encode($slProfesional->Fields('NOMBRE')); ?></font></p></td>
+                        <td><p><span class="glyphicon glyphicon-user"></span> <font size="2"><?php echo $slProfesional->Fields('NOMBRE'); ?></font></p></td>
                         <td>
                             <p><span class="glyphicon glyphicon-user"></span>
                                 <font size="2">

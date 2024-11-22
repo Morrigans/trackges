@@ -23,7 +23,7 @@ $comentarioEstadoAvance = $_POST['comentarioEstadoAvance'];
 $slAgregarRechazo = $_POST['slAgregarRechazo'];
 $slTipoContacto = $_POST['slTipoContacto']; // Nueva variable
 
-// Inicializamos la variable para concatenar comentarios
+// Inicializamos la variable para concatenar comentarios 
 $comentarioEstadoFinal = '';
 
 // Si hay un comentario, lo añadimos
@@ -48,10 +48,10 @@ $totalRows_qrDerivacion = $qrDerivacion->RecordCount();
 $folio = $qrDerivacion->Fields('FOLIO');
 
 $updateSQL = sprintf("UPDATE $MM_oirs_DATABASE.2_derivaciones SET ESTADO_AVANCE=%s, COMENTARIO_AVANCE=%s, TIPO_CONTACTO_AVANCE=%s, MOTIVO_RECHAZO=%s WHERE ID_DERIVACION= '$idDerivacion'",
-    GetSQLValueString(utf8_decode($slAgregarEstadoAvance), "text"),
-    GetSQLValueString(utf8_decode($comentarioEstadoFinal), "text"),
-    GetSQLValueString(utf8_decode($slTipoContacto), "text"),
-    GetSQLValueString(utf8_decode($slAgregarRechazo), "text"));
+    GetSQLValueString($slAgregarEstadoAvance, "text"),
+    GetSQLValueString($comentarioEstadoFinal, "text"),
+    GetSQLValueString($slTipoContacto, "text"),
+    GetSQLValueString($slAgregarRechazo, "text"));
 $Result1 = $oirs->Execute($updateSQL) or die($oirs->ErrorMsg());
 
 $asunto = 'Estado Avance';
@@ -79,7 +79,7 @@ $insertSQL = sprintf("INSERT INTO $MM_oirs_DATABASE.2_bitacora (ID_DERIVACION, F
     GetSQLValueString($idDerivacion, "int"),
     GetSQLValueString($folio, "text"),
     GetSQLValueString($usuario, "text"),
-    GetSQLValueString(utf8_decode($comentarioBitacora), "text"),
+    GetSQLValueString($comentarioBitacora, "text"),
     GetSQLValueString($asunto, "text"),
     GetSQLValueString($auditoria, "date"),
     GetSQLValueString($hora, "date"));
@@ -89,10 +89,10 @@ $Result1 = $oirs->Execute($insertSQL) or die($oirs->ErrorMsg());
 $insertSQL = sprintf("INSERT INTO $MM_oirs_DATABASE.2_estados_avances (ID_DERIVACION, FOLIO, ESTADO, MOTIVO_RECHAZO, TIPO_CONTACTO, COMENTARIO, FECHA_REGISTRO, HORA_REGISTRO, SESION) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s)",
     GetSQLValueString($idDerivacion, "int"),
     GetSQLValueString($folio, "text"),
-    GetSQLValueString(utf8_decode($slAgregarEstadoAvance), "text"),
-    GetSQLValueString(utf8_decode($slAgregarRechazo), "text"),
-    GetSQLValueString(utf8_decode($slTipoContacto), "text"), // Agregamos el tipo de contacto
-    GetSQLValueString(utf8_decode($comentarioEstadoAvance), "text"),
+    GetSQLValueString($slAgregarEstadoAvance, "text"),
+    GetSQLValueString($slAgregarRechazo, "text"),
+    GetSQLValueString($slTipoContacto, "text"), // Agregamos el tipo de contacto
+    GetSQLValueString($comentarioEstadoAvance, "text"),
     GetSQLValueString($auditoria, "date"),
     GetSQLValueString($hora, "date"),
     GetSQLValueString($usuario, "text"));

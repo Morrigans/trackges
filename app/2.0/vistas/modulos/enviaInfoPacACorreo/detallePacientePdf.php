@@ -75,24 +75,24 @@ $html= '
 	<header class="">
 		<div align="center"><img src="../../../images/logo-red-salud.png" width="200" height="70"></div>
 		<p align="center"><font size="7">Datos Derivación</font><br>
-		<p align="center"><font size="4">Paciente: '.utf8_encode($codRutPac).'</font><br>
-		<font size="5">Número Derivación: '.utf8_encode($qrDerivacion->Fields('N_DERIVACION')).'</font></p>
+		<p align="center"><font size="4">Paciente: '.$codRutPac.'</font><br>
+		<font size="5">Número Derivación: '.$qrDerivacion->Fields('N_DERIVACION').'</font></p>
 	</header>
 	<div class="container">
 		<fieldset>
 			<br>
 			<table width="100%" align="center">
 				<tr>
-					<td><div><strong>NOMBRE DEL PACIENTE:</strong>  '.utf8_encode($nombrePac).' </div></td>										
+					<td><div><strong>NOMBRE DEL PACIENTE:</strong>  '.$nombrePac.' </div></td>										
 				</tr>
 				<tr>
-					<td><div><strong>COMUNA:</strong>  '.utf8_encode($nomComuna).' </div></td>										
+					<td><div><strong>COMUNA:</strong>  '.$nomComuna.' </div></td>										
 				</tr>
 				<tr>
-					<td><div><strong>CORREO:</strong>  '.utf8_encode($mail).' </div></td>										
+					<td><div><strong>CORREO:</strong>  '.$mail.' </div></td>										
 				</tr> 
 				<tr>
-					<td><div><strong>DIRECCIÓN:</strong>  '.utf8_encode($direccion).', '.utf8_encode($nomRegion).' </div></td>										
+					<td><div><strong>DIRECCIÓN:</strong>  '.$direccion.', '.$nomRegion.' </div></td>										
 				</tr>
 			</table>
 		</fieldset>
@@ -100,16 +100,16 @@ $html= '
 		<fieldset>
 			<table width="100%" align="center">
 				<tr>
-					<td><div><strong>CONVENIO:</strong>  '.utf8_encode($prevision).' </div></td>										
+					<td><div><strong>CONVENIO:</strong>  '.$prevision.' </div></td>										
 				</tr>
 				<tr>
-					<td><div><strong>PATOLOGIA:</strong>'.utf8_encode($nomPatologia).'</div></td>									
+					<td><div><strong>PATOLOGIA:</strong>'.$nomPatologia.'</div></td>									
 				</tr>
 				<tr>					
 					<td><div><strong>FECHA DERIVACIÓN:</strong> '.date("d-m-Y",strtotime($qrDerivacion->Fields('FECHA_DERIVACION'))).' </div></td>
 				</tr>
 				<tr>					
-					<td><div><strong>ESTADO:</strong> '.utf8_encode($qrDerivacion->Fields('ESTADO')).' </div></td>
+					<td><div><strong>ESTADO:</strong> '.$qrDerivacion->Fields('ESTADO').' </div></td>
 				</tr>
 				<tr>					
 					<td><div><strong>FECHA LIMITE:</strong> '.date("d-m-Y",strtotime($qrDerivacion->Fields('FECHA_LIMITE'))).' </div></td><br> 
@@ -140,7 +140,7 @@ $html= '
 	          			// code...
 	          		}else{
 	          			$html.='<tr>
-				          		<td align="left"><font size="2">'.utf8_encode($qrEtapaPatologia->Fields('DESC_ETAPA_PATOLOGIA')).'</font></td>
+				          		<td align="left"><font size="2">'.$qrEtapaPatologia->Fields('DESC_ETAPA_PATOLOGIA').'</font></td>
 			          		</tr>';
 	          		}
 
@@ -171,7 +171,7 @@ $html= '
 	          			$totalRows_qrCanastaPatologia = $qrCanastaPatologia->RecordCount();
 
 	          			$html.='<tr>
-				          		<td><font size="2">'.utf8_encode($qrCanastaPatologia->Fields('DESC_CANASTA_PATOLOGIA')).'</font></td>
+				          		<td><font size="2">'.$qrCanastaPatologia->Fields('DESC_CANASTA_PATOLOGIA').'</font></td>
 			          		</tr>';
 	          		$qrDerivacionCanasta->MoveNext();
 	          		}

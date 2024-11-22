@@ -119,15 +119,15 @@ $totalRows_qrDerivacionEtapa = $qrDerivacionEtapa->RecordCount();
 							    <div class="input-group-prepend">
 							      <span class="input-group-text">Motivo</span>
 							    </div>
-							    <select name="slMotivoCierreCaso" id="slMotivoCierreCaso" class="form-control input-sm" onchange="fnCambiaComentarioBitacora(this.value,'<?php echo $qrDerivacion->Fields('N_DERIVACION'); ?>','<?php echo utf8_encode($qrPaciente->Fields('NOMBRE')); ?>','<?php echo $qrPaciente->Fields('COD_RUTPAC'); ?>')">
+							    <select name="slMotivoCierreCaso" id="slMotivoCierreCaso" class="form-control input-sm" onchange="fnCambiaComentarioBitacora(this.value,'<?php echo $qrDerivacion->Fields('N_DERIVACION'); ?>','<?php echo $qrPaciente->Fields('NOMBRE'); ?>','<?php echo $qrPaciente->Fields('COD_RUTPAC'); ?>')">
 							        <option value="">Seleccione...</option>
 							        <?php while (!$qrMotivoCierre->EOF) {?>
-							          <option value="<?php echo $qrMotivoCierre->Fields('ID_CIERRE_CASO') ?>"><?php echo utf8_encode($qrMotivoCierre->Fields('DESC_CIERRE_CASO')) ?></option>
+							          <option value="<?php echo $qrMotivoCierre->Fields('ID_CIERRE_CASO') ?>"><?php echo $qrMotivoCierre->Fields('DESC_CIERRE_CASO') ?></option>
 							        <?php $qrMotivoCierre->MoveNext(); } ?>
 							    </select>
 							</div>
 							<span class="label label-default">Comentario bitácora<br></span>
-		  					<textarea name="comentarioBitacoraCerrarCaso" id="comentarioBitacoraCerrarCaso" cols="11" rows="10" class="form-control input-sm">La derivación número <?php echo $qrDerivacion->Fields('N_DERIVACION'); ?> del paciente <?php echo utf8_encode($qrPaciente->Fields('NOMBRE')); ?> rut <?php echo $qrDerivacion->Fields('COD_RUTPAC'); ?> ha sido cerrada. </textarea>
+		  					<textarea name="comentarioBitacoraCerrarCaso" id="comentarioBitacoraCerrarCaso" cols="11" rows="10" class="form-control input-sm">La derivación número <?php echo $qrDerivacion->Fields('N_DERIVACION'); ?> del paciente <?php echo $qrPaciente->Fields('NOMBRE'); ?> rut <?php echo $qrDerivacion->Fields('COD_RUTPAC'); ?> ha sido cerrada. </textarea>
 						</div>
 					</div>  
 					<div class="modal-footer" align="right">	
