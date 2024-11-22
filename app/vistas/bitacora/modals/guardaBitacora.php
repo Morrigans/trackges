@@ -28,7 +28,7 @@ $insertSQL = sprintf("INSERT INTO $MM_oirs_DATABASE.bitacora (ID_DERIVACION, SES
     GetSQLValueString($idDerivacion, "text"), 
     GetSQLValueString($usuario, "text"),
     GetSQLValueString($comentarioBitacora, "text"),
-    GetSQLValueString($asunto), "text",
+    GetSQLValueString($asunto, "text",
     GetSQLValueString($auditoria, "date"),
     GetSQLValueString($hora, "date"),
     GetSQLValueString($comparte, "text"));
