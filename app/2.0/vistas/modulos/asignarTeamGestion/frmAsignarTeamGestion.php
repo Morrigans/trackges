@@ -35,7 +35,7 @@ $totalRows_qrProfesion = $qrProfesion->RecordCount();
 <!DOCTYPE html>
 <html>
 	<body>
-        <div class="card-body">
+        <div class="card-body"> 
         	<div class="row">
 	        	<div class="col-md-6"><h2>[<?php echo $qrDerivacion->Fields('FOLIO'); ?>]</h2></div>
 	        	<div class="col-md-6"><h2>Asignar equipo de gestión:</h2></div>
